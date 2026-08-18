@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alfalógica · Insights & Innovation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#F5F0E8;--cream-dark:#EDE8DC;--teal:#2B6B8A;--teal-dark:#1E4E66;
+      --teal-light:#3D7E9F;--mint:#7DBFB8;--sage:#8BAD8B;--peach:#D4956A;
+      --coral:#E8896A;--coral-dark:#C8704A;--white:#FFFFFF;
+      --text:#1E2D3D;--text-mid:#4A5568;--text-light:#8A9BAD;
+      --border:rgba(43,107,138,0.12);
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Inter',system-ui,sans-serif;
+      --px:clamp(1.5rem,5vw,4rem);--max-w:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);color:var(--text);background:var(--cream);line-height:1.6;}
+    img{display:block;max-width:100%;}
+    a{text-decoration:none;color:inherit;}
+    h1,h2,h3{font-family:var(--font-serif);font-weight:400;line-height:1.15;}
+
+    .label-tag{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-sans);font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--coral-dark);}
+    .label-tag::before{content:'';display:block;width:2rem;height:1.5px;background:var(--coral-dark);flex-shrink:0;}
+    .label-tag--light{color:rgba(255,255,255,.75);}
+    .label-tag--light::before{background:rgba(255,255,255,.5);}
+
+    /* TOPBAR */
+    .topbar{background:var(--teal);padding:.55rem var(--px);}
+    .topbar__inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+    .topbar__text{font-size:.72rem;color:rgba(255,255,255,.8);letter-spacing:.03em;}
+    .topbar__text a{color:rgba(255,255,255,.95);border-bottom:1px solid rgba(255,255,255,.3);}
+    .topbar__text a:hover{border-color:#fff;}
+    .topbar__sep{color:rgba(255,255,255,.3);}
+
+    /* NAV */
+    .nav{background:var(--cream);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;transition:box-shadow .3s;}
+    .nav__inner{max-width:var(--max-w);margin:0 auto;padding:0 var(--px);display:flex;align-items:center;justify-content:space-between;height:4.5rem;}
+    .nav__logo img{height:65px;width:auto;}
+    .nav__links{display:flex;gap:2.2rem;list-style:none;}
+    .nav__links a{font-size:.78rem;font-weight:400;letter-spacing:.02em;color:var(--text);position:relative;padding-bottom:2px;transition:color .2s;}
+    .nav__links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--teal);transition:width .25s;}
+    .nav__links a:hover,.nav__links a.active{color:var(--teal);}
+    .nav__links a:hover::after,.nav__links a.active::after{width:100%;}
+    .nav__right{display:flex;align-items:center;gap:1rem;}
+    .nav__lang{display:flex;gap:.2rem;}
+    .nav__lang a{font-size:.72rem;font-weight:500;color:var(--text-mid);padding:.2rem .5rem;border-radius:2rem;transition:all .2s;}
+    .nav__lang a.active{background:var(--teal);color:#fff;}
+    .nav__lang a:hover:not(.active){color:var(--teal);}
+
+    /* HAMBURGER */
+    .nav__hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:2.2rem;height:2.2rem;background:none;border:none;cursor:pointer;padding:.3rem;border-radius:.25rem;transition:background .2s;}
+    .nav__hamburger:hover{background:rgba(43,107,138,.08);}
+    .nav__hamburger span{display:block;width:100%;height:2px;background:var(--teal-dark);border-radius:2px;transition:transform .3s, opacity .3s;}
+    .nav__hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav__hamburger.open span:nth-child(2){opacity:0;}
+    .nav__hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    /* MOBILE MENU */
+    .nav__mobile{
+      display:none;
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--cream);
+      border-bottom:2px solid var(--teal);
+      box-shadow:0 8px 24px rgba(0,0,0,.1);
+      padding:1.5rem var(--px);
+      flex-direction:column;gap:0;
+      z-index:99;
+    }
+    .nav__mobile.open{display:flex;}
+    .nav__mobile li{list-style:none;border-bottom:1px solid var(--border);}
+    .nav__mobile li:last-child{border-bottom:none;}
+    .nav__mobile a{
+      display:block;padding:1rem 0;
+      font-size:.95rem;font-weight:400;color:var(--text);
+      letter-spacing:.02em;transition:color .2s, padding-left .2s;
+      position:relative;
+    }
+    .nav__mobile a::before{
+      content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+      width:0;height:1.5px;background:var(--coral);
+      transition:width .25s;
+    }
+    .nav__mobile a:hover,
+    .nav__mobile a.active{color:var(--teal);padding-left:.8rem;}
+    .nav__mobile a:hover::before,
+    .nav__mobile a.active::before{width:.5rem;}
+    .nav__mobile__lang{
+      display:flex;gap:.5rem;padding-top:1rem;margin-top:.5rem;
+      border-top:1px solid var(--border);
+    }
+    .nav__mobile__lang a{
+      font-size:.75rem;font-weight:500;color:var(--text-mid);
+      padding:.25rem .7rem;border-radius:2rem;border:1px solid var(--border);
+      transition:all .2s;padding-left:.7rem;
+    }
+    .nav__mobile__lang a::before{display:none;}
+    .nav__mobile__lang a.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+    .nav__mobile__lang a:hover:not(.active){color:var(--teal);border-color:var(--teal);}
+
+    /* HERO ROW 1 */
+    .hero{display:grid;grid-template-columns:1fr 1fr;min-height:60vh;overflow:hidden;}
+    .hero__left{display:flex;align-items:center;padding:5rem var(--px) 5rem 4rem;background:var(--cream);}
+    .hero__h1{font-size:clamp(1.6rem,2.5vw,2.4rem);font-weight:300;color:var(--teal-dark);line-height:1.45;}
+    .hero__right{overflow:hidden;}
+    .hero__right img{width:100%;height:100%;object-fit:cover;}
+
+    /* HERO ROW 2 */
+    .hero2{display:grid;grid-template-columns:1fr 1fr;min-height:48vh;overflow:hidden;}
+    .hero2__left{overflow:hidden;}
+    .hero2__left img{width:100%;height:100%;object-fit:cover;}
+    .hero2__right{display:flex;align-items:center;background:var(--cream-dark);padding:4rem 4rem 4rem 3rem;}
+    .hero2__right p{font-size:.95rem;color:var(--text-mid);line-height:1.85;}
+
+    /* SISTEMA BANNER */
+    .sistema-banner{position:relative;overflow:hidden;min-height:420px;display:flex;align-items:center;justify-content:center;}
+    .sistema-banner__bg{position:absolute;inset:0;}
+    .sistema-banner__bg img{width:100%;height:100%;object-fit:cover;}
+    .sistema-banner__overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,78,102,.85),rgba(43,107,138,.80));}
+    .sistema-banner__content{position:relative;z-index:2;text-align:center;padding:3rem 2rem;}
+    .sistema-banner__label{margin-bottom:1.2rem;}
+    .sistema-banner__h2{font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,4rem);font-weight:300;color:#fff;line-height:1.15;}
+
+    /* DIAGRAMA */
+    .diagrama{background:var(--cream);padding:5rem var(--px);text-align:center;}
+    .diagrama img{margin:0 auto;}
+
+    /* ABORDAMOS */
+    .abordamos__bar{background:var(--teal);padding:1.4rem var(--px);text-align:center;}
+    .abordamos__bar h2{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:#fff;}
+    .abordamos__cards{display:grid;grid-template-columns:repeat(3,1fr);}
+    .abordamos__card{background:var(--teal);padding:1rem 2.5rem 5rem;border-right:1px solid rgba(255,255,255,.15);text-align:center;}
+    .abordamos__card:last-child{border-right:none;}
+    .abordamos__card h3{font-family:var(--font-serif);font-size:2.4rem;font-weight:400;color:#fff;margin-bottom:.4rem;}
+    .abordamos__card h4{font-family:var(--font-sans);font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1.2rem;}
+    .abordamos__card p{font-size:.88rem;color:rgba(255,255,255,.85);line-height:1.75;}
+
+    /* PROGRAMAS */
+    .programas__bar{background:var(--teal-dark);padding:1.4rem var(--px);}
+    .programas__bar h2{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:#fff;}
+    .programas__cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;background:var(--cream-dark);padding:2.5rem var(--px);}
+    .programa-card{padding:2.5rem 2rem;border-radius:.25rem;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s,box-shadow .2s;}
+    .programa-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.15);}
+    .programa-card--1{background:var(--teal);}
+    .programa-card--2{background:var(--mint);}
+    .programa-card--3{background:var(--sage);}
+    .programa-card--4{background:var(--peach);}
+    .programa-card h3{font-family:var(--font-serif);font-size:2.2rem;font-weight:400;color:#fff;line-height:1;margin-bottom:.25rem;}
+    .programa-card h4{font-family:var(--font-sans);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.9);margin-bottom:.2rem;}
+    .programa-card p{font-family:var(--font-sans);font-size:.8rem;color:rgba(255,255,255,.75);}
+
+    /* MANIFIESTO */
+    .manifiesto{background:var(--cream);padding:5rem var(--px);}
+    .manifiesto__label{margin-bottom:1.5rem;}
+    .manifiesto__title{font-family:var(--font-serif);font-size:clamp(1.8rem,2.5vw,2.4rem);font-weight:300;color:var(--teal-dark);margin-bottom:2.5rem;}
+    .manifiesto__inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+    .manifiesto__item{margin-bottom:1.2rem;}
+    .manifiesto__item p{font-size:.9rem;color:var(--text-mid);line-height:1.85;}
+    .manifiesto__item strong{color:var(--text);font-weight:600;}
+    .manifiesto__img{border-radius:.5rem;overflow:hidden;}
+    .manifiesto__img img{width:100%;height:380px;object-fit:cover;}
+
+    /* CTA BAND */
+    .cta-band{background:var(--coral);padding:2rem var(--px);text-align:center;}
+    .cta-band a{display:inline-block;background:#fff;color:var(--coral-dark);font-family:var(--font-sans);font-size:.82rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.9rem 2.5rem;border-radius:3rem;transition:background .2s,color .2s;}
+    .cta-band a:hover{background:var(--teal-dark);color:#fff;}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--cream-dark);}
+    .stat{padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat__num{font-family:var(--font-serif);font-size:2rem;font-weight:400;color:var(--teal);display:block;margin-bottom:.3rem;}
+    .stat__label{font-family:var(--font-sans);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);}
+
+    /* CLIENTES */
+    .clientes{padding:5rem var(--px);background:var(--cream);}
+    .clientes__label{margin-bottom:1.2rem;}
+    .clientes__h2{font-family:var(--font-serif);font-size:clamp(1.8rem,2.5vw,2.4rem);font-weight:300;color:var(--teal-dark);margin-bottom:3rem;}
+    .clientes__logos{border-radius:.5rem;overflow:hidden;}
+    .clientes__logos img{width:100%;}
+
+    /* CONTACTO */
+    .contacto{background:var(--teal);padding:5rem var(--px) 0;}
+    .contacto__inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .contacto__label{margin-bottom:1.2rem;}
+    .contacto__h2{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:#fff;margin-bottom:1rem;}
+    .contacto__sub{font-size:.9rem;color:rgba(255,255,255,.7);margin-bottom:2rem;}
+    .contacto__dato{margin-bottom:1rem;}
+    .contacto__dato-label{font-family:var(--font-sans);font-size:.65rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:.2rem;}
+    .contacto__dato-val{font-size:.9rem;color:#fff;line-height:1.6;}
+    .contacto__dato-val a{color:rgba(255,255,255,.7);transition:color .2s;}
+    .contacto__dato-val a:hover{color:#fff;}
+    .contacto__mapa{border-radius:.5rem .5rem 0 0;overflow:hidden;margin-top:2rem;}
+    .contacto__mapa img{width:100%;height:200px;object-fit:cover;opacity:.8;}
+    .form{display:flex;flex-direction:column;}
+    .form__field{border-bottom:1px solid rgba(255,255,255,.15);padding:1rem 0;}
+    .form__field input,.form__field textarea{width:100%;background:transparent;border:none;outline:none;font-family:var(--font-sans);font-size:.88rem;color:#fff;caret-color:var(--coral);resize:none;}
+    .form__field input::placeholder,.form__field textarea::placeholder{color:rgba(255,255,255,.35);}
+    .form__field textarea{min-height:5rem;}
+    .form__submit{display:flex;align-items:center;justify-content:space-between;background:var(--coral);color:#fff;border:none;padding:1rem 1.4rem;margin-top:1.2rem;cursor:pointer;font-family:var(--font-sans);font-size:.85rem;font-weight:500;border-radius:.25rem;transition:background .2s;}
+    .form__submit:hover{background:var(--coral-dark);}
+    .form__privacy{font-size:.7rem;color:rgba(255,255,255,.35);margin-top:.6rem;font-family:'Courier New',monospace;}
+
+    /* FOOTER */
+    .footer{background:var(--teal-dark);padding:2rem var(--px);}
+    .footer__inner{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+    .footer__logo img{height:55px;width:auto;}
+    .footer__tagline{font-family:var(--font-sans);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+    .footer__back{font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer;transition:color .2s;}
+    .footer__back:hover{color:rgba(255,255,255,.8);}
+
+    /* WHATSAPP */
+    .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:999;width:3.2rem;height:3.2rem;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:transform .2s;}
+    .wa-float:hover{transform:scale(1.08);}
+    .wa-float svg{width:1.6rem;height:1.6rem;fill:#fff;}
+
+
+    /* ─── DIAGRAMA INTERACTIVO ──────────────────── */
+    .sa-diagram-wrap{position:relative;width:100%;;margin:0 auto;}
+    .sa-diagram-img{display:block;width:100%;height:auto;}
+
+    .sa-point{
+      position:absolute;transform:translate(-50%,-50%);
+      width:2.8rem;height:2.8rem;border:none;background:transparent;
+      cursor:pointer;padding:0;z-index:5;border-radius:50%;
+    }
+    .sa-point::after{
+      content:'';display:block;width:100%;height:100%;border-radius:50%;
+      background:rgba(255,255,255,0.15);
+      transition:background .25s,transform .25s;
+    }
+    .sa-point:hover::after{
+      background:rgba(255,255,255,0.35);
+      transform:scale(1.2);
+    }
+    .sa-point--center::after{
+      border-color:rgba(232,137,106,0.5);background:rgba(232,137,106,0.15);
+    }
+    .sa-point--center:hover::after{
+      background:rgba(232,137,106,0.35);border-color:var(--coral);
+    }
+
+    /* ─── OVERLAY & MODAL ───────────────────────── */
+    .sa-overlay{
+      position:fixed;inset:0;background:rgba(15,30,40,0.75);
+      z-index:9000;display:none;align-items:center;justify-content:center;
+      padding:1.5rem;backdrop-filter:blur(4px);
+    }
+    .sa-overlay.open{display:flex;}
+
+    .sa-modal{
+      position:relative;background:var(--cream);border-radius:.5rem;
+      width:100%;max-width:720px;max-height:90vh;
+      overflow:hidden;display:flex;flex-direction:column;
+      box-shadow:0 24px 64px rgba(0,0,0,.35);
+      animation:saSlideIn .28s ease;
+    }
+    @keyframes saSlideIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+    .sa-modal-close{
+      position:absolute;top:1rem;right:1rem;z-index:10;
+      width:2.2rem;height:2.2rem;border-radius:50%;border:none;
+      background:rgba(30,45,61,.12);color:var(--teal-dark);
+      font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+      transition:background .2s;
+    }
+    .sa-modal-close:hover{background:rgba(30,45,61,.25);}
+
+    /* Header fijo — no scrollea */
+    .sa-modal-header{
+      background:var(--teal);padding:2.5rem 2rem 2rem;
+      flex-shrink:0;
+      position:relative;
+    }
+
+    /* Cuerpo scrolleable */
+    .sa-modal-scroll{
+      overflow-y:auto;flex:1 1 auto;min-height:0;
+    }
+    .sa-modal-eyebrow{
+      font-family:var(--font-sans);font-size:.65rem;font-weight:500;
+      letter-spacing:.14em;text-transform:uppercase;color:var(--coral);
+      display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;
+    }
+    .sa-modal-eyebrow::before{content:'';display:block;width:1.5rem;height:1.5px;background:var(--coral);}
+    .sa-modal-title{
+      font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.2rem);
+      font-weight:300;color:#fff;line-height:1.2;
+    }
+    .sa-modal-sub{
+      font-size:.82rem;color:rgba(255,255,255,.65);margin-top:.5rem;
+      font-style:italic;font-family:var(--font-serif);
+    }
+
+    /* Content */
+    .sa-modal-content{padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    .sa-modal-text{font-size:.9rem;color:var(--text-mid);line-height:1.8;}
+    .sa-modal-text p{margin-bottom:1rem;}
+    .sa-modal-text h4{
+      font-family:var(--font-sans);font-size:.68rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--coral-dark);
+      margin:1.2rem 0 .5rem;
+    }
+    .sa-modal-text ul{padding-left:1.2rem;margin-bottom:1rem;}
+    .sa-modal-text li{margin-bottom:.4rem;}
+
+    /* Sidebar */
+    .sa-modal-sidebar{display:flex;flex-direction:column;gap:1rem;}
+    .sa-modal-info{
+      background:var(--teal);border-radius:.4rem;
+      padding:1.2rem;
+    }
+    .sa-modal-info-label{
+      font-family:var(--font-sans);font-size:.62rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);
+      margin-bottom:.5rem;
+    }
+    .sa-modal-info-val{font-size:.85rem;color:#fff;line-height:1.6;}
+    .sa-modal-info--light{background:var(--cream-dark);}
+    .sa-modal-info--light .sa-modal-info-label{color:var(--text-light);}
+    .sa-modal-info--light .sa-modal-info-val{color:var(--text-mid);}
+
+    .sa-modal-cta{
+      display:inline-block;margin-top:.5rem;
+      background:var(--coral);color:#fff;
+      font-family:var(--font-sans);font-size:.8rem;font-weight:600;
+      padding:.75rem 1.5rem;border-radius:3rem;
+      transition:background .2s;text-align:center;
+    }
+    .sa-modal-cta:hover{background:var(--coral-dark);}
+
+    @media(max-width:640px){
+      .sa-modal-content{grid-template-columns:1fr;}
+      .sa-modal-header{padding:1.5rem 1.2rem 1.2rem;}
+      .sa-modal-content{padding:1.2rem;}
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .hero,.hero2,.manifiesto__inner,.contacto__inner{grid-template-columns:1fr;}
+      .hero__right img{height:320px;}
+      .hero2__left img{height:300px;}
+      .abordamos__cards,.stats{grid-template-columns:1fr;}
+      .programas__cards{grid-template-columns:1fr 1fr;}
+      /* Ocultar nav desktop, mostrar hamburger */
+      .nav__links{display:none;}
+      .nav__hamburger{display:flex;}
+      /* Nav se vuelve relative para que el menú mobile se posicione bien */
+      .nav{position:sticky;top:0;}
+    }
+    @media(max-width:600px){
+      .programas__cards{grid-template-columns:1fr;}
+      .topbar__sep{display:none;}
+      .topbar__inner{gap:.5rem;}
+      .stats{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar"><div class="topbar__inner">
+  <span class="topbar__text">Miami, Florida 33131, USA – Tel. <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>)</span>
+  <span class="topbar__sep">|</span>
+  <span class="topbar__text">Buenos Aires, Argentina – Tel. <a href="tel:+541140845649">(54911) 4 084 5649</a> mail: <a href="mailto:info@alfalogica.com">info@alfalogica.com</a></span>
+</div></div>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#"><img src="logo.png" alt="Alfalógica"></a>
+
+    <!-- DESKTOP links -->
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#sobre">Sobre Nosotros</a></li>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+    <div class="nav__right">
+      <div class="nav__lang"><a href="#" class="active">ES</a><a href="#">EN</a></div>
+      <!-- HAMBURGER button -->
+      <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MOBILE menu (dropdown) -->
+  <ul class="nav__mobile" id="mobileMenu">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#sobre">Sobre Nosotros</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#clientes">Clientes</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li class="nav__mobile__lang">
+      <a href="#" class="active">ES</a>
+      <a href="#">EN</a>
+    </li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero__left">
+    <h1 class="hero__h1">Acompañamos a líderes a integrar la precisión analítica con la sabiduría orgánica. El dato valida la intuición; la naturaleza es el espejo de la verdad organizacional.</h1>
+  </div>
+  <div class="hero__right"><img src="foto1.jpg" alt="Equipo de consultoría en reunión"></div>
+</section>
+
+<section class="hero2" id="sobre">
+  <div class="hero2__left"><img src="foto2.jpg" alt="Workshop en la naturaleza"></div>
+  <div class="hero2__right">
+    <p>Inspirados en frecuencia alfa, la precisión del dato y la fuerza de la visión activamos nuevos horizontes de expansión. Sumergidos en la naturaleza y potenciados por la tecnología; trabajamos para avanzar en la alineación entre el propósito y la eficiencia corporativa.<br><br><strong style="color:var(--text)">Visión Sistémica Integral:</strong> El cambio organizacional efectivo es el resultado de la alineación de todos los componentes del sistema.</p>
+  </div>
+</section>
+
+<section class="sistema-banner" id="metodo">
+  <div class="sistema-banner__bg"><img src="foto1.jpg" alt="Sistema Alfa®"></div>
+  <div class="sistema-banner__overlay"></div>
+  <div class="sistema-banner__content">
+    <div class="sistema-banner__label"><span class="label-tag label-tag--light">Método</span></div>
+    <h2 class="sistema-banner__h2">Sistema Alfa<br><em>El Motor Disciplinario</em></h2>
+  </div>
+</section>
+
+<div class="diagrama">
+  <div class="sa-diagram-wrap">
+    <img src="grafica_1.png" alt="Diagrama Sistema Alfa®" class="sa-diagram-img">
+    <!-- Botones invisibles sobre cada nodo orbital -->
+    <button class="sa-point" style="top: 19%;left: 46%;"  data-modal="innovacion"    aria-label="Innovación"></button>
+    <button class="sa-point" style="top: 52%;left: 25%;"   data-modal="coaching"      aria-label="Coaching"></button>
+    <button class="sa-point" style="top: 51%;left: 67%;"  data-modal="investigacion" aria-label="Investigación"></button>
+    <button class="sa-point" style="top: 85%;left: 46%;"  data-modal="sistemica"     aria-label="Sistémica"></button>
+    <button class="sa-point sa-point--center" style="top:50%;left:50%;" data-modal="insight" aria-label="Insight · Frecuencia Alfa"></button>
+  </div>
+</div>
+
+<!-- MODAL SISTEMA ALFA® -->
+<div class="sa-overlay" id="saOverlay">
+  <div class="sa-modal" role="dialog" aria-modal="true" id="saModal">
+    <button class="sa-modal-close" id="saClose" aria-label="Cerrar">&#10005;</button>
+    <div class="sa-modal-header" id="saHeader"></div>
+    <div class="sa-modal-scroll" id="saScroll"></div>
+  </div>
+</div>
+
+<div class="abordamos__bar"><h2>Abordamos Holísticamente</h2></div>
+<div class="abordamos__cards">
+  <div class="abordamos__card"><h3>El Ser</h3><h4>Presencia y Autorregulación</h4><p>Facilitamos procesos de coherencia y claridad del líder en su entorno de naturaleza. Activamos presencia y autoridad genuina desde la biología del ser.</p></div>
+  <div class="abordamos__card"><h3>La Tarea</h3><h4>Propósito e Innovación</h4><p>Diseñamos procesos donde la innovación es consecuencia natural de un sistema ordenado. Marcos ágiles adaptados a la cultura de cada organización.</p></div>
+  <div class="abordamos__card"><h3>Los Vínculos</h3><h4>Orden y Dinámica</h4><p>Ordenamos las jerarquías y dinámicas relacionales. Identificamos nodos de influencia para intervenciones que transforman el sistema desde adentro.</p></div>
+</div>
+<style>
+  .abordamos__card {
+    position: relative; /* necesario para posicionar el tooltip */
+        cursor: hand
+  }
+
+  .abordamos__card p {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+   
+    color: #fff;
+    padding: 35px;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 1.4;
+    width: 100%;
+    pointer-events: none;
+    margin: 0; /* reset del margin por defecto del <p> */
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+  }
+
+
+  .abordamos__card:hover p {
+    opacity: 1;
+    visibility: visible;
+;
+
+  }
+</style>
+
+<div class="programas__bar">
+  <div style="display:flex;align-items:left;gap:14px;margin-bottom:20px;"><span style="width:34px;height:1.5px;background:var(--clay);flex:none;"></span><span style="font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:rgba(245,242,234,0.92);" data-en="Alfa Programs">Programas Alfa</span></div>
+      <h2  data-en="A path calibrated to your organization's rhythm.">Un recorrido calibrado al ritmo de tu organización.</h2>
+      <p style="font-size:16px;line-height:1.6;color:rgba(245,242,234,0.7);max-width:44ch;margin:0 0 28px;" data-en="Four intensities, from first impulse to full echo across the system.">Cuatro intensidades, del primer impulso al eco pleno en todo el sistema.</p>
+</div>
+<div class="programas__cards">
+  <div class="programa-card programa-card--1">
+    <h3>Impulse</h3>
+    <h4>DIAGNÓSTICO</h4>
+    <p>hasta 3 meses</p>
+    <span class="tooltip">Diagnóstico inicial y activación de la coherencia alfa.</span>
+  </div>
+  <div class="programa-card programa-card--2">
+    <h3>Expansion</h3>
+    <h4>ESCALA</h4>
+    <p>hasta 6 meses</p>
+    <span class="tooltip">Escalamos el propósito a equipos y procesos.</span>
+  </div>
+  <div class="programa-card programa-card--3">
+    <h3>Catalize</h3>
+    <h4>HÁBITO</h4>
+    <p>hasta 9 meses</p>
+    <span class="tooltip">La innovación se vuelve un hábito autosostenido.</span>
+  </div>
+  <div class="programa-card programa-card--4">
+    <h3>Echo</h3>
+    <h4>IRRADIACIÓN</h4>
+    <p>hasta 12 meses</p>
+    <span class="tooltip">El sistema se autorregula y su cultura irradia.</span>
+  </div>
+</div>
+
+<style>
+  .programa-card {
+    position: relative; /* necesario para posicionar el tooltip */
+  }
+
+  .programa-card .tooltip {
+    position: absolute;
+    bottom: 50%;
+    left: 0%;
+
+    color: #fff;
+    padding: 35px;
+    border-radius: 6px;
+    font-size: 11px;
+    line-height: 1.4;
+    width: 100%;
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+  }
+
+
+
+  .programa-card:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<section class="manifiesto">
+  <div class="manifiesto__label"><span class="label-tag">Manifiesto</span></div>
+  <h2 class="manifiesto__title">Principios de Excelencia Estratégica</h2>
+  <div class="manifiesto__inner">
+    <div class="manifiesto__text">
+      <div class="manifiesto__item"><p><strong>1. Orden y Planificación Estratégica:</strong> Estructuramos sistemas alineados que garantizan un flujo operativo eficiente.</p></div>
+      <div class="manifiesto__item"><p><strong>2. Innovación Metodológica:</strong> Integramos marcos de trabajo ágiles (Scrum, Lean, Design Thinking) como procesos vivos que se adaptan a la cultura y ritmo de la organización.</p></div>
+      <div class="manifiesto__item"><p><strong>3. Coherencia y Autorregulación:</strong> Diseñamos estructuras capaces de autorregularse y prosperar en entornos de alta complejidad.</p></div>
+      <div class="manifiesto__item"><p><strong>4. Tecnología con Propósito:</strong> El dato valida la intuición estratégica. Implementamos herramientas tecnológicas para escalar el propósito humano y la eficiencia corporativa.</p></div>
+      <div class="manifiesto__item"><p><strong>5. Visión Sistémica Integral:</strong> El cambio organizacional efectivo es el resultado de la alineación de todos los componentes del sistema.</p></div>
+    </div>
+    <div class="manifiesto__img"><img src="manifiesto.jpg" alt="Manifiesto Alfalógica"></div>
+  </div>
+</section>
+
+<div class="cta-band"><a href="#contacto">Conversemos sobre tu organización</a></div>
+
+<div class="stats">
+  <div class="stat"><span class="stat__num">25 años</span><span class="stat__label">de experiencia</span></div>
+  <div class="stat"><span class="stat__num">+48</span><span class="stat__label">clientes confiaron en Alfalógica</span></div>
+  <div class="stat"><span class="stat__num">+10.000</span><span class="stat__label">horas de consultoría</span></div>
+  <div class="stat"><span class="stat__num">3</span><span class="stat__label">certificaciones internacionales</span></div>
+</div>
+
+<section class="clientes" id="clientes">
+  <div class="clientes__label"><span class="label-tag">Clientes</span></div>
+  <h2 class="clientes__h2">Ya confiaron en nosotros</h2>
+  <div class="clientes__logos" style="    background: #73a4a7">
+  
+ <style>
+  .carousel-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+
+    /* fade en los bordes, opcional: si no lo querés, borrá el mask */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  }
+
+  .carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left 70s linear infinite; /* velocidad: subí/bajá los segundos. Mas segundos = mas lento */
+  }
+
+  .carousel-wrapper:hover .carousel-track {
+    animation-play-state: paused; /* opcional: pausa al pasar el mouse. Borrar este bloque si no lo querés */
+  }
+
+  .logo-cell {
+    flex: 0 0 auto;
+    width: 300px; /* ancho de cada celda -> 4 visibles = 1200px / 4 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+  }
+
+  .logo-cell img {
+    max-width: 100%;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* nunca se estira ni deforma */
+    display: block;
+  }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); } /* -50% porque el track tiene el set de logos duplicado x2 */
+  }
+
+  /* Tablet: 3 visibles */
+  @media (max-width: 967px) {
+    .logo-cell {
+      width: 33.333%;
+      max-width: 260px;
+    }
+  }
+
+  /* Celular: 2 visibles */
+  @media (max-width: 600px) {
+    .logo-cell {
+      width: 50%;
+      max-width: 220px;
+    }
+  }
+</style>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <!-- Set 1 -->
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-01.png" alt="Cliente 1"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-02.png" alt="Cliente 2"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-03.png" alt="Cliente 3"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-04.png" alt="Cliente 4"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-05.png" alt="Cliente 5"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-06.png" alt="Cliente 6"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-07.png" alt="Cliente 7"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-08.png" alt="Cliente 8"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-09.png" alt="Cliente 9"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-10.png" alt="Cliente 10"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-11.png" alt="Cliente 11"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-12.png" alt="Cliente 12"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-13.png" alt="Cliente 13"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-14.png" alt="Cliente 14"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-15.png" alt="Cliente 15"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-16.png" alt="Cliente 16"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-17.png" alt="Cliente 17"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-18.png" alt="Cliente 18"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-19.png" alt="Cliente 19"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-20.png" alt="Cliente 20"></div>
+
+      <!-- Set 2 (duplicado idéntico, necesario para el loop infinito sin cortes) -->
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-01.png" alt="Cliente 1"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-02.png" alt="Cliente 2"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-03.png" alt="Cliente 3"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-04.png" alt="Cliente 4"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-05.png" alt="Cliente 5"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-06.png" alt="Cliente 6"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-07.png" alt="Cliente 7"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-08.png" alt="Cliente 8"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-09.png" alt="Cliente 9"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-10.png" alt="Cliente 10"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-11.png" alt="Cliente 11"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-12.png" alt="Cliente 12"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-13.png" alt="Cliente 13"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-14.png" alt="Cliente 14"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-15.png" alt="Cliente 15"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-16.png" alt="Cliente 16"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-17.png" alt="Cliente 17"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-18.png" alt="Cliente 18"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-19.png" alt="Cliente 19"></div>
+      <div class="logo-cell"><img src="logos/LogosClientes_solos-20.png" alt="Cliente 20"></div>
+    </div>
+  </div>
+
+  
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="contacto__inner">
+    <div>
+      <div class="contacto__label"><span class="label-tag label-tag--light">Contacto</span></div>
+      <h2 class="contacto__h2">Abramos un nuevo horizonte de expansión.</h2>
+      <p class="contacto__sub">Cuéntanos sobre tu organización. Respondemos en un día hábil.</p>
+      <div class="contacto__dato"><span class="contacto__dato-label">Miami</span><div class="contacto__dato-val">Florida 33131, USA<br><a href="tel:+17865980052">(786) 598-0052</a> · <a href="https://wa.me/17865980052">WhatsApp</a></div></div>
+      <div class="contacto__dato"><span class="contacto__dato-label">Buenos Aires</span><div class="contacto__dato-val">Argentina<br><a href="tel:+541140845649">(54911) 4 084 5649</a></div></div>
+      <div class="contacto__dato"><span class="contacto__dato-label">Mail</span><div class="contacto__dato-val"><a href="mailto:info@alfalogica.com">info@alfalogica.com</a></div></div>
+    </div>
+    <div>
+      <form class="form" action="#" method="POST">
+        <div class="form__field"><input type="text" name="nombre" placeholder="Tu nombre" required></div>
+        <div class="form__field"><input type="email" name="email" placeholder="Tu correo electrónico" required></div>
+        <div class="form__field"><input type="text" name="asunto" placeholder="Asunto"></div>
+        <div class="form__field"><textarea name="mensaje" placeholder="Tu mensaje (opcional)" rows="4"></textarea></div>
+        <button type="submit" class="form__submit">Enviar mensaje <span>→</span></button>
+        <p class="form__privacy">Nunca compartimos tus datos.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer__inner">
+  <div class="footer__logo"><img src="logo.png" alt="Alfalógica"></div>
+  <span class="footer__tagline">El dato valida la intuición · La naturaleza es el espejo</span>
+  <span class="footer__back" id="footerBack">Volver arriba ↑</span>
+</div></footer>
+
+<a class="wa-float" href="https://wa.me/17865980052" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const nav        = document.getElementById('nav');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+
+  // ── MODALES SISTEMA ALFA® ─────────────────────────────
+  var saContent = {
+    innovacion: {
+      eyebrow: 'Innovación',
+      title: 'Evolución Adaptativa',
+      sub: 'Metodologías Ágiles · Procesos vivos',
+      text: '<p>Integramos marcos de trabajo ágiles —Scrum, Lean, Design Thinking— como procesos vivos que se adaptan a la cultura y ritmo de tu organización.</p><p>La innovación no es un evento sino la consecuencia natural de un sistema ordenado y consciente.</p>',
+      lista_label: 'Herramientas',
+      lista: ['Scrum · Kanban','Lean Startup','Design Thinking','OKRs y métricas ágiles'],
+      info_label: 'El juego en esta disciplina',
+      info: 'En la Ludoteca prototipamos jugando: el juego baja el miedo al error y acelera ideas que en una sala de reuniones no aparecerían.',
+      integra: 'Integra con La Tarea'
+    },
+    investigacion: {
+      eyebrow: 'Investigación',
+      title: 'Inteligencia de Datos',
+      sub: 'IA aplicada · Insights estratégicos',
+      text: '<p>Convertimos la complejidad del mercado en insights claros, decisiones concretas y resultados medibles, combinando rigor metodológico con IA aplicada al análisis.</p><p>El dato valida la intuición y le da sustento a la decisión estratégica.</p>',
+      lista_label: 'Metodologías',
+      lista: ['Investigación cuantitativa','Investigación cualitativa','Análisis de datos con IA','Inteligencia competitiva'],
+      info_label: 'Certificación',
+      info: 'Método certificado por ESOMAR · ISPOR · ICC. Más de 10.000 horas de consultoría en inteligencia de datos.',
+      integra: 'Integra con La Tarea'
+    },
+    coaching: {
+      eyebrow: 'Coaching',
+      title: 'Biología del Liderazgo',
+      sub: 'Consciencia · Neurociencia · Presencia',
+      text: '<p>Activamos la coherencia entre cuerpo, emoción y pensamiento para que el líder opere desde su máxima capacidad.</p><p>Facilitamos procesos de acompañamiento enfocados en el desarrollo de liderazgo consciente y la efectividad de equipos.</p>',
+      lista_label: 'Enfoques',
+//      lista: ['Coaching ontológico','Neurociencia aplicada','Liderazgo situacional','Inteligencia emocional'],
+      lista: ['Coaching ejecutivo de negocios y liderazgo','Brain based coaching o coaching basado en neurosciencias'],
+      info_label: 'El juego en esta disciplina',
+      info: 'Los juegos de rol y simulaciones activan estados de presencia que el coaching verbal solo toca en superficie.',
+      integra: 'Integra con El Ser'
+    },
+    sistemica: {
+      eyebrow: 'Sistémica',
+      title: 'Geometría de Vínculos',
+      sub: 'Constelaciones · Orden organizacional',
+      text: '<p>Ordenamos las jerarquías invisibles trabajando desde la perspectiva sistémica, aplicada a roles, liderazgo y vínculos organizacionales.</p><p>Las organizaciones son redes de relaciones antes que estructuras. Mapeamos los vínculos e identificamos los nodos de influencia.</p>',
+      lista_label: 'Aplicaciones',
+      lista: ['Constelaciones organizacionales','Mapeo de vínculos','Roles y jerarquías','Dinámicas de equipo'],
+      info_label: 'El juego en esta disciplina',
+      info: 'Las constelaciones lúdicas revelan dinámicas relacionales invisibles que el organigrama nunca mostraría.',
+      integra: 'Integra con Los Vínculos'
+    },
+    insight: {
+      eyebrow: 'Insight · Centro',
+      title: 'Frecuencia Alfa',
+      sub: '8–12 Hz · El núcleo que integra todo',
+      text: '<p>El insight es el momento en que el dato y la intuición colapsan en comprensión. Es la frecuencia alfa del sistema: el estado de máxima coherencia entre el análisis y la sabiduría orgánica.</p><p>Inspirados en la frecuencia alfa del cerebro humano —el estado de calma alerta, creatividad y aprendizaje profundo— diseñamos organizaciones que operan en ese estado de forma sostenida.</p>',
+      lista_label: 'El sistema completo',
+      lista: ['Innovación · Evolución adaptativa','Investigación · Inteligencia de datos','Coaching · Biología del liderazgo','Sistémica · Geometría de vínculos'],
+      info_label: 'Frecuencia Alfa',
+      info: 'Estado de calma alerta entre 8 y 12 Hz. El cerebro en frecuencia alfa procesa, conecta y crea con máxima eficiencia.',
+      integra: 'Conocé los Programas Alfa'
+    }
+  };
+
+  function renderModal(key) {
+    var d = saContent[key];
+    if (!d) return;
+    var lista = d.lista.map(function(i){ return '<li>' + i + '</li>'; }).join('');
+// Header fijo
+    document.getElementById('saHeader').innerHTML =
+      '<div class="sa-modal-eyebrow">' + d.eyebrow + '</div>' +
+      '<h2 class="sa-modal-title">' + d.title + '</h2>' +
+      '<p class="sa-modal-sub">' + d.sub + '</p>';
+
+    // Cuerpo scrolleable
+    document.getElementById('saScroll').innerHTML =
+      '<div class="sa-modal-content">' +
+        '<div class="sa-modal-text">' +
+          d.text +
+          '<h4>' + d.lista_label + '</h4>' +
+          '<ul>' + lista + '</ul>' +
+          '<a href="#contacto" class="sa-modal-cta" id="saModalCta">Conversemos →</a>' +
+        '</div>' +
+        '<div class="sa-modal-sidebar">' +
+          '<div class="sa-modal-info">' +
+            '<div class="sa-modal-info-label">' + d.info_label + '</div>' +
+            '<div class="sa-modal-info-val">' + d.info + '</div>' +
+          '</div>' +
+          '<div class="sa-modal-info sa-modal-info--light">' +
+            '<div class="sa-modal-info-label">Integración sistémica</div>' +
+            '<div class="sa-modal-info-val">' + d.integra + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    // Reset scroll al abrir
+    document.getElementById('saScroll').scrollTop = 0;
+  }
+
+  function openModal(key) {
+    renderModal(key);
+    document.getElementById('saOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Fix Bridge/scroll engines: bloquear scroll de fondo
+    document.addEventListener('wheel',     blockScroll, {passive:false, capture:true});
+    document.addEventListener('touchmove', blockScroll, {passive:false, capture:true});
+  }
+
+  function closeModal() {
+    document.getElementById('saOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+    document.removeEventListener('wheel',     blockScroll, {capture:true});
+    document.removeEventListener('touchmove', blockScroll, {capture:true});
+  }
+
+  function blockScroll(e) {
+    var body = document.getElementById('saScroll');
+    if (body && body.contains(e.target)) return; // permitir scroll dentro del modal
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  // Click en hotspots
+  document.querySelectorAll('.sa-point').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openModal(btn.dataset.modal);
+    });
+  });
+
+  // Cerrar con botón ×
+  document.getElementById('saClose').addEventListener('click', closeModal);
+
+  // Cerrar clickando el overlay (fuera del modal)
+  document.getElementById('saOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Cerrar con Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // CTA dentro del modal: cerrar y scrollear a contacto
+  document.getElementById('saOverlay').addEventListener('click', function(e) {
+    if (e.target.id === 'saModalCta') {
+      e.preventDefault();
+      closeModal();
+      setTimeout(function(){
+        var t = document.getElementById('contacto');
+        if (t) t.scrollIntoView({behavior:'smooth'});
+      }, 200);
+    }
+  });
+
+  // ── Nav shadow on scroll ──────────────────────────────
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 60 ? '0 2px 16px rgba(0,0,0,.08)' : 'none';
+  });
+
+  // ── Hamburger toggle ──────────────────────────────────
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // ── Cerrar menú mobile al hacer click fuera ───────────
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+
+  // ── Función para marcar activo en ambos menús ─────────
+  function setActive(href) {
+    // Desktop
+    document.querySelectorAll('.nav__links a').forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === href);
+    });
+    // Mobile
+    document.querySelectorAll('.nav__mobile a:not(.nav__mobile__lang a)').forEach(l => {
+      l.classList.toggle('active', l.getAttribute('href') === href);
+    });
+  }
+
+  // ── Click en links DESKTOP ────────────────────────────
+  document.querySelectorAll('.nav__links a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      setActive(href);
+      if (href === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Click en links MOBILE ─────────────────────────────
+  document.querySelectorAll('.nav__mobile li:not(:last-child) a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      setActive(href);
+      // Cerrar menú mobile
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      // Scroll
+      if (href === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── Intersection Observer: activo al scrollear ────────
+  const sections = document.querySelectorAll('section[id]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActive('#' + entry.target.id);
+      }
+    });
+    // Si estamos al tope marcamos Home
+    if (window.scrollY < 100) setActive('#');
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // ── Volver arriba (footer) ────────────────────────────
+  document.getElementById('footerBack').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActive('#');
+  });
+</script>
+</body>
+</html>
