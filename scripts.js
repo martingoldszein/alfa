@@ -2,6 +2,209 @@ const nav = document.getElementById("nav");
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
 
+// ── HERO TYPEWRITER ANIMATION ─────────────────────────
+const h1El = document.getElementById("heroH1");
+const h2El = document.getElementById("heroH2");
+
+// --- Traducciones por idioma (mismo criterio que el resto del sitio) ---
+// "INSIGHT" se mantiene igual en los 4 idiomas a propósito (término de marca).
+const HERO_TRANSLATIONS = {
+  es: {
+    h1: [
+      { text: "Del ", cls: null },
+      { text: "INSIGHT", cls: "clay" },
+      { text: " a la acción.", cls: null },
+    ],
+    h2Prefix: "Información ",
+    h2Suffix: "<br> para decisiones que transforman.",
+    words: ["CLAVE", "ESTRATÉGICA", "CONFIABLE", "REVELADORA"],
+  },
+  en: {
+    h1: [
+      { text: "From ", cls: null },
+      { text: "INSIGHT", cls: "clay" },
+      { text: " to action.", cls: null },
+    ],
+    h2Prefix: "Information ",
+    h2Suffix: "<br> for decisions that transform.",
+    words: ["KEY", "STRATEGIC", "RELIABLE", "REVEALING"],
+  },
+  pt: {
+    h1: [
+      { text: "Do ", cls: null },
+      { text: "INSIGHT", cls: "clay" },
+      { text: " à ação.", cls: null },
+    ],
+    h2Prefix: "Informação ",
+    h2Suffix: "<br> para decisões que transformam.",
+    words: ["CHAVE", "ESTRATÉGICA", "CONFIÁVEL", "REVELADORA"],
+  },
+  fr: {
+    h1: [
+      { text: "De l'", cls: null },
+      { text: "INSIGHT", cls: "clay" },
+      { text: " à l'action.", cls: null },
+    ],
+    h2Prefix: "Information ",
+    h2Suffix: "<br> pour des décisions qui transforment.",
+    words: ["CLÉ", "STRATÉGIQUE", "FIABLE", "RÉVÉLATRICE"],
+  },
+};
+
+const TYPE_SPEED = 55;
+const DELETE_SPEED = 40;
+const HOLD_TIME = 1400;
+const PAUSE_BETWEEN_LINES = 400;
+
+// Se incrementa cada vez que arranca una animación nueva (p. ej. al cambiar
+// de idioma), así los timeouts de la corrida anterior se auto-cancelan.
+let heroRunId = 0;
+
+function caret() {
+  return '<span class="caret"></span>';
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+// Tipea una secuencia de segmentos {text, cls} preservando el formato de cada uno
+function typeSegments(el, segments, speed, runId) {
+  return new Promise((resolve) => {
+    const full = segments.map((s) => s.text).join("");
+    let i = 0;
+    function step() {
+      if (runId !== heroRunId) return resolve();
+      const shown = full.slice(0, i);
+      let html = "";
+      let cursor = 0;
+      for (const seg of segments) {
+        const segShown = shown.slice(cursor, cursor + seg.text.length);
+        if (segShown) {
+          html += seg.cls
+            ? '<span class="' + seg.cls + '">' + segShown + "</span>"
+            : segShown;
+        }
+        cursor += seg.text.length;
+      }
+      el.innerHTML = html + caret();
+      i++;
+      if (i <= full.length) {
+        setTimeout(step, speed);
+      } else {
+        resolve();
+      }
+    }
+    step();
+  });
+}
+
+// Tipeo inicial del H2 completo, incluida la primera palabra rotativa
+function typeFullH2(word, prefix, suffix, speed, runId) {
+  return typeSegments(
+    h2El,
+    [
+      { text: prefix, cls: null },
+      { text: word, cls: "rot" },
+      { text: suffix, cls: null },
+    ],
+    speed,
+    runId,
+  );
+}
+
+// A partir de acá solo se anima la palabra: se escribe carácter por carácter
+function typeRotatingWord(word, prefix, suffix, speed, runId) {
+  return new Promise((resolve) => {
+    let i = 0;
+    function step() {
+      if (runId !== heroRunId) return resolve();
+      h2El.innerHTML =
+        prefix +
+        '<span class="rot">' +
+        word.slice(0, i) +
+        "</span>" +
+        caret() +
+        suffix;
+      i++;
+      if (i <= word.length) {
+        setTimeout(step, speed);
+      } else {
+        resolve();
+      }
+    }
+    step();
+  });
+}
+
+// Solo se borra la palabra, prefijo y sufijo quedan fijos
+function deleteRotatingWord(word, prefix, suffix, speed, runId) {
+  return new Promise((resolve) => {
+    let i = word.length;
+    function step() {
+      if (runId !== heroRunId) return resolve();
+      h2El.innerHTML =
+        prefix +
+        '<span class="rot">' +
+        word.slice(0, i) +
+        "</span>" +
+        caret() +
+        suffix;
+      i--;
+      if (i >= 0) {
+        setTimeout(step, speed);
+      } else {
+        resolve();
+      }
+    }
+    step();
+  });
+}
+
+async function rotatingLoop(startIdx, words, prefix, suffix, runId) {
+  let idx = startIdx;
+  while (runId === heroRunId) {
+    const word = words[idx % words.length];
+    await sleep(HOLD_TIME);
+    if (runId !== heroRunId) return;
+    await deleteRotatingWord(word, prefix, suffix, DELETE_SPEED, runId);
+    if (runId !== heroRunId) return;
+    await sleep(200);
+    if (runId !== heroRunId) return;
+    idx++;
+    const nextWord = words[idx % words.length];
+    await typeRotatingWord(nextWord, prefix, suffix, TYPE_SPEED, runId);
+  }
+}
+
+async function startHeroAnimation(lang) {
+  const data = HERO_TRANSLATIONS[lang] || HERO_TRANSLATIONS.es;
+  heroRunId++;
+  const runId = heroRunId;
+
+  h1El.innerHTML = "";
+  h2El.innerHTML = "";
+
+  // H1
+  await typeSegments(h1El, data.h1, TYPE_SPEED, runId);
+  if (runId !== heroRunId) return;
+  await sleep(PAUSE_BETWEEN_LINES);
+  if (runId !== heroRunId) return;
+
+  // H2 completo, con la primera palabra incluida en el mismo tipeo
+  await typeFullH2(
+    data.words[0],
+    data.h2Prefix,
+    data.h2Suffix,
+    TYPE_SPEED,
+    runId,
+  );
+  if (runId !== heroRunId) return;
+
+  // Loop infinito: de acá en más solo se borra/reescribe la palabra
+  rotatingLoop(0, data.words, data.h2Prefix, data.h2Suffix, runId);
+}
+
 // ── MODALES SISTEMA ALFA® ─────────────────────────────
 var saContent = {
   innovacion: {
@@ -82,154 +285,6 @@ function renderModal(key) {
   document.getElementById("saScroll").scrollTop = 0;
 }
 
-function openModal(key) {
-  renderModal(key);
-  document.getElementById("saOverlay").classList.add("open");
-  document.body.style.overflow = "hidden";
-  document.addEventListener("wheel", blockScroll, { passive: false, capture: true });
-  document.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
-}
-
-function closeModal() {
-  document.getElementById("saOverlay").classList.remove("open");
-  document.body.style.overflow = "";
-  document.removeEventListener("wheel", blockScroll, { capture: true });
-  document.removeEventListener("touchmove", blockScroll, { capture: true });
-}
-
-function blockScroll(e) {
-  var body = document.getElementById("saScroll");
-  if (body && body.contains(e.target)) return;
-  e.preventDefault();
-  e.stopPropagation();
-}
-/*
-document.querySelectorAll(".sa-point").forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    openModal(btn.dataset.modal);
-  });
-});
-
-document.getElementById("saClose").addEventListener("click", closeModal);
-document.getElementById("saOverlay").addEventListener("click", function (e) {
-  if (e.target === this) closeModal();
-});
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeModal();
-});
-
-
-// ── MODALES SISTEMA ALFA® CON HOVER (Opción B + efecto visual) ──
-
-let hoverTimeout = null;
-let closeTimeout = null;
-let isModalOpen = false;
-
-// HOVER en puntos del diagrama
-document.querySelectorAll(".sa-point").forEach(function (btn) {
-  btn.addEventListener("mouseenter", function () {
-    clearTimeout(closeTimeout); // Cancela cierre programado
-    clearTimeout(hoverTimeout);
-    const key = this.dataset.modal;
-
-    if (document.getElementById("saOverlay").classList.contains("open")) {
-      renderModal(key);
-    } else {
-      hoverTimeout = setTimeout(() => {
-        openModal(key);
-      }, 200);
-    }
-  });
-
-  btn.addEventListener("mouseleave", function () {
-    clearTimeout(hoverTimeout);
-    // Cierra después de 2 segundos (Opción B)
-    closeTimeout = setTimeout(() => {
-      closeModal();
-    }, 2000);
-  });
-});
-
-// Cerrar con click fuera (overlay)
-document.getElementById("saOverlay").addEventListener("click", function (e) {
-  if (e.target === this) closeModal();
-});
-
-// Cerrar con tecla ESC
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeModal();
-});
-
-// Botón cerrar (X)
-document.getElementById("saClose").addEventListener("click", closeModal);
-
-// CTA dentro del modal
-document.getElementById("saOverlay").addEventListener("click", function (e) {
-  if (e.target.id === "saModalCta") {
-    e.preventDefault();
-    closeModal();
-    setTimeout(function () {
-      var t = document.getElementById("contacto");
-      if (t) t.scrollIntoView({ behavior: "smooth" });
-    }, 200);
-  }
-});
-
-// ── FUNCIONES MODALES CON EFECTO VISUAL ──
-
-function openModal(key) {
-  renderModal(key);
-  const overlay = document.getElementById("saOverlay");
-  const modal = document.getElementById("saModal");
-
-  // Remover clase closing si existía
-  modal.classList.remove("closing");
-
-  overlay.classList.add("open");
-  document.body.style.overflow = "hidden";
-  isModalOpen = true;
-
-  document.addEventListener("wheel", blockScroll, { passive: false, capture: true });
-  document.addEventListener("touchmove", blockScroll, { passive: false, capture: true });
-}
-
-function closeModal() {
-  const overlay = document.getElementById("saOverlay");
-  const modal = document.getElementById("saModal");
-
-  // Agregar efecto de cierre
-  modal.classList.add("closing");
-
-  setTimeout(() => {
-    overlay.classList.remove("open");
-    document.body.style.overflow = "";
-    modal.classList.remove("closing");
-    isModalOpen = false;
-
-    document.removeEventListener("wheel", blockScroll, { capture: true });
-    document.removeEventListener("touchmove", blockScroll, { capture: true });
-  }, 300);
-}
-
-function blockScroll(e) {
-  var body = document.getElementById("saScroll");
-  if (body && body.contains(e.target)) return;
-  e.preventDefault();
-  e.stopPropagation();
-}
-// CTA dentro del modal
-
-document.getElementById("saOverlay").addEventListener("click", function (e) {
-  if (e.target.id === "saModalCta") {
-    e.preventDefault();
-    closeModal();
-    setTimeout(function () {
-      var t = document.getElementById("contacto");
-      if (t) t.scrollIntoView({ behavior: "smooth" });
-    }, 200);
-  }
-});
-*/
 // ── MODALES SISTEMA ALFA® CON HOVER (Opción C - Cierre Inteligente) ──
 
 let hoverTimeout = null;
@@ -470,3 +525,74 @@ if (currentPath === "/" || currentPath === "/index.html" || currentPath === "") 
 } else if (currentPath === "/contacto") {
   setActive("/contacto");
 }
+
+// ── TRADUCCIONES ──────────────────────────────────────
+const translatables = document.querySelectorAll("[data-es][data-en][data-pt][data-fr]");
+const langSelectors = document.querySelectorAll("[data-lang]");
+
+function setLanguage(lang) {
+  translatables.forEach((el) => {
+    const translation = el.getAttribute("data-" + lang);
+    if (translation !== null) {
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        el.placeholder = translation;
+      } else {
+        el.innerHTML = translation;
+      }
+    }
+  });
+
+  langSelectors.forEach((link) => {
+    const linkLang = link.getAttribute("data-lang");
+    if (linkLang === lang) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+
+  localStorage.setItem("alfalogica-lang", lang);
+  document.documentElement.lang = lang;
+
+  const navLangCurrent = document.getElementById("navLangCurrent");
+  if (navLangCurrent) navLangCurrent.textContent = lang.toUpperCase();
+
+  document
+    .querySelectorAll(".nav__lang-dropdown[open]")
+    .forEach((d) => d.removeAttribute("open"));
+
+  // Reiniciar animación hero con el nuevo idioma
+  startHeroAnimation(lang);
+}
+
+langSelectors.forEach((link) => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const lang = this.getAttribute("data-lang");
+    setLanguage(lang);
+  });
+});
+
+// ── SCROLL SUAVE SOLO PARA ANCLAS LOCALES (PURAS) ────
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  const href = anchor.getAttribute("href");
+  // Ignorar enlaces que contienen "/" (no son anclas puras)
+  if (href === "#" || href === "" || href.includes("/")) return;
+
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
+// ── INICIALIZACIÓN ────────────────────────────────────
+document.addEventListener("DOMContentLoaded", function() {
+  // Idioma inicial: mismo criterio que usa el resto del sitio
+  const savedLang = localStorage.getItem("alfalogica-lang");
+  const initialLang = savedLang && ["es", "en", "pt", "fr"].includes(savedLang) ? savedLang : "es";
+
+  setLanguage(initialLang);
+});
