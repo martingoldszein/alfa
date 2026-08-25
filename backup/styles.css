@@ -206,70 +206,6 @@ h3 {
 .nav__lang a:hover:not(.active) {
   color: var(--teal);
 }
-
-/* LANG DROPDOWN (mobile) */
-.nav__lang-dropdown {
-  display: none;
-  position: relative;
-}
-.nav__lang-dropdown summary {
-  list-style: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--text-mid);
-  padding: 0.3rem 0.55rem;
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  transition: all 0.2s;
-}
-.nav__lang-dropdown summary::-webkit-details-marker {
-  display: none;
-}
-.nav__lang-dropdown summary::after {
-  content: "▾";
-  font-size: 0.55rem;
-}
-.nav__lang-dropdown[open] summary::after {
-  content: "▴";
-}
-.nav__lang-dropdown summary:hover {
-  border-color: var(--teal);
-  color: var(--teal);
-}
-.nav__lang-dropdown__menu {
-  position: absolute;
-  top: calc(100% + 0.4rem);
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  min-width: 4.5rem;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 20px rgba(33, 56, 69, 0.14);
-  padding: 0.35rem;
-  z-index: 50;
-}
-.nav__lang-dropdown__menu a {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text-mid);
-  padding: 0.35rem 0.6rem;
-  border-radius: 0.3rem;
-  transition: all 0.2s;
-}
-.nav__lang-dropdown__menu a.active {
-  background: var(--teal);
-  color: #fff;
-}
-.nav__lang-dropdown__menu a:hover:not(.active) {
-  background: var(--paper2);
-  color: var(--teal);
-}
 .nav__cta {
   display: inline-block;
   background: var(--clay);
@@ -541,40 +477,6 @@ h3 {
 .diagrama img {
   margin: 0 auto;
 }
-.subtitle-onDark {
-  font-size: 16px;
-  line-height: 1.6;
-  color: rgba(245, 242, 234, 0.7);
-  margin: 0 0 28px;
-}
-.subtitle-onDark--narrow {
-  max-width: 44ch;
-}
-.sa-point--innovacion {
-  top: 16%;
-  left: 44%;
-  transform: translate(-50%, -50%);
-}
-.sa-point--coaching {
-  top: 48%;
-  left: 23%;
-  transform: translate(-50%, -50%);
-}
-.sa-point--investigacion {
-  top: 48%;
-  right: 31%;
-  transform: translate(50%, -50%);
-}
-.sa-point--sistemica {
-  bottom: 12%;
-  left: 44%;
-  transform: translate(-50%, 50%);
-}
-.sa-point--center {
-  top: 47%;
-  left: 42%;
-  transform: translate(-50%, -50%);
-}
 
 /* ABORDAMOS */
 .abordamos__bar {
@@ -774,9 +676,6 @@ h3 {
 .stat:last-child {
   border-right: none;
 }
-.stat--alt {
-  background: var(--paper2);
-}
 .stat__num {
   font-family: var(--font-serif);
   font-size: 2rem;
@@ -828,7 +727,6 @@ p.sectores {
 .clientes__logos {
   border-radius: 0.5rem;
   overflow: hidden;
-  background: #73a4a7;
 }
 .clientes__logos img {
   width: 100%;
@@ -1450,16 +1348,6 @@ p.sectores {
   .nav__hamburger {
     display: flex;
   }
-  /* Idiomas: pasar de lista plana a dropdown compacto, y sacar el CTA */
-  .nav__lang {
-    display: none;
-  }
-  .nav__lang-dropdown {
-    display: block;
-  }
-  .nav__cta {
-    display: none;
-  }
   /* Nav se vuelve relative para que el menú mobile se posicione bien */
   .nav {
     position: sticky;
@@ -2027,140 +1915,5 @@ p.sectores {
     height: 90px;
     font-size: 0.45rem;
     padding: 0.6rem;
-  }
-}
-.ink {
-  background: var(--ink);
-}
-/* ─── SECCIÓN JIA (Juego · Innovación · Aprendizaje) ─── */
-.jia-section {
-  position: relative;
-  background-color: var(--ink); /* Fondo oscuro de respaldo */
-  overflow: hidden;
-}
-
-.jia-section__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.jia-section__bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.6; /* Oscurece la imagen para que el texto resalte */
-}
-
-.jia-section__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(33, 56, 69, 0.95) 0%,
-    rgba(33, 56, 69, 0.7) 40%,
-    rgba(33, 56, 69, 0.4) 100%
-  );
-  z-index: 2;
-}
-
-.jia-section__inner {
-  position: relative;
-  z-index: 3;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 5rem var(--px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  min-height: 400px; /* Altura mínima para una buena presencia visual */
-}
-
-.jia-section__badge {
-  display: inline-block;
-  background-color: rgba(227, 152, 129, 0.15); /* Clay translúcido */
-  color: var(--clay);
-  border: 1px solid var(--clay);
-  border-radius: 2rem;
-  padding: 0.35rem 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.jia-section__title {
-  font-family: var(--font-display);
-  color: #fff;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  font-weight: 300;
-  margin-bottom: 1rem;
-  max-width: 800px;
-}
-
-.jia-section__subtitle {
-  font-family: var(--font-sans);
-  color: rgba(245, 242, 234, 0.8);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 550px;
-  margin-bottom: 2rem;
-}
-
-.jia-section__actions {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.jia-section__btn {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: 3rem;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.jia-section__btn--primary {
-  background-color: var(--clay);
-  color: #fff;
-  border: 1px solid var(--clay);
-}
-
-.jia-section__btn--primary:hover {
-  background-color: var(--clay-deep);
-  border-color: var(--clay-deep);
-}
-
-.jia-section__btn--secondary {
-  background-color: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.jia-section__btn--secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #fff;
-}
-
-/* Ajuste responsive */
-@media (max-width: 768px) {
-  .jia-section__inner {
-    padding: 3rem var(--px);
-  }
-  .jia-section__actions {
-    flex-direction: column;
-    width: 100%;
-  }
-  .jia-section__btn {
-    width: 100%;
-    text-align: center;
   }
 }

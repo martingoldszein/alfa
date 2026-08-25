@@ -1,0 +1,1603 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfalógica · Insights & Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=IBM+Plex+Mono&family=Instrument+Serif&family=Source+Serif+4:opsz@8..60&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="scripts.js" defer></script>
+    <script>
+      // Redirige URLs amigables a los archivos .html (solo en desarrollo local)
+      (function () {
+        // Solo ejecutar en localhost
+        if (
+          !window.location.hostname.includes("localhost") &&
+          !window.location.hostname.includes("127.0.0.1:5500")
+        )
+          return;
+
+        const path = window.location.pathname;
+        const pages = {
+          "/sobre-nosotros": "sobre-nosotros.html",
+          "/metodo": "metodo.html",
+          "/contacto": "contacto.html",
+          "/clientes": "index.html#clientes",
+        };
+
+        // Si la URL termina con barra, la removemos
+        const cleanPath =
+          path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+
+        if (pages[cleanPath]) {
+          window.location.replace(pages[cleanPath]);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topbar__inner">
+        <span
+          class="topbar__text"
+          data-es="Miami, Florida 33131, USA – Tel. (786) 598-0052 (whatsapp)"
+          data-en="Miami, Florida 33131, USA – Tel. (786) 598-0052 (whatsapp)"
+          data-pt="Miami, Flórida 33131, EUA – Tel. (786) 598-0052 (whatsapp)"
+          data-fr="Miami, Floride 33131, États-Unis – Tél. (786) 598-0052 (whatsapp)"
+          >Miami, Florida 33131, USA – Tel.
+          <a href="tel:+17865980052">(786) 598-0052</a> (<a
+            href="https://wa.me/17865980052"
+            >whatsapp</a
+          >
+
+          )</span
+        >
+        <span class="topbar__sep">|</span>
+        <span
+          class="topbar__text"
+          data-es="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
+          data-en="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
+          data-pt="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 e-mail: info@alfalogica.com"
+          data-fr="Buenos Aires, Argentine – Tél. (54911) 4 084 5649 mail: info@alfalogica.com"
+          >Buenos Aires, Argentina – Tel.
+          <a href="tel:+541140845649">(54911) 4 084 5649</a> mail:
+          <a href="mailto:info@alfalogica.com">info@alfalogica.com</a></span
+        >
+        <!-- WhatsApp link – alineado a la derecha -->
+    <a
+      href="https://wa.me/17865980052"
+      target="_blank"
+      class="topbar__whatsapp"
+      data-es="Escríbenos por WhatsApp"
+      data-en="Write us on WhatsApp"
+      data-pt="Escreva-nos no WhatsApp"
+      data-fr="Écrivez-nous sur WhatsApp"
+    >
+      Escríbenos por WhatsApp
+    </a>
+      </div>
+     </div>
+
+    <nav class="nav" id="nav">
+      <div class="nav__inner">
+        <a class="nav__logo" href="#"
+          ><img src="logo.png" alt="Alfalógica"
+        /></a>
+
+        <!-- DESKTOP links -->
+        <ul class="nav__links" id="navLinks">
+          <li>
+            <a
+              href="/"
+              class="active"
+              data-es="Home"
+              data-en="Home"
+              data-pt="Início"
+              data-fr="Accueil"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="/sobre-nosotros"
+              data-es="Sobre Nosotros"
+              data-en="About Us"
+              data-pt="Sobre Nós"
+              data-fr="À propos"
+              >Sobre Nosotros</a
+            >
+          </li>
+          <li>
+            <a
+              href="/metodo"
+              data-es="Método"
+              data-en="Method"
+              data-pt="Método"
+              data-fr="Méthode"
+              >Método</a
+            >
+          </li>
+          <!-- 2da etapa
+          <li>
+            <a
+              href="/ludoteca"
+              data-es="Ludoteca"
+              data-en="Game Library"
+              data-pt="Ludoteca"
+              data-fr="Ludothèque"
+              >Ludoteca</a
+            >
+          </li> -->
+          <li>
+            <a
+              href="#clientes"
+              data-es="Clientes"
+              data-en="Clients"
+              data-pt="Clientes"
+              data-fr="Clients"
+              >Clientes</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contacto"
+              data-es="Contacto"
+              data-en="Contact Us"
+              data-pt="Contato"
+              data-fr=""
+              >Contacto</a
+            >
+          </li>
+        </ul>
+
+        <div class="nav__right">
+          <div class="nav__lang">
+            <a href="#" class="active" data-lang="es">ES</a>
+            <a href="#" data-lang="en">EN</a>
+            <a href="#" data-lang="pt">PT</a>
+            <a href="#" data-lang="fr">FR</a>
+          </div>
+          <div class="nav__cta">
+            <a
+              href="/contacto"
+              data-es="Conversemos"
+              data-en="Talk us"
+              data-pt="Conversa"
+              data-fr="Conversemos"
+              >Conversemos</a
+            >
+          </div>
+          <!-- HAMBURGER button -->
+          <button
+            class="nav__hamburger"
+            id="hamburger"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE menu (dropdown) -->
+      <ul class="nav__mobile" id="mobileMenu">
+        <li>
+          <a
+            href="#"
+            class="active"
+            data-es="Home"
+            data-en="Home"
+            data-pt="Início"
+            data-fr="Accueil"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="/sobre-nosotros"
+            data-es="Sobre Nosotros"
+            data-en="About Us"
+            data-pt="Sobre Nós"
+            data-fr="À propos"
+            >Sobre Nosotros</a
+          >
+        </li>
+        <li>
+          <a
+            href="/metodo"
+            data-es="Método"
+            data-en="Method"
+            data-pt="Método"
+            data-fr="Méthode"
+            >Método</a
+          >
+        </li>
+        <li>
+          <a
+            href="#clientes"
+            data-es="Clientes"
+            data-en="Clients"
+            data-pt="Clientes"
+            data-fr="Clients"
+            >Clientes</a
+          >
+        </li>
+        <li>
+          <a
+            href="/contacto"
+            data-es="Contacto"
+            data-en="Contact"
+            data-pt="Contato"
+            data-fr="Contact"
+            >Contacto</a
+          >
+        </li>
+        <li class="nav__mobile__lang">
+          <a href="#" class="active" data-lang="es">ES</a>
+          <a href="#" data-lang="en">EN</a>
+          <a href="#" data-lang="pt">PT</a>
+          <a href="#" data-lang="fr">FR</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero__left">
+        <div class="manifiesto__label">
+          <span
+            class="label-tag"
+            data-es="Consultora boutique internacional"
+            data-en="International boutique consultancy"
+            data-pt="Consultoria boutique internacional"
+            data-fr="Cabinet de conseil boutique international"
+          >
+            Consultora boutique internacional
+          </span>
+        </div>
+
+        <h1 class="hero__h1" id="heroH1"></h1>
+        <h2 class="hero__h2" id="heroH2"></h2>
+        <h3
+          data-es="   Acompañamos a líderes a integrar la precisión analítica con la sabiduría orgánica."
+          data-en="We support leaders in integrating analytical precision with organic wisdom."
+          data-pt="Acompanhamos líderes a integrar a precisão analítica com a sabedoria orgânica."
+          data-fr="Nous accompagnons les leaders à intégrer la précision analytique à la sagesse organique."
+        >
+          Acompañamos a líderes a integrar la precisión analítica con la
+          sabiduría orgánica.
+        </h3>
+      </div>
+      <div class="hero__right">
+        <img src="foto1.jpg" alt="Equipo de consultoría en reunión" />
+      </div>
+    </section>
+    <script>
+      const h1El = document.getElementById("heroH1");
+      const h2El = document.getElementById("heroH2");
+
+      // --- Traducciones por idioma (mismo criterio que el resto del sitio) ---
+      // "INSIGHT" se mantiene igual en los 4 idiomas a propósito (término de marca).
+      const HERO_TRANSLATIONS = {
+        es: {
+          h1: [
+            { text: "Del ", cls: null },
+            { text: "INSIGHT", cls: "clay" },
+            { text: " a la acción.", cls: null },
+          ],
+          h2Prefix: "Información ",
+          h2Suffix: "<br> para decisiones que transforman.",
+          words: ["CLAVE", "ESTRATÉGICA", "CONFIABLE", "REVELADORA"],
+        },
+        en: {
+          h1: [
+            { text: "From ", cls: null },
+            { text: "INSIGHT", cls: "clay" },
+            { text: " to action.", cls: null },
+          ],
+          h2Prefix: "Information ",
+          h2Suffix: "<br> for decisions that transform.",
+          words: ["KEY", "STRATEGIC", "RELIABLE", "REVEALING"],
+        },
+        pt: {
+          h1: [
+            { text: "Do ", cls: null },
+            { text: "INSIGHT", cls: "clay" },
+            { text: " à ação.", cls: null },
+          ],
+          h2Prefix: "Informação ",
+          h2Suffix: "<br> para decisões que transformam.",
+          words: ["CHAVE", "ESTRATÉGICA", "CONFIÁVEL", "REVELADORA"],
+        },
+        fr: {
+          h1: [
+            { text: "De l'", cls: null },
+            { text: "INSIGHT", cls: "clay" },
+            { text: " à l'action.", cls: null },
+          ],
+          h2Prefix: "Information ",
+          h2Suffix: "<br> pour des décisions qui transforment.",
+          words: ["CLÉ", "STRATÉGIQUE", "FIABLE", "RÉVÉLATRICE"],
+        },
+      };
+
+      const TYPE_SPEED = 55;
+      const DELETE_SPEED = 40;
+      const HOLD_TIME = 1400;
+      const PAUSE_BETWEEN_LINES = 400;
+
+      // Se incrementa cada vez que arranca una animación nueva (p. ej. al cambiar
+      // de idioma), así los timeouts de la corrida anterior se auto-cancelan.
+      let heroRunId = 0;
+
+      function caret() {
+        return '<span class="caret"></span>';
+      }
+
+      function sleep(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+
+      // Tipea una secuencia de segmentos {text, cls} preservando el formato de cada uno
+      function typeSegments(el, segments, speed, runId) {
+        return new Promise((resolve) => {
+          const full = segments.map((s) => s.text).join("");
+          let i = 0;
+          function step() {
+            if (runId !== heroRunId) return resolve();
+            const shown = full.slice(0, i);
+            let html = "";
+            let cursor = 0;
+            for (const seg of segments) {
+              const segShown = shown.slice(cursor, cursor + seg.text.length);
+              if (segShown) {
+                html += seg.cls
+                  ? '<span class="' + seg.cls + '">' + segShown + "</span>"
+                  : segShown;
+              }
+              cursor += seg.text.length;
+            }
+            el.innerHTML = html + caret();
+            i++;
+            if (i <= full.length) {
+              setTimeout(step, speed);
+            } else {
+              resolve();
+            }
+          }
+          step();
+        });
+      }
+
+      // Tipeo inicial del H2 completo, incluida la primera palabra rotativa
+      function typeFullH2(word, prefix, suffix, speed, runId) {
+        return typeSegments(
+          h2El,
+          [
+            { text: prefix, cls: null },
+            { text: word, cls: "rot" },
+            { text: suffix, cls: null },
+          ],
+          speed,
+          runId,
+        );
+      }
+
+      // A partir de acá solo se anima la palabra: se escribe carácter por carácter
+      function typeRotatingWord(word, prefix, suffix, speed, runId) {
+        return new Promise((resolve) => {
+          let i = 0;
+          function step() {
+            if (runId !== heroRunId) return resolve();
+            h2El.innerHTML =
+              prefix +
+              '<span class="rot">' +
+              word.slice(0, i) +
+              "</span>" +
+              caret() +
+              suffix;
+            i++;
+            if (i <= word.length) {
+              setTimeout(step, speed);
+            } else {
+              resolve();
+            }
+          }
+          step();
+        });
+      }
+
+      // Solo se borra la palabra, prefijo y sufijo quedan fijos
+      function deleteRotatingWord(word, prefix, suffix, speed, runId) {
+        return new Promise((resolve) => {
+          let i = word.length;
+          function step() {
+            if (runId !== heroRunId) return resolve();
+            h2El.innerHTML =
+              prefix +
+              '<span class="rot">' +
+              word.slice(0, i) +
+              "</span>" +
+              caret() +
+              suffix;
+            i--;
+            if (i >= 0) {
+              setTimeout(step, speed);
+            } else {
+              resolve();
+            }
+          }
+          step();
+        });
+      }
+
+      async function rotatingLoop(startIdx, words, prefix, suffix, runId) {
+        let idx = startIdx;
+        while (runId === heroRunId) {
+          const word = words[idx % words.length];
+          await sleep(HOLD_TIME);
+          if (runId !== heroRunId) return;
+          await deleteRotatingWord(word, prefix, suffix, DELETE_SPEED, runId);
+          if (runId !== heroRunId) return;
+          await sleep(200);
+          if (runId !== heroRunId) return;
+          idx++;
+          const nextWord = words[idx % words.length];
+          await typeRotatingWord(nextWord, prefix, suffix, TYPE_SPEED, runId);
+        }
+      }
+
+      async function startHeroAnimation(lang) {
+        const data = HERO_TRANSLATIONS[lang] || HERO_TRANSLATIONS.es;
+        heroRunId++;
+        const runId = heroRunId;
+
+        h1El.innerHTML = "";
+        h2El.innerHTML = "";
+
+        // H1
+        await typeSegments(h1El, data.h1, TYPE_SPEED, runId);
+        if (runId !== heroRunId) return;
+        await sleep(PAUSE_BETWEEN_LINES);
+        if (runId !== heroRunId) return;
+
+        // H2 completo, con la primera palabra incluida en el mismo tipeo
+        await typeFullH2(
+          data.words[0],
+          data.h2Prefix,
+          data.h2Suffix,
+          TYPE_SPEED,
+          runId,
+        );
+        if (runId !== heroRunId) return;
+
+        // Loop infinito: de acá en más solo se borra/reescribe la palabra
+        rotatingLoop(0, data.words, data.h2Prefix, data.h2Suffix, runId);
+      }
+
+      // Idioma inicial: mismo criterio que usa el resto del sitio
+      const heroSavedLang = localStorage.getItem("alfalogica-lang");
+      const heroInitialLang =
+        heroSavedLang && ["es", "en", "pt", "fr"].includes(heroSavedLang)
+          ? heroSavedLang
+          : "es";
+
+      startHeroAnimation(heroInitialLang);
+
+      // Reacciona a los mismos links de idioma (ES/EN/PT/FR) que usa el resto del sitio
+      document.querySelectorAll("[data-lang]").forEach((link) => {
+        link.addEventListener("click", function () {
+          const lang = this.getAttribute("data-lang");
+          startHeroAnimation(lang);
+        });
+      });
+    </script>
+
+    <section class="sistema-banner" id="metodo">
+      <div class="sistema-banner__bg">
+        <img src="foto1.jpg" alt="Sistema Alfa®" />
+      </div>
+      <div class="sistema-banner__overlay"></div>
+      <div class="sistema-banner__content">
+        <div class="clientes__inner">
+        <div class="sistema-banner__label">
+          <span
+            class="label-tag label-tag--light"
+            data-es="Sistema Alfa"
+            data-en="Alpha System"
+            data-pt="Sistema Alfa"
+            data-fr="Système Alpha"
+            >Sistema Alfa</span
+          >
+        </div>
+        <h2
+          class="sistema-banner__h2"
+          data-es="El Motor Disciplinario<br/><em> Un orden vivo que se autorregula.</em>"
+          data-en="The Disciplinary Engine<br/><em></em>"
+          data-pt="O Motor Disciplinar<br/><em></em>"
+          data-fr="Le Moteur Disciplinaire<br/><em></em>"
+        >
+          El motor disciplinario.<br /><em
+            >El Motor Disciplinario Un orden vivo que se autorregula.
+          </em>
+        </h2>
+      </div>
+      </div>
+
+
+    </section>
+
+    <div class="diagrama">
+      <h2
+        data-es="Un recorrido calibrado al ritmo de tu organización."
+        data-en="A path calibrated to your organization's rhythm."
+        data-pt="Um percurso calibrado ao ritmo da sua organização."
+        data-fr="Un parcours calibré au rythme de votre organisation."
+      >
+        Un recorrido calibrado al ritmo de tu organización.
+      </h2>
+      <p
+        style="
+          font-size: 16px;
+          line-height: 1.6;
+          color: rgba(245, 242, 234, 0.7);
+          max-width: 44ch;
+          margin: 0 0 28px;
+        "
+        data-es="Cuatro intensidades, del primer impulso al eco pleno en todo el sistema."
+        data-en="Four intensities, from first impulse to full echo across the system."
+        data-pt="Quatro intensidades, do primeiro impulso ao eco pleno em todo o sistema."
+        data-fr="Quatre intensités, du premier élan à l'écho pleinement diffusé dans tout le système."
+      >
+        Cuatro intensidades, del primer impulso al eco pleno en todo el sistema.
+      </p>
+      <div class="sa-diagram-wrap">
+        <img
+          src="grafica_1.png"
+          alt="Diagrama Sistema Alfa®"
+          class="sa-diagram-img"
+        />
+
+        <!-- HOTSPOTS ALINEADOS CORRECTAMENTE -->
+        <!-- Punto Superior (Innovación) -->
+        <button
+          class="sa-point"
+          style="top: 16%; left: 44%; transform: translate(-50%, -50%)"
+          data-modal="innovacion"
+          aria-label="Innovación"
+        ></button>
+
+        <!-- Punto Izquierdo (Coaching) -->
+        <button
+          class="sa-point"
+          style="top: 48%; left: 23%; transform: translate(-50%, -50%)"
+          data-modal="coaching"
+          aria-label="Coaching"
+        ></button>
+
+        <!-- Punto Derecho (Investigación) -->
+        <button
+          class="sa-point"
+          style="top: 48%; right: 31%; transform: translate(50%, -50%)"
+          data-modal="investigacion"
+          aria-label="Investigación"
+        ></button>
+
+        <!-- Punto Inferior (Sistémica) -->
+        <button
+          class="sa-point"
+          style="bottom: 12%; left: 44%; transform: translate(-50%, 50%)"
+          data-modal="sistemica"
+          aria-label="Sistémica"
+        ></button>
+
+        <!-- Punto Central (Insight) -->
+        <button
+          class="sa-point sa-point--center"
+          style="top: 47%; left: 42%; transform: translate(-50%, -50%)"
+          data-modal="insight"
+          aria-label="Insight · Frecuencia Alfa"
+        ></button>
+      </div>
+    </div>
+
+    <!-- MODAL SISTEMA ALFA® -->
+    <div class="sa-overlay" id="saOverlay">
+      <div class="sa-modal" role="dialog" aria-modal="true" id="saModal">
+        <button class="sa-modal-close" id="saClose" aria-label="Cerrar">
+          &#10005;
+        </button>
+        <div class="sa-modal-header" id="saHeader"></div>
+        <div class="sa-modal-scroll" id="saScroll"></div>
+      </div>
+    </div>
+
+    <div class="programas__bar">
+      <div class="clientes__inner">
+      <div class="manifiesto__label">
+        <span
+          class="label-tag label-tag--light"
+          data-es="Programas Alfa"
+          data-en="Alpha Programs"
+          data-pt="Programas Alfa"
+          data-fr="Programmes Alpha"
+          >Programas Alfa</span
+        >
+      </div>
+
+      <h2
+        data-es="Un recorrido calibrado al ritmo de tu organización."
+        data-en="A path calibrated to your organization's rhythm."
+        data-pt="Um percurso calibrado ao ritmo da sua organização."
+        data-fr="Un parcours calibré au rythme de votre organisation."
+      >
+        Un recorrido calibrado al ritmo de tu organización.
+      </h2>
+      <p
+        style="
+          font-size: 16px;
+          line-height: 1.6;
+          color: rgba(245, 242, 234, 0.7);
+          margin: 0 0 28px;
+        "
+        data-es="Cuatro intensidades, del primer impulso al eco pleno en todo el sistema."
+        data-en="Four intensities, from first impulse to full echo across the system."
+        data-pt="Quatro intensidades, do primeiro impulso ao eco pleno em todo o sistema."
+        data-fr="Quatre intensités, du premier élan à l'écho pleinement diffusé dans tout le système."
+      >
+        Cuatro intensidades, del primer impulso al eco pleno en todo el sistema.
+      </p>
+
+    <div class="programas__cards">
+      <div class="programa-card programa-card--1">
+        <!-- IMPULSE no se traduce, queda fijo -->
+        <h3>Impulse</h3>
+        <h4
+          data-es="DIAGNÓSTICO"
+          data-en="DIAGNOSTIC"
+          data-pt="DIAGNÓSTICO"
+          data-fr="DIAGNOSTIC"
+        >
+          DIAGNÓSTICO
+        </h4>
+        <p
+          data-es="hasta 3 meses"
+          data-en="up to 3 months"
+          data-pt="até 3 meses"
+          data-fr="jusqu'à 3 mois"
+        >
+          hasta 3 meses
+        </p>
+        <span
+          class="tooltip"
+          data-es="Diagnóstico inicial y activación de la coherencia alfa."
+          data-en="Initial diagnosis and activation of alpha coherence."
+          data-pt="Diagnóstico inicial e ativação da coerência alfa."
+          data-fr="Diagnostic initial et activation de la cohérence alpha."
+          >Diagnóstico inicial y activación de la coherencia alfa.</span
+        >
+      </div>
+      <div class="programa-card programa-card--2">
+        <!-- EXPANSION no se traduce, queda fijo -->
+        <h3>Expansion</h3>
+        <h4
+          data-es="ESCALA"
+          data-en="SCALE"
+          data-pt="ESCALA"
+          data-fr="DÉPLOIEMENT"
+        >
+          ESCALA
+        </h4>
+        <p
+          data-es="hasta 6 meses"
+          data-en="up to 6 months"
+          data-pt="até 6 meses"
+          data-fr="jusqu'à 6 mois"
+        >
+          hasta 6 meses
+        </p>
+        <span
+          class="tooltip"
+          data-es="Escalamos el propósito a equipos y procesos."
+          data-en="We scale purpose to teams and processes."
+          data-pt="Escalamos o propósito para equipes e processos."
+          data-fr="Nous déployons le but aux équipes et aux processus."
+          >Escalamos el propósito a equipos y procesos.</span
+        >
+      </div>
+      <div class="programa-card programa-card--3">
+        <!-- CATALYZE no se traduce, queda fijo -->
+        <h3>Catalyze</h3>
+        <h4
+          data-es="HÁBITO"
+          data-en="HABIT"
+          data-pt="HÁBITO"
+          data-fr="HABITUDE"
+        >
+          HÁBITO
+        </h4>
+        <p
+          data-es="hasta 9 meses"
+          data-en="up to 9 months"
+          data-pt="até 9 meses"
+          data-fr="jusqu'à 9 mois"
+        >
+          hasta 9 meses
+        </p>
+        <span
+          class="tooltip"
+          data-es="La innovación se vuelve un hábito autosostenido."
+          data-en="Innovation becomes a self-sustaining habit."
+          data-pt="A inovação se torna um hábito autossustentado."
+          data-fr="L'innovation devient une habitude auto-entretenue."
+          >La innovación se vuelve un hábito autosostenido.</span
+        >
+      </div>
+      <div class="programa-card programa-card--4">
+        <!-- ECHO no se traduce, queda fijo -->
+        <h3>Echo</h3>
+        <h4
+          data-es="IRRADIACIÓN"
+          data-en="IRRADIATION"
+          data-pt="IRRADIAÇÃO"
+          data-fr="IRRADIATION"
+        >
+          IRRADIACIÓN
+        </h4>
+        <p
+          data-es="hasta 12 meses"
+          data-en="up to 12 months"
+          data-pt="até 12 meses"
+          data-fr="jusqu'à 12 mois"
+        >
+          hasta 12 meses
+        </p>
+        <span
+          class="tooltip"
+          data-es="El sistema se autorregula y su cultura irradia."
+          data-en="The system self-regulates and its culture radiates."
+          data-pt="O sistema se autorregula e sua cultura irradia."
+          data-fr="Le système s'autorégule et sa culture rayonne."
+          >El sistema se autorregula y su cultura irradia.</span
+        >
+      </div>
+ </div>
+ <div class="clientes__inner">
+**Modalidad:** Presencial · Híbrido · Remoto —
+
+"Estés donde estés, colaboramos a través de la tecnología: la misma coherencia alfa, sin fronteras."
+
+
+ </div>
+    </div>
+
+
+    <style>
+      .programa-card {
+        position: relative;
+      }
+
+      .programa-card .tooltip {
+        position: absolute;
+        bottom: 50%;
+        left: 0%;
+
+        color: #fff;
+        padding: 35px;
+        border-radius: 6px;
+        font-size: 11px;
+        line-height: 1.4;
+        width: 100%;
+        pointer-events: none;
+
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+        z-index: 10;
+      }
+
+      .programa-card:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+
+
+</div>
+    <div class="stats">
+
+      <div class="stat">
+        <span
+          class="stat__num"
+          data-es="25 años"
+          data-en="25 years"
+          data-pt="25 anos"
+          data-fr="25 ans"
+          >25 años</span
+        ><span
+          class="stat__label"
+          data-es="de experiencia"
+          data-en="of experience"
+          data-pt="de experiência"
+          data-fr="d'expérience"
+          >de experiencia</span
+        >
+      </div>
+      <div class="stat" style="background: var(--paper2)">
+        <span class="stat__num">+48</span
+        ><span
+          class="stat__label"
+          data-es="clientes confiaron en nosotros"
+          data-en="Clients trusted us."
+          data-pt="	Clientes confiaram em nós."
+          data-fr="Des clients nous ont fait confiance."
+          >clientes confiaron en nosotros</span
+        >
+      </div>
+      <div class="stat">
+        <div class="clientes__inner"></div>
+        <span class="stat__num">+10K</span
+        ><span
+          class="stat__label"
+          data-es="horas de consultoría"
+          data-en="hours of consulting"
+          data-pt="horas de consultoria"
+          data-fr="heures de conseil"
+          >horas de consultoría</span
+        >
+      </div>
+      <div class="stat" style="background: var(--paper2)">
+        <span class="stat__num" data-es="3" data-en="3" data-pt="3" data-fr="3"
+          >3</span
+        ><span
+          class="stat__label"
+          data-es="certificaciones internacionales"
+          data-en="international certifications"
+          data-pt="certificações internacionais"
+          data-fr="certifications internationales"
+          >certificaciones internacionales</span
+        >
+      </div>
+    </div>
+
+    <section class="clientes" id="clientes">
+      <div class="clientes__inner">
+      <div class="clientes__label">
+        <span
+          class="label-tag"
+          data-es="Clientes"
+          data-en="Clients"
+          data-pt="Clientes"
+          data-fr="Clients"
+          >Clientes</span
+        >
+      </div>
+      <h2
+        class="clientes__h2"
+        data-es="Organizaciones de toda la región ya confían en nosotros."
+        data-en="  Organizations from across the region already trust us."
+        data-pt=" Organizações de toda a região já confiam em nós."
+        data-fr=" Des organisations de toute la région nous font déjà confiance."
+      >
+        Organizaciones de toda la región ya confían en nosotros.
+      </h2>
+      <p
+        data-es="Organizaciones de la región confían en Alfalógica."
+        data-en="  	Organizations in the region trust Alfalógica."
+        data-pt=" 	Organizações da região confiam na Alfalógica."
+        data-fr=" Des organisations de la région font confiance à Alfalógica."
+      >
+        Organizaciones de la región confían en Alfalógica
+      </p>
+
+<p
+        data-es="Corporativo · Pymes · Emprendedores · Entidades educativas · Sector público · Tercer sector"
+        data-en="  	Sectors: Corporate · SMEs · Entrepreneurs · Educational institutions · Public sector · Third sector"
+        data-pt=" 	Setores: Corporativo · PMEs · Empreendedores · Instituições educacionais · Setor público · Terceiro setor"
+        data-fr=" Secteurs : Corporatif · PME · Entrepreneurs · Établissements éducatifs · Secteur public · Tiers secteur"
+
+class="sectores">
+       Sectores: Corporativo · Pymes · Emprendedores · Entidades educativas · Sector público · Tercer sector
+
+      </p>
+
+
+      <div class="clientes__logos" style="background: #73a4a7">
+        <style>
+          .carousel-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+
+            -webkit-mask-image: linear-gradient(
+              to right,
+              transparent 0%,
+              black 5%,
+              black 95%,
+              transparent 100%
+            );
+            mask-image: linear-gradient(
+              to right,
+              transparent 0%,
+              black 5%,
+              black 95%,
+              transparent 100%
+            );
+          }
+
+          .carousel-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-left 70s linear infinite;
+          }
+
+          .carousel-wrapper:hover .carousel-track {
+            animation-play-state: paused;
+          }
+
+          .logo-cell {
+            flex: 0 0 auto;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+          }
+
+          .logo-cell img {
+            max-width: 100%;
+            max-height: 100px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+          }
+
+          @keyframes scroll-left {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+
+          @media (max-width: 967px) {
+            .logo-cell {
+              width: 33.333%;
+              max-width: 260px;
+            }
+          }
+
+          @media (max-width: 600px) {
+            .logo-cell {
+              width: 50%;
+              max-width: 220px;
+            }
+          }
+        </style>
+
+        <div class="carousel-wrapper">
+          <div class="carousel-track">
+            <!-- Set 1 -->
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-01.png" alt="Cliente 1" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-02.png" alt="Cliente 2" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-03.png" alt="Cliente 3" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-04.png" alt="Cliente 4" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-05.png" alt="Cliente 5" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-06.png" alt="Cliente 6" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-07.png" alt="Cliente 7" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-08.png" alt="Cliente 8" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-09.png" alt="Cliente 9" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-10.png" alt="Cliente 10" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-11.png" alt="Cliente 11" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-12.png" alt="Cliente 12" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-13.png" alt="Cliente 13" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-14.png" alt="Cliente 14" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-15.png" alt="Cliente 15" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-16.png" alt="Cliente 16" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-17.png" alt="Cliente 17" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-18.png" alt="Cliente 18" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-19.png" alt="Cliente 19" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-20.png" alt="Cliente 20" />
+            </div>
+
+            <!-- Set 2 (duplicado) -->
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-01.png" alt="Cliente 1" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-02.png" alt="Cliente 2" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-03.png" alt="Cliente 3" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-04.png" alt="Cliente 4" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-05.png" alt="Cliente 5" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-06.png" alt="Cliente 6" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-07.png" alt="Cliente 7" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-08.png" alt="Cliente 8" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-09.png" alt="Cliente 9" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-10.png" alt="Cliente 10" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-11.png" alt="Cliente 11" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-12.png" alt="Cliente 12" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-13.png" alt="Cliente 13" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-14.png" alt="Cliente 14" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-15.png" alt="Cliente 15" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-16.png" alt="Cliente 16" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-17.png" alt="Cliente 17" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-18.png" alt="Cliente 18" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-19.png" alt="Cliente 19" />
+            </div>
+            <div class="logo-cell">
+              <img src="logos/LogosClientes_solos-20.png" alt="Cliente 20" />
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="testimonios-alfa" id="testimonios">
+  <div class="testimonios-alfa__inner">
+    <div class="clientes__label">
+      <span
+        class="label-tag label-tag--light"
+        data-es="Testimonios"
+        data-en="Testimonials"
+        data-pt="Depoimentos"
+        data-fr="Témoignages"
+        >Testimonios</span
+      >
+    </div>
+    <h2
+      class="clientes__h2"
+      data-es="Lo que dicen los líderes que trabajaron con nosotros"
+      data-en="What leaders who worked with us say."
+      data-pt="O que dizem os líderes que trabalharam conosco."
+      data-fr="Ce que disent les leaders qui ont travaillé avec nous."
+    >
+      Lo que dicen los líderes que trabajaron con nosotros
+    </h2>
+
+    <div class="testimonios__grid">
+      <!-- Testimonio 1 -->
+      <div class="testimonio-card" tabindex="0">
+        <p class="testimonio-card__name">Esteban Alonso</p>
+        <p class="testimonio-card__role"
+           data-es="Head of Customer &amp; Market Management LatAm"
+           data-en="Head of Customer &amp; Market Management LatAm"
+           data-pt="Head of Customer &amp; Market Management LatAm"
+           data-fr="Head of Customer &amp; Market Management LatAm"
+        >Head of Customer &amp; Market Management LatAm</p>
+        <p class="testimonio-card__company">Zurich Insurance</p>
+        <div class="testimonio-card__tooltip">
+          <p
+            data-es="Junto a Mariana llevamos a cabo varios estudios de mercado y análisis de aceptación sobre diversos productos. Es una profesional de altísimo nivel que combina conocimientos estratégicos, estadísticos y metodologías de análisis para obtener resultados de altísima calidad."
+            data-en="Together with Mariana, we carried out several market studies and acceptance analyses on various products. She is a top-level professional who combines strategic knowledge, statistics, and analytical methodologies to deliver high-quality results."
+            data-pt="Com a Mariana realizamos vários estudos de mercado e análises de aceitação sobre diversos produtos. Ela é uma profissional de altíssimo nível que combina conhecimentos estratégicos, estatísticos e metodologias de análise para obter resultados de altíssima qualidade."
+            data-fr="Avec Mariana, nous avons mené plusieurs études de marché et analyses d'acceptation sur divers produits. C'est une professionnelle de très haut niveau qui combine des connaissances stratégiques, statistiques et des méthodologies d'analyse pour obtenir des résultats d'une très haute qualité."
+          >Junto a Mariana llevamos a cabo varios estudios de mercado y análisis de aceptación sobre diversos productos. Es una profesional de altísimo nivel que combina conocimientos estratégicos, estadísticos y metodologías de análisis para obtener resultados de altísima calidad.</p>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="testimonio-card" tabindex="0">
+        <p class="testimonio-card__name">Roberto S. Schaps</p>
+        <p class="testimonio-card__role"
+           data-es="President &amp; CEO"
+           data-en="President &amp; CEO"
+           data-pt="Presidente &amp; CEO"
+           data-fr="Président &amp; CEO"
+        >President &amp; CEO</p>
+        <p class="testimonio-card__company">Relebrand</p>
+        <div class="testimonio-card__tooltip">
+          <p
+            data-es="Contratamos a Mariana y a Alfalógica para una investigación para uno de nuestros clientes. Nuestra mayor preocupación era cómo iba a poder con todo el trabajo estando en Buenos Aires y con el cliente en West Palm Beach. El proyecto fue impecable y, sinceramente, ni noté que no estaba aquí. Una experiencia extraordinaria."
+            data-en="We hired Mariana and Alfalógica for a research project for one of our clients. Our biggest concern was how she would manage all the work from Buenos Aires with the client in West Palm Beach. The project was impeccable, and honestly, I didn't even notice she wasn't here. An extraordinary experience."
+            data-pt="Contratamos a Mariana e a Alfalógica para uma pesquisa para um de nossos clientes. Nossa maior preocupação era como ela daria conta de todo o trabalho estando em Buenos Aires e com o cliente em West Palm Beach. O projeto foi impecável e, sinceramente, nem notei que ela não estava aqui. Uma experiência extraordinária."
+            data-fr="Nous avons engagé Mariana et Alfalógica pour une recherche pour l'un de nos clients. Notre plus grande préoccupation était de savoir comment elle allait gérer tout le travail depuis Buenos Aires avec un client à West Palm Beach. Le projet était impeccable et, sincèrement, je n'ai même pas remarqué qu'elle n'était pas là. Une expérience extraordinaire."
+          >Contratamos a Mariana y a Alfalógica para una investigación para uno de nuestros clientes. Nuestra mayor preocupación era cómo iba a poder con todo el trabajo estando en Buenos Aires y con el cliente en West Palm Beach. El proyecto fue impecable y, sinceramente, ni noté que no estaba aquí. Una experiencia extraordinaria.</p>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="testimonio-card" tabindex="0">
+        <p class="testimonio-card__name">Ana Sanio</p>
+        <p class="testimonio-card__role"
+           data-es="Directora"
+           data-en="Director"
+           data-pt="Diretora"
+           data-fr="Directrice"
+        >Directora</p>
+        <p class="testimonio-card__company">Direcciona</p>
+        <div class="testimonio-card__tooltip">
+          <p
+            data-es="Alfalógica llevó a cabo durante años las investigaciones de mercado y clientes para Direcciona. El trabajo realizado fue impecable. La ecuación costo/beneficio, la mejor. Destacaron por la calidad del relevamiento y las recomendaciones sobre cómo desarrollar las encuestas. Los resultados obtenidos fueron de muy alto valor. Mariana tiene además un excelente trato, competencia fundamental para brindar este servicio. Volvería a contratar, sin lugar a dudas, los servicios de Alfalógica."
+            data-en="Alfalógica carried out market and client research for Direcciona for years. The work was impeccable. The cost-benefit ratio was the best. They stood out for the quality of the data collection and the recommendations on how to develop the surveys. The results obtained were of very high value. Mariana also has excellent interpersonal skills, a fundamental competence for providing this service. I would definitely hire Alfalógica's services again."
+            data-pt="A Alfalógica realizou durante anos as pesquisas de mercado e clientes para a Direcciona. O trabalho realizado foi impecável. A relação custo/benefício, a melhor. Destacaram-se pela qualidade do levantamento e pelas recomendações sobre como desenvolver as pesquisas. Os resultados obtidos foram de altíssimo valor. A Mariana tem também um excelente trato, competência fundamental para prestar este serviço. Voltaria a contratar, sem dúvida, os serviços da Alfalógica."
+            data-fr="Alfalógica a mené pendant des années les études de marché et clients pour Direcciona. Le travail réalisé était impeccable. Le rapport coût/bénéfice, le meilleur. Ils se sont distingués par la qualité de la collecte et les recommandations sur la façon de développer les enquêtes. Les résultats obtenus étaient d'une très grande valeur. Mariana a également un excellent relationnel, une compétence fondamentale pour fournir ce service. Je ferais à nouveau appel aux services d'Alfalógica sans aucune hésitation."
+          >Alfalógica llevó a cabo durante años las investigaciones de mercado y clientes para Direcciona. El trabajo realizado fue impecable. La ecuación costo/beneficio, la mejor. Destacaron por la calidad del relevamiento y las recomendaciones sobre cómo desarrollar las encuestas. Los resultados obtenidos fueron de muy alto valor. Mariana tiene además un excelente trato, competencia fundamental para brindar este servicio. Volvería a contratar, sin lugar a dudas, los servicios de Alfalógica.</p>
+        </div>
+      </div>
+
+      <!-- Testimonio 4 -->
+      <div class="testimonio-card" tabindex="0">
+        <p class="testimonio-card__name">María Pinilla</p>
+        <p class="testimonio-card__role"
+           data-es="Fundadora"
+           data-en="Founder"
+           data-pt="Fundadora"
+           data-fr="Fondatrice"
+        >Fundadora</p>
+        <p class="testimonio-card__company">María Pinilla World</p>
+        <div class="testimonio-card__tooltip">
+          <p
+            data-es="Trabajar con Mariana es un aprendizaje constante. Su método es racional, práctico, directo y sincero: una mirada nueva, fresca, creativa y valiosa. Lo que desarrollamos para mi marca es perfectamente aplicable a la vida en general: vínculos, formas de producir, colaboradores, desafíos. Su manera orgánica, profunda y simple de compartir su conocimiento me permite crecer y seguir evolucionando, tanto a nivel laboral como personal."
+            data-en="Working with Mariana is a constant learning experience. Her method is rational, practical, direct, and sincere: a fresh, creative, and valuable perspective. What we developed for my brand is perfectly applicable to life in general: relationships, ways of producing, collaborators, challenges. Her organic, deep, and simple way of sharing her knowledge allows me to grow and keep evolving, both professionally and personally."
+            data-pt="Trabalhar com a Mariana é um aprendizado constante. Seu método é racional, prático, direto e sincero: um olhar novo, fresco, criativo e valioso. O que desenvolvemos para minha marca é perfeitamente aplicável à vida em geral: vínculos, formas de produzir, colaboradores, desafios. Sua maneira orgânica, profunda e simples de compartilhar seu conhecimento me permite crescer e continuar evoluindo, tanto a nível profissional quanto pessoal."
+            data-fr="Travailler avec Mariana est un apprentissage constant. Sa méthode est rationnelle, pratique, directe et sincère : un regard nouveau, frais, créatif et précieux. Ce que nous avons développé pour ma marque est parfaitement applicable à la vie en général : les liens, les façons de produire, les collaborateurs, les défis. Sa manière organique, profonde et simple de partager ses connaissances me permet de grandir et de continuer à évoluer, tant sur le plan professionnel que personnel."
+          >Trabajar con Mariana es un aprendizaje constante. Su método es racional, práctico, directo y sincero: una mirada nueva, fresca, creativa y valiosa. Lo que desarrollamos para mi marca es perfectamente aplicable a la vida en general: vínculos, formas de producir, colaboradores, desafíos. Su manera orgánica, profunda y simple de compartir su conocimiento me permite crecer y seguir evolucionando, tanto a nivel laboral como personal.</p>
+        </div>
+      </div>
+
+      <!-- Testimonio 5 -->
+      <div class="testimonio-card" tabindex="0">
+        <p class="testimonio-card__name">Ravneet Somal</p>
+        <p class="testimonio-card__role"
+           data-es="Clinical Research Coordinator"
+           data-en="Clinical Research Coordinator"
+           data-pt="Coordenadora de Pesquisa Clínica"
+           data-fr="Coordinatrice de Recherche Clinique"
+        >Clinical Research Coordinator</p>
+        <p class="testimonio-card__company">Horizon Health Network</p>
+        <div class="testimonio-card__tooltip">
+          <p
+            data-es="Mariana ha sido una mentora maravillosa y es un placer trabajar con ella. Es muy resolutiva, perceptiva y apasionada. Trabajando juntas gané confianza en mis habilidades y definí metas claras y un camino hacia mi éxito. Mariana me ayudó a crecer en mi carrera y a expandir mis horizontes. ¡Agradezco poder llamarla mi mentora!"
+            data-en="Mariana has been a wonderful mentor and it's a pleasure to work with her. She is very resourceful, perceptive, and passionate. Working together, I gained confidence in my abilities and defined clear goals and a path to my success. Mariana helped me grow in my career and expand my horizons. I'm grateful to be able to call her my mentor!"
+            data-pt="A Mariana tem sido uma mentora maravilhosa e é um prazer trabalhar com ela. Ela é muito resolutiva, perceptiva e apaixonada. Trabalhando juntas, ganhei confiança nas minhas habilidades e defini metas claras e um caminho para o meu sucesso. A Mariana me ajudou a crescer na minha carreira e a expandir meus horizontes. Agradeço por poder chamá-la de minha mentora!"
+            data-fr="Mariana a été une merveilleuse mentor et c'est un plaisir de travailler avec elle. Elle est très résolutive, perspicace et passionnée. En travaillant ensemble, j'ai gagné confiance en mes capacités et j'ai défini des objectifs clairs ainsi qu'un chemin vers mon succès. Mariana m'a aidée à grandir dans ma carrière et à élargir mes horizons. Je suis reconnaissante de pouvoir l'appeler ma mentor !"
+          >Mariana ha sido una mentora maravillosa y es un placer trabajar con ella. Es muy resolutiva, perceptiva y apasionada. Trabajando juntas gané confianza en mis habilidades y definí metas claras y un camino hacia mi éxito. Mariana me ayudó a crecer en mi carrera y a expandir mis horizontes. ¡Agradezco poder llamarla mi mentora!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+    <section class="contacto" id="contacto">
+      <div class="contacto__inner">
+        <div>
+          <div class="contacto__label">
+            <span
+              class="label-tag label-tag--light"
+              data-es="Contacto"
+              data-en="Contact"
+              data-pt="Contato"
+              data-fr="Contact"
+              >Contacto</span
+            >
+          </div>
+          <h2
+            class="contacto__h2"
+            data-es="Abramos un nuevo horizonte de expansión."
+            data-en="Let's open a new horizon of expansion."
+            data-pt="Abramos um novo horizonte de expansão."
+            data-fr="Ouvrons un nouvel horizon d'expansion."
+          >
+            Abramos un nuevo horizonte de expansión.
+          </h2>
+          <p
+            class="contacto__sub"
+            data-es="Cuéntanos sobre tu organización. Respondemos en un día hábil."
+            data-en="Tell us about your organization. We respond within one business day."
+            data-pt="Conte-nos sobre sua organização. Respondemos em um dia útil."
+            data-fr="Parlez-nous de votre organisation. Nous répondons sous un jour ouvré."
+          >
+            Cuéntanos sobre tu organización. Respondemos en un día hábil.
+          </p>
+          <!-- BADGE -->
+  <div
+    class="badge-alfa"
+    data-es="Sintonizamos tu organización en su frecuencia alfa."
+    data-en="We tune your organization to its alpha frequency."
+    data-pt="Sintonizamos sua organização em sua frequência alfa."
+    data-fr="Nous accordons votre organisation à sa fréquence alpha."
+  >
+    Sintonizamos tu organización en su frecuencia alfa.
+  </div>
+          <div class="contacto__dato">
+            <span
+              class="contacto__dato-label"
+              data-es="Miami"
+              data-en="Miami"
+              data-pt="Miami"
+              data-fr="Miami"
+              >Miami</span
+            >
+            <div
+              class="contacto__dato-val"
+              data-es="Florida 33131, USA<br/><a href='tel:+17865980052'>(786) 598-0052</a> · <a href='https://wa.me/17865980052'>WhatsApp</a>"
+              data-en="Florida 33131, USA<br/><a href='tel:+17865980052'>(786) 598-0052</a> · <a href='https://wa.me/17865980052'>WhatsApp</a>"
+              data-pt="Flórida 33131, EUA<br/><a href='tel:+17865980052'>(786) 598-0052</a> · <a href='https://wa.me/17865980052'>WhatsApp</a>"
+              data-fr="Floride 33131, États-Unis<br/><a href='tel:+17865980052'>(786) 598-0052</a> · <a href='https://wa.me/17865980052'>WhatsApp</a>"
+            >
+              Florida 33131, USA<br /><a href="tel:+17865980052"
+                >(786) 598-0052</a
+              >
+              · <a href="https://wa.me/17865980052">WhatsApp</a>
+            </div>
+          </div>
+          <div class="contacto__dato">
+            <span
+              class="contacto__dato-label"
+              data-es="Buenos Aires"
+              data-en="Buenos Aires"
+              data-pt="Buenos Aires"
+              data-fr="Buenos Aires"
+              >Buenos Aires</span
+            >
+            <div
+              class="contacto__dato-val"
+              data-es="Argentina<br/><a href='tel:+541140845649'>(54911) 4 084 5649</a>"
+              data-en="Argentina<br/><a href='tel:+541140845649'>(54911) 4 084 5649</a>"
+              data-pt="Argentina<br/><a href='tel:+541140845649'>(54911) 4 084 5649</a>"
+              data-fr="Argentine<br/><a href='tel:+541140845649'>(54911) 4 084 5649</a>"
+            >
+              Argentina<br /><a href="tel:+541140845649">(54911) 4 084 5649</a>
+            </div>
+          </div>
+          <div class="contacto__dato">
+            <span
+              class="contacto__dato-label"
+              data-es="Mail"
+              data-en="Mail"
+              data-pt="E-mail"
+              data-fr="Mail"
+              >Mail</span
+            >
+            <div
+              class="contacto__dato-val"
+              data-es="<a href='mailto:info@alfalogica.com'>info@alfalogica.com</a>"
+              data-en="<a href='mailto:info@alfalogica.com'>info@alfalogica.com</a>"
+              data-pt="<a href='mailto:info@alfalogica.com'>info@alfalogica.com</a>"
+              data-fr="<a href='mailto:info@alfalogica.com'>info@alfalogica.com</a>"
+            >
+              <a href="mailto:info@alfalogica.com">info@alfalogica.com</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <form class="form" action="#" method="POST">
+            <div class="form__field">
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Tu nombre"
+                required
+                data-es="Tu nombre"
+                data-en="Your name"
+                data-pt="Seu nome"
+                data-fr="Votre nom"
+              />
+            </div>
+            <div class="form__field">
+              <input
+                type="email"
+                name="email"
+                placeholder="Tu correo electrónico"
+                required
+                data-es="Tu correo electrónico"
+                data-en="Your email"
+                data-pt="Seu e-mail"
+                data-fr="Votre e-mail"
+              />
+            </div>
+            <div class="form__field">
+              <input
+                type="text"
+                name="asunto"
+                placeholder="Asunto"
+                data-es="Asunto"
+                data-en="Subject"
+                data-pt="Assunto"
+                data-fr="Sujet"
+              />
+            </div>
+            <div class="form__field">
+              <textarea
+                name="mensaje"
+                placeholder="Tu mensaje (opcional)"
+                rows="4"
+                data-es="Tu mensaje (opcional)"
+                data-en="Your message (optional)"
+                data-pt="Sua mensagem (opcional)"
+                data-fr="Votre message (facultatif)"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="form__submit"
+              data-es="Enviar mensaje <span>→</span>"
+              data-en="Send message <span>→</span>"
+              data-pt="Enviar mensagem <span>→</span>"
+              data-fr="Envoyer le message <span>→</span>"
+            >
+              Enviar mensaje <span>→</span>
+            </button>
+            <p
+              class="form__privacy"
+              data-es="Nunca compartimos tus datos."
+              data-en="We never share your data."
+              data-pt="Nunca compartilhamos seus dados."
+              data-fr="Nous ne partageons jamais vos données."
+            >
+              Nunca compartimos tus datos.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__logo"><img src="logo.png" alt="Alfalógica" /></div>
+        <span
+          class="footer__tagline"
+          data-es="Del  <span> INSIGHT</span> a la acción"
+          data-en="From <span> INSIGHT</span> to action. "
+          data-pt="Do <span> INSIGHT</span> à ação."
+          data-fr="De l'<span> INSIGHT</span> à l'action."
+          >Del <span>INSIGHT</span> a la acción</span
+        >
+
+        <span
+          class="footer__back"
+          id="footerBack"
+          data-es="Volver arriba ↑"
+          data-en="Back to top ↑"
+          data-pt="Voltar ao topo ↑"
+          data-fr="Retour en haut ↑"
+          >Volver arriba ↑</span
+        >
+      </div>
+    </footer>
+
+    <a
+      class="wa-float"
+      href="https://wa.me/17865980052"
+      target="_blank"
+      title="WhatsApp"
+    >
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      (function () {
+        const translatables = document.querySelectorAll(
+          "[data-es][data-en][data-pt][data-fr]",
+        );
+        const langSelectors = document.querySelectorAll("[data-lang]");
+
+        function setLanguage(lang) {
+          translatables.forEach((el) => {
+            const translation = el.getAttribute("data-" + lang);
+            if (translation !== null) {
+              if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                el.placeholder = translation;
+              } else {
+                el.innerHTML = translation;
+              }
+            }
+          });
+
+          langSelectors.forEach((link) => {
+            const linkLang = link.getAttribute("data-lang");
+            if (linkLang === lang) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+
+          localStorage.setItem("alfalogica-lang", lang);
+          document.documentElement.lang = lang;
+        }
+
+        langSelectors.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const lang = this.getAttribute("data-lang");
+            setLanguage(lang);
+          });
+        });
+
+        const savedLang = localStorage.getItem("alfalogica-lang");
+        if (savedLang && ["es", "en", "pt", "fr"].includes(savedLang)) {
+          setLanguage(savedLang);
+        } else {
+          setLanguage("es");
+        }
+
+        document
+          .getElementById("footerBack")
+          ?.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+
+        const hamburger = document.getElementById("hamburger");
+        const mobileMenu = document.getElementById("mobileMenu");
+        if (hamburger && mobileMenu) {
+          hamburger.addEventListener("click", function () {
+            const expanded = this.getAttribute("aria-expanded") === "true";
+            this.setAttribute("aria-expanded", !expanded);
+            mobileMenu.classList.toggle("open");
+          });
+        }
+
+        // Modal
+        const overlay = document.getElementById("saOverlay");
+        const modal = document.getElementById("saModal");
+        const closeBtn = document.getElementById("saClose");
+        const header = document.getElementById("saHeader");
+        const scroll = document.getElementById("saScroll");
+
+        const modalData = {
+          innovacion: {
+            title: "Innovación",
+            content:
+              "La innovación surge de la integración de perspectivas diversas. En Alfalógica, fomentamos espacios de co-creación donde la tecnología y la intuición se encuentran para generar soluciones disruptivas y sostenibles.",
+          },
+          coaching: {
+            title: "Coaching",
+            content:
+              "El coaching ejecutivo en Alfalógica se basa en la escucha profunda y la indagación poderosa. Acompañamos a líderes a descubrir su potencial y a desplegar su influencia con autenticidad y claridad estratégica.",
+          },
+          investigacion: {
+            title: "Investigación",
+            content:
+              "La investigación es el pilar de nuestra metodología. Analizamos datos, tendencias y comportamientos para ofrecer diagnósticos precisos que iluminan el camino hacia la transformación organizacional.",
+          },
+          sistemica: {
+            title: "Visión Sistémica",
+            content:
+              "Todo sistema es interdependiente. Nuestra mirada sistémica integra las dimensiones humanas, estructurales y culturales para diseñar intervenciones que generan cambios duraderos y significativos.",
+          },
+          insight: {
+            title: "Insight · Frecuencia Alfa",
+            content:
+              "La frecuencia alfa representa el estado de coherencia y creatividad. Desde este lugar, conectamos la sabiduría del ser con la precisión del dato, abriendo nuevos horizontes de expansión y propósito.",
+          },
+        };
+
+        function openModal(key) {
+          const data = modalData[key];
+          if (!data) return;
+          header.innerHTML = `<h3>${data.title}</h3>`;
+          scroll.innerHTML = `<p>${data.content}</p>`;
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        document.querySelectorAll(".sa-point").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const key = this.getAttribute("data-modal");
+            if (key) openModal(key);
+          });
+        });
+
+        if (closeBtn) closeBtn.addEventListener("click", closeModal);
+        if (overlay) {
+          overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) closeModal();
+          });
+        }
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeModal();
+        });
+
+        // ---- SCROLL SUAVE SOLO PARA ANCLAS LOCALES (PURAS) ----
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          const href = anchor.getAttribute("href");
+          // Ignorar enlaces que contienen "/" (no son anclas puras)
+          if (href === "#" || href === "" || href.includes("/")) return;
+
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
