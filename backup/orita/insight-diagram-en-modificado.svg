@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 650" style="enable-background:new 0 0 1000 650;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_00000168085349451802978220000010860075837767367559_);}
+	.st1{opacity:0.7;enable-background:new    ;}
+	.st2{fill:none;stroke:#000000;stroke-width:2;}
+	.st3{opacity:0.85;fill:none;stroke:#9E9E9E;stroke-width:2;enable-background:new    ;}
+	.st4{fill:url(#SVGID_00000012447385872055520700000007577041432182515347_);}
+	.st5{font-family:'Arial-BoldMT';}
+	.st6{font-size:30px;}
+	.st7{letter-spacing:3;}
+	.st8{font-family:'ArialMT';}
+	.st9{font-size:15px;}
+	.st10{font-size:22px;}
+	.st11{letter-spacing:2;}
+	.st12{font-size:13px;}
+</style>
+<g>
+	<defs>
+		<path id="SVGID_1_" d="M15,0h970c8.3,0,15,6.7,15,15v620c0,8.3-6.7,15-15,15H15c-8.3,0-15-6.7-15-15V15C0,6.7,6.7,0,15,0z"/>
+	</defs>
+	<clipPath id="SVGID_00000002359293503691495410000016379703188105892761_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	<g style="clip-path:url(#SVGID_00000002359293503691495410000016379703188105892761_);">
+		
+			<image style="overflow:visible;enable-background:new    ;" width="742" height="1280" xlink:href="944D51A.jpeg"  transform="matrix(1.5744 0 0 1.5744 -544.1185 -1008.1437)">
+		</image>
+		<rect y="0" class="st1" width="1000" height="650"/>
+	</g>
+</g>
+<path class="st2" d="M16,1h968c8.3,0,15,6.7,15,15v618c0,8.3-6.7,15-15,15H16c-8.3,0-15-6.7-15-15V16C1,7.7,7.7,1,16,1z"/>
+<g>
+	<ellipse class="st3" cx="500" cy="320" rx="260" ry="130"/>
+	<ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 -79.8276 447.2792)" class="st3" cx="500" cy="320" rx="130" ry="260"/>
+	<ellipse class="st3" cx="500" cy="320" rx="130" ry="260"/>
+	<ellipse transform="matrix(0.7071 -0.7071 0.7071 0.7071 -79.8276 447.2792)" class="st3" cx="500" cy="320" rx="260" ry="130"/>
+	
+		<animateTransform  accumulate="none" additive="replace" attributeName="transform" calcMode="linear" dur="26s" fill="remove" from="0 500 320" repeatCount="indefinite" restart="always" to="360 500 320" type="rotate">
+		</animateTransform>
+</g>
+<radialGradient id="SVGID_00000035503679685238465520000001062532762351286149_" cx="201.0571" cy="744.7043" r="0.5" gradientTransform="matrix(140 0 0 -140 -27648 104578.6016)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#F4E84A;stop-opacity:0.95"/>
+	<stop  offset="0.55" style="stop-color:#C7D84A;stop-opacity:0.55"/>
+	<stop  offset="1" style="stop-color:#C7D84A;stop-opacity:0"/>
+</radialGradient>
+<circle style="fill:url(#SVGID_00000035503679685238465520000001062532762351286149_);" cx="500" cy="320" r="70">
+<animate  accumulate="none" additive="replace" attributeName="r" calcMode="linear" dur="3.2s" fill="remove" repeatCount="indefinite" restart="always" values="60;78;60">
+	</animate>
+<animate  accumulate="none" additive="replace" attributeName="opacity" calcMode="linear" dur="3.2s" fill="remove" repeatCount="indefinite" restart="always" values="0.75;1;0.75">
+	</animate>
+</circle>
+<circle cx="500" cy="115" r="9"/>
+<circle cx="500" cy="525" r="9"/>
+<circle cx="295" cy="320" r="9"/>
+<circle cx="705" cy="320" r="9"/>
+<text transform="matrix(1 0 0 1 425.165 316)" class="st5 st6 st7">INSIGHT</text>
+<text transform="matrix(1 0 0 1 435.7996 342)" class="st8 st9">Alpha Frequency</text>
+<text transform="matrix(1 0 0 1 417.5767 80)" class="st5 st10 st11">INNOVATION</text>
+<text transform="matrix(1 0 0 1 436.8301 103)" class="st8 st12">(Adaptive Evolution)</text>
+<text transform="matrix(1 0 0 1 422.9331 567)" class="st5 st10 st11">SYSTEMICS</text>
+<text transform="matrix(1 0 0 1 434.9219 590)" class="st8 st12">(Geometry of Bonds)</text>
+<text transform="matrix(1 0 0 1 131.2246 315)" class="st5 st10 st11">COACHING</text>
+<text transform="matrix(1 0 0 1 145.7656 338)" class="st8 st12">(Leadership Biology)</text>
+<text transform="matrix(1 0 0 1 725 315)" class="st5 st10 st11">RESEARCH</text>
+<text transform="matrix(1 0 0 1 725 338)" class="st8 st12">(Data Intelligence)</text>
+</svg>
