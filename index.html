@@ -156,62 +156,44 @@
     </div>
   </section>
 
-  <section class="sistema-banner" id="metodo">
-    <div class="sistema-banner__bg">
-      <img src="foto1.jpg" alt="Sistema Alfa®" />
-    </div>
-    <div class="sistema-banner__overlay"></div>
-    <div class="sistema-banner__content">
-      <div class="clientes__inner">
-        <div class="sistema-banner__label">
-          <span class="label-tag label-tag--light" data-es="Sistema Alfa" data-en="Alpha System" data-pt="Sistema Alfa"
-            data-fr="Système Alpha">Sistema Alfa</span>
-        </div>
-        <h2 class="sistema-banner__h2" data-es="El Motor Disciplinario<br/><em> Un orden vivo que se autorregula.</em>"
-          data-en="The Disciplinary Engine<br/><em>A living order that self-regulates.</em>"
-          data-pt="O Motor Disciplinar<br/><em>Uma ordem viva que se autorregula.</em>"
-          data-fr="Le Moteur Disciplinaire<br/><em>Un ordre vivant qui s'autorégule.</em>">
-          El Motor Disciplinario<br /><em>Un orden vivo que se autorregula.</em>
-        </h2>
-      </div>
-    </div>
-  </section>
 
-  <div class=" ">
-    <p data-es="Abordamos la organización de forma holística: el ser, la tarea y los vínculos como un mismo sistema. Y el juego es nuestro lenguaje transversal para activarlo."
-      data-en="We approach the organization holistically: being, task, and relationships as one system. And play is our cross-cutting language to activate it."
-      data-pt="Abordamos a organização de forma holística: o ser, a tarefa e os vínculos como um mesmo sistema. E o jogo é a nossa linguagem transversal para ativá-lo."
-      data-fr="Nous abordons l'organisation de manière holistique : l'être, la tâche et les liens comme un même système. Et le jeu est notre langage transversal pour l'activer.">
-      Abordamos la organización de forma holística: el ser, la tarea y los vínculos como un mismo sistema. Y el juego es
-      nuestro lenguaje transversal para activarlo.
-    </p>
-  </div>
 
   <!-- ─── DIAGRAMA (sección traducida) ─── -->
-  <div class="diagrama">
+  <div class="diagrama"
+    style="background: url(sunset.jpg) center 25% / cover rgb(26, 20, 16); position: relative; padding:  0px; filter: brightness(1) saturate(1.05);">
 
     <div class="sa-diagram-wrap">
 
-      <style>
-        @keyframes af-spin {
-          from {
-            transform: rotate(0deg);
-          }
+      <section class="sistema-banner" id="metodo">
 
-          to {
-            transform: rotate(360deg);
-          }
-        }
 
-        .af-orbit {
-          transform-box: fill-box;
-          transform-origin: center center;
-          animation: af-spin 600s linear infinite;
-          /* Muy lento: 10 min por rotación */
-        }
-      </style>
-      <section data-dc-tpl="107" id="sistema"
-        style="background: url(sunset.jpg) center 25% / cover rgb(26, 20, 16); position: relative; padding:  0px; filter: brightness(1) saturate(1.05);">
+        <div class="sistema-banner__content">
+          <div class="clientes__inner">
+            <div class="sistema-banner__label">
+              <span class="label-tag label-tag--light" data-es="Sistema Alfa" data-en="Alpha System"
+                data-pt="Sistema Alfa" data-fr="Système Alpha">Sistema Alfa</span>
+            </div>
+            <h2 class="sistema-banner__h2"
+              data-es="El Motor Disciplinario<br/><em> Un orden vivo que se autorregula.</em>"
+              data-en="The Disciplinary Engine<br/><em>A living order that self-regulates.</em>"
+              data-pt="O Motor Disciplinar<br/><em>Uma ordem viva que se autorregula.</em>"
+              data-fr="Le Moteur Disciplinaire<br/><em>Un ordre vivant qui s'autorégule.</em>">
+              El Motor Disciplinario<br /><em>Un orden vivo que se autorregula.</em>
+            </h2>
+            <p class="subtitle-onDark" style="border-bottom: 1px solid #ffffff79; padding: 0 0 20px 0"
+              data-es="Abordamos la organización de forma holística: el ser, la tarea y los vínculos como un mismo sistema.  <br> Y el juego es nuestro lenguaje transversal para activarlo."
+              data-en="We approach the organization holistically: being, task, and relationships as one system.  <br>And play is our cross-cutting language to activate it."
+              data-pt="Abordamos a organização de forma holística: o ser, a tarefa e os vínculos como um mesmo sistema.  <br>E o jogo é a nossa linguagem transversal para ativá-lo."
+              data-fr="Nous abordons l'organisation de manière holistique : l'être, la tâche et les liens comme un même système.  <br>Et le jeu est notre langage transversal pour l'activer.">
+              Abordamos la organización de forma holística: el ser, la tarea y los vínculos como un mismo sistema. Y el
+              juego es
+              nuestro lenguaje transversal para activarlo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section data-dc-tpl="107" id="sistema">
         <div data-dc-tpl="108"
           style="position: absolute;inset: 0px;background: linear-gradient(rgba(15, 10, 8, 0.5), rgba(15, 10, 8, 0.68));">
         </div>
@@ -457,10 +439,16 @@
             irradia.</span>
         </div>
       </div>
-      <div class="clientes__inner">
-        <h2>Modalidad: Presencial · Híbrido · Remoto </h2>
+      <div class="clientes__inner modalidad">
+        <p class="subtitle-onDark" style="margin:0 0 10px; color: var(--clay);">Modalidad: </p>
+        <div class="badge"> Presencial</div> ·<div class="badge">Híbrido </div>· <div class="badge">Remoto </div>
 
-        <p class="subtitle-onDark"> "Estés donde estés, colaboramos a través de la tecnología: la misma coherencia alfa,
+
+
+        <p class="subtitle-onDark" style="margin: 20px 0 0 0;font-style: italic;"> "Estés donde estés, colaboramos a
+          través de la
+          tecnología: la misma coherencia
+          alfa,
           sin fronteras."
         </p>
 
@@ -502,6 +490,216 @@
           Ver el Sistema Alfa ↑
         </a>
       </div>
+    </div>
+  </section>
+  <!-- SECCIÓN: INVESTIGACIÓN AUMENTADA POR IA -->
+  <section id="ia">
+    <div class="ia-container">
+
+      <!-- HEADER -->
+      <div class="ia-header">
+        <div class="ia-label">
+          <span class="ia-label-line"></span>
+          <span data-es="INVESTIGACIÓN AUMENTADA POR IA" data-en="AI-ENHANCED RESEARCH"
+            data-pt="PESQUISA AMPLIADA POR IA" data-fr="RECHERCHE AUGMENTÉE PAR IA">INVESTIGACIÓN AUMENTADA POR
+            IA</span>
+        </div>
+        <div class="ia-header-grid">
+          <h2 class="ia-title" data-es="La tecnología amplifica. <br>El criterio sigue siendo humano."
+            data-en="Technology amplifies.<br> Human judgment still leads."
+            data-pt="A tecnologia amplifica.<br> O critério continua sendo humano."
+            data-fr="La technologie amplifie.<br> Le jugement humain reste décisif.">La tecnología amplifica.<br> El
+            criterio
+            sigue siendo humano.</h2>
+          <p class="ia-subtitle"
+            data-es="Integramos inteligencia artificial en cada etapa del proceso de investigación — no para reemplazar al investigador, sino para llegar más lejos, más rápido y con mayor profundidad."
+            data-en="We integrate artificial intelligence at every stage of the research process — not to replace the researcher, but to go further, faster, and with greater depth."
+            data-pt="Integramos inteligência artificial em cada etapa do processo de pesquisa — não para substituir o pesquisador, mas para ir mais longe, mais rápido e com maior profundidade."
+            data-fr="Nous intégrons l'intelligence artificielle à chaque étape du processus de recherche — non pas pour remplacer le chercheur, mais pour aller plus loin, plus vite et avec plus de profondeur.">
+            Integramos inteligencia artificial en cada etapa del proceso de investigación — no para reemplazar al
+            investigador, sino para llegar más lejos, más rápido y con mayor profundidad.</p>
+        </div>
+      </div>
+
+      <!-- GRID DE 3 COLUMNAS CON TARJETAS -->
+      <div class="ia-grid">
+        <!-- CARD 1 -->
+        <div class="ia-card">
+          <div class="ia-card-top">
+            <span class="ia-card-number">01</span>
+            <span class="ia-badge" data-es="Disponible" data-en="Available" data-pt="Disponível"
+              data-fr="Disponible">Disponible</span>
+          </div>
+          <h3 class="ia-card-title" data-es="Análisis cualitativo a escala" data-en="Qualitative analysis at scale"
+            data-pt="Análise qualitativa em escala" data-fr="Analyse qualitative à grande échelle">Análisis cualitativo
+            a escala</h3>
+          <p class="ia-card-text"
+            data-es="Procesamos decenas de entrevistas en profundidad con IA: patrones, verbatims clave y mapas temáticos en horas, no en semanas. Tu equipo valida, la tecnología acelera."
+            data-en="We process dozens of in-depth interviews with AI: patterns, key verbatims, and thematic maps in hours, not weeks. Your team validates, technology accelerates."
+            data-pt="Processamos dezenas de entrevistas em profundidade com IA: padrões, verbatins-chave e mapas temáticos em horas, não em semanas. Sua equipe valida, a tecnologia acelera."
+            data-fr="Nous traitons des dizaines d'entretiens approfondis avec l'IA : motifs, verbatims clés et cartes thématiques en quelques heures, pas en semaines. Votre équipe valide, la technologie accélère.">
+            Procesamos decenas de entrevistas en profundidad con IA: patrones, verbatims clave y mapas temáticos en
+            horas, no en semanas. Tu equipo valida, la tecnología acelera.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="ia-card">
+          <div class="ia-card-top">
+            <span class="ia-card-number">02</span>
+            <span class="ia-badge" data-es="Disponible" data-en="Available" data-pt="Disponível"
+              data-fr="Disponible">Disponible</span>
+          </div>
+          <h3 class="ia-card-title" data-es="Social listening" data-en="Social listening" data-pt="Social listening"
+            data-fr="Social listening">Social listening</h3>
+          <p class="ia-card-text"
+            data-es="Escuchamos lo que tu categoría dice en redes, reviews y foros antes de diseñar el estudio. Un mapa de la conversación real como punto de partida de cada proyecto."
+            data-en="We listen to what your category says on social media, reviews, and forums before designing the study. A map of the real conversation as a starting point for each project."
+            data-pt="Ouvimos o que sua categoria diz nas redes sociais, reviews e fóruns antes de desenhar o estudo. Um mapa da conversa real como ponto de partida de cada projeto."
+            data-fr="Nous écoutons ce que votre catégorie dit sur les réseaux sociaux, les avis et les forums avant de concevoir l'étude. Une carte de la conversation réelle comme point de départ de chaque projet.">
+            Escuchamos lo que tu categoría dice en redes, reviews y foros antes de diseñar el estudio. Un mapa de la
+            conversación real como punto de partida de cada proyecto.</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="ia-card">
+          <div class="ia-card-top">
+            <span class="ia-card-number">03</span>
+            <span class="ia-badge" data-es="Disponible" data-en="Available" data-pt="Disponível"
+              data-fr="Disponible">Disponible</span>
+          </div>
+          <h3 class="ia-card-title" data-es="Encuestas conversacionales" data-en="Conversational surveys"
+            data-pt="Pesquisas conversacionais" data-fr="Enquêtes conversationnelles">Encuestas conversacionales</h3>
+          <p class="ia-card-text"
+            data-es="En vez de un formulario rígido, una conversación: la IA entrevista, repregunta y profundiza. Más honestidad, más matices, mejores datos."
+            data-en="Instead of a rigid form, a conversation: AI interviews, asks follow-ups, and digs deeper. More honesty, more nuance, better data."
+            data-pt="Em vez de um formulário rígido, uma conversa: a IA entrevista, pergunta de novo e aprofunda. Mais honestidade, mais nuances, melhores dados."
+            data-fr="Au lieu d'un formulaire rigide, une conversation : l'IA interroge, relance et approfondit. Plus d'honnêteté, plus de nuances, de meilleures données.">
+            En vez de un formulario rígido, una conversación: la IA entrevista, repregunta y profundiza. Más honestidad,
+            más matices, mejores datos.</p>
+        </div>
+      </div>
+
+      <!-- DOS COLUMNAS: TALLERES + HERRAMIENTAS -->
+      <div class="ia-duo">
+
+        <!-- IZQUIERDA: TALLERES -->
+        <div class="ia-duo-left">
+          <span class="ia-duo-label" data-es="Talleres" data-en="Workshops" data-pt="Workshops"
+            data-fr="Ateliers">Talleres</span>
+          <h3 class="ia-duo-title" data-es="Tu equipo aprende a investigar con IA"
+            data-en="Your team learns to research with AI" data-pt="Sua equipe aprende a pesquisar com IA"
+            data-fr="Votre équipe apprend à rechercher avec l'IA">Tu equipo aprende a investigar con IA</h3>
+          <p class="ia-duo-text"
+            data-es="Sesiones en vivo y prácticas para equipos que investigan a diario. Sin demos de herramientas: cada sesión toma una tarea que tu equipo ya repite y le incorpora IA, para que siga rindiendo mucho después."
+            data-en="Live, hands-on sessions for teams that research daily. No tool demos: each session takes a task your team already repeats and adds AI to it, so it keeps delivering long after."
+            data-pt="Sessões ao vivo e práticas para equipes que pesquisam diariamente. Sem demos de ferramentas: cada sessão pega uma tarefa que sua equipe já repete e incorpora IA, para continuar rendendo muito depois."
+            data-fr="Des sessions en direct et pratiques pour les équipes qui font de la recherche au quotidien. Pas de démos d'outils : chaque session reprend une tâche que votre équipe répète déjà et y intègre l'IA, pour qu'elle continue à performer longtemps après.">
+            Sesiones en vivo y prácticas para equipos que investigan a diario. Sin demos de herramientas: cada sesión
+            toma una tarea que tu equipo ya repite y le incorpora IA, para que siga rindiendo mucho después.</p>
+
+          <!-- TABLA DE PRECIOS -->
+          <div class="ia-price-table">
+            <div class="ia-price-row">
+              <span class="ia-price-name" data-es="Fundamentos: IA para insights" data-en="Foundations: AI for insights"
+                data-pt="Fundamentos: IA para insights" data-fr="Fondamentaux : IA pour les insights">Fundamentos: IA
+                para insights</span>
+              <span class="ia-price-value" data-es="Gratis · 10 cupos/mes" data-en="Free · 10 spots/month"
+                data-pt="Grátis · 10 vagas/mês" data-fr="Gratuit · 10 places/mois">Gratis · 10 cupos/mes</span>
+            </div>
+            <div class="ia-price-row">
+              <span class="ia-price-name" data-es="Recolección de datos" data-en="Data collection"
+                data-pt="Coleta de dados" data-fr="Collecte de données">Recolección de datos</span>
+              <span class="ia-price-value">USD 690</span>
+            </div>
+            <div class="ia-price-row">
+              <span class="ia-price-name" data-es="Insights vivos" data-en="Living insights" data-pt="Insights vivos"
+                data-fr="Insights vivants">Insights vivos</span>
+              <span class="ia-price-value">USD 565</span>
+            </div>
+          </div>
+
+          <p class="ia-duo-footnote"
+            data-es="Dos sesiones en vivo con una semana de diferencia. Prácticas sobre tu propio trabajo real y te llevás el método, un playbook y la grabación."
+            data-en="Two live sessions one week apart. Practice on your own real work, and take home the method, a playbook, and the recording."
+            data-pt="Duas sessões ao vivo com uma semana de diferença. Práticas sobre o seu próprio trabalho real e você leva o método, um playbook e a gravação."
+            data-fr="Deux sessions en direct à une semaine d'intervalle. Pratiquez sur votre propre travail réel et repartez avec la méthode, un playbook et l'enregistrement.">
+            Dos sesiones en vivo con una semana de diferencia. Prácticas sobre tu propio trabajo real y te llevás el
+            método, un playbook y la grabación.</p>
+          <a href="#" class="ia-link" data-es="Reservar la sesión gratuita →" data-en="Book the free session →"
+            data-pt="Reservar a sessão gratuita →" data-fr="Réserver la session gratuite →">Reservar la sesión gratuita
+            →</a>
+        </div>
+
+        <!-- DERECHA: HERRAMIENTAS A MEDIDA -->
+        <div class="ia-duo-right">
+          <span class="ia-duo-label" data-es="Herramientas a medida" data-en="Custom tools"
+            data-pt="Ferramentas personalizadas" data-fr="Outils sur mesure">Herramientas a medida</span>
+          <h3 class="ia-duo-title" data-es="Herramientas que ya conocen tu categoría"
+            data-en="Tools that already know your category" data-pt="Ferramentas que já conhecem sua categoria"
+            data-fr="Des outils qui connaissent déjà votre catégorie">Herramientas que ya conocen tu categoría</h3>
+          <p class="ia-duo-text"
+            data-es="Tu equipo repite el mismo trabajo de investigación una y otra vez. Una herramienta construida para tu categoría hace la parte lenta en minutos."
+            data-en="Your team repeats the same research work over and over. A tool built for your category takes the slow part and does it in minutes."
+            data-pt="Sua equipe repete o mesmo trabalho de pesquisa várias vezes. Uma ferramenta construída para sua categoria faz a parte lenta em minutos."
+            data-fr="Votre équipe répète le même travail de recherche encore et encore. Un outil conçu pour votre catégorie fait la partie lente en quelques minutes.">
+            Tu equipo repite el mismo trabajo de investigación una y otra vez. Una herramienta construida para tu
+            categoría hace la parte lenta en minutos.</p>
+
+          <ul class="ia-list">
+            <li data-es="Recolectores de datos y escucha social" data-en="Data collectors and social listening"
+              data-pt="Coletores de dados e escuta social" data-fr="Collecteurs de données et écoute sociale">
+              Recolectores de datos y escucha social</li>
+            <li data-es="Moderadores de entrevistas con IA" data-en="AI interview moderators"
+              data-pt="Moderadores de entrevistas com IA" data-fr="Modérateurs d'entretiens avec IA">Moderadores de
+              entrevistas con IA</li>
+            <li data-es="Personas sintéticas con datos reales de clientes"
+              data-en="Synthetic personas with real customer data"
+              data-pt="Personas sintéticas com dados reais de clientes"
+              data-fr="Personas synthétiques avec des données clients réelles">Personas sintéticas con datos reales de
+              clientes</li>
+            <li data-es="Bases de conocimiento que responden sobre años de reportes"
+              data-en="Knowledge bases that answer based on years of reports"
+              data-pt="Bases de conhecimento que respondem sobre anos de relatórios"
+              data-fr="Bases de connaissances qui répondent à partir d'années de rapports">Bases de conocimiento que
+              responden sobre años de reportes</li>
+            <li data-es="Reportes dinámicos que se interrogan, no un PDF"
+              data-en="Dynamic reports that can be interrogated, not a PDF"
+              data-pt="Relatórios dinâmicos que podem ser interrogados, não um PDF"
+              data-fr="Rapports dynamiques qui peuvent être interrogés, pas un PDF">Reportes dinámicos que se
+              interrogan, no un PDF</li>
+          </ul>
+
+          <p class="ia-price-highlight" data-es="Pago único desde USD 5.300" data-en="One-time payment from USD 5,300"
+            data-pt="Pagamento único a partir de USD 5.300" data-fr="Paiement unique à partir de 5 300 USD">Pago único
+            desde USD 5.300</p>
+          <p class="ia-duo-footnote"
+            data-es="Empieza con una breve llamada de relevamiento. Queda siendo tuya, con mantenimiento opcional."
+            data-en="Start with a short scoping call. It becomes yours, with optional maintenance."
+            data-pt="Comece com uma breve chamada de escopo. Fica sendo sua, com manutenção opcional."
+            data-fr="Commencez par un court appel de cadrage. Il devient le vôtre, avec une maintenance optionnelle.">
+            Empieza con una breve llamada de relevamiento. Queda siendo tuya, con mantenimiento opcional.</p>
+          <a href="#" class="ia-link" data-es="Pedir una llamada de relevamiento →" data-en="Request a scoping call →"
+            data-pt="Pedir uma chamada de escopo →" data-fr="Demander un appel de cadrage →">Pedir una llamada de
+            relevamiento →</a>
+        </div>
+      </div>
+
+      <!-- CTA FINAL -->
+      <div class="ia-cta">
+        <div class="ia-cta-text">
+          <h3 data-es="¿Tienes un desafío específico?" data-en="Do you have a specific challenge?"
+            data-pt="Tem um desafio específico?" data-fr="Avez-vous un défi spécifique ?">¿Tienes un desafío específico?
+          </h3>
+          <p data-es="Diseñamos soluciones a medida donde humanos y tecnología trabajan juntos."
+            data-en="We design custom solutions where humans and technology work together."
+            data-pt="Projetamos soluções personalizadas onde humanos e tecnologia trabalham juntos."
+            data-fr="Nous concevons des solutions sur mesure où les humains et la technologie travaillent ensemble.">
+            Diseñamos soluciones a medida donde humanos y tecnología trabajan juntos.</p>
+        </div>
+        <a href="#contacto" class="ia-cta-btn" data-es="Conversemos →" data-en="Let's talk →"
+          data-pt="Vamos conversar →" data-fr="Parlons-en →">Conversemos →</a>
+      </div>
+
     </div>
   </section>
 
