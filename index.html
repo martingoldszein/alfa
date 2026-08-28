@@ -10,8 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=IBM+Plex+Mono&family=Instrument+Serif&family=Source+Serif+4:opsz@8..60&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/scripts.js" defer></script>
 
 </head>
 
@@ -43,7 +43,7 @@
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a class="nav__logo" href="#"><img src="logo.png" alt="Alfalógica" /></a>
+      <a class="nav__logo" href="#"><img src="images/logo.png" alt="Alfalógica" /></a>
 
       <!-- DESKTOP links -->
       <ul class="nav__links" id="navLinks">
@@ -152,7 +152,7 @@
       </h3>
     </div>
     <div class="hero__right">
-      <img src="foto1.jpg" alt="Equipo de consultoría en reunión" />
+      <img src="images/foto1.jpg" alt="Equipo de consultoría en reunión" />
     </div>
   </section>
 
@@ -160,7 +160,7 @@
 
   <!-- ─── DIAGRAMA (sección traducida) ─── -->
   <div class="diagrama"
-    style="background: url(sunset.jpg) center 25% / cover rgb(26, 20, 16); position: relative; padding:  0px; filter: brightness(1) saturate(1.05);">
+    style="background: url(images/sunset.jpg) center 25% / cover rgb(26, 20, 16); position: relative; padding:  0px; filter: brightness(1) saturate(1.05);">
 
     <div class="sa-diagram-wrap">
 
@@ -217,6 +217,22 @@
             aria-label="Insight · Frecuencia Alfa"></button>
 
           <div data-dc-tpl="121" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
+            <!-- MENSAJE INFORMATIVO PARA MÓVIL -->
+            <div class="sa-mobile-message">
+              <span class="sa-mobile-icon">🔄</span>
+              <p data-es="El diagrama interactivo del Sistema Alfa está disponible en tablet y escritorio. Te invitamos a explorarlo desde una pantalla más amplia para una experiencia completa."
+                data-en="The Alpha System interactive diagram is available on tablet and desktop. We invite you to explore it from a larger screen for a complete experience."
+                data-pt="O diagrama interativo do Sistema Alfa está disponível em tablet e desktop. Convidamos você a explorá-lo em uma tela maior para uma experiência completa."
+                data-fr="Le diagramme interactif du Système Alpha est disponible sur tablette et ordinateur. Nous vous invitons à l'explorer sur un écran plus grand pour une expérience complète.">
+                El diagrama interactivo del Sistema Alfa está disponible en tablet y escritorio. Te invitamos a
+                explorarlo desde una pantalla más amplia para una experiencia completa.
+              </p>
+              <span class="sa-mobile-hint" data-es="↳ Disponible en pantallas mayores a 768px"
+                data-en="↳ Available on screens larger than 768px" data-pt="↳ Disponível em telas maiores que 768px"
+                data-fr="↳ Disponible sur écrans de plus de 768px">
+                ↳ Disponible en pantallas mayores a 768px
+              </span>
+            </div>
             <div data-dc-tpl="122"
               style="padding: clamp(12px, 2vw, 24px) 0px; display: flex; justify-content: center; align-items: center; width: 100%;">
               <div data-dc-tpl="123" style="position: relative; width: 100%; max-width: 640px; aspect-ratio: 1 / 0.86;">
@@ -358,109 +374,200 @@
     </div>
   </div>
 
-  <div class="programas__bar">
-    <div class="clientes__inner">
-      <div class="manifiesto__label">
-        <span class="label-tag label-tag--light" data-es="Programas Alfa" data-en="Alpha Programs"
-          data-pt="Programas Alfa" data-fr="Programmes Alpha">Programas Alfa</span>
+  <div class="programas-alfa-wrapper">
+    <div class="programas-alfa-inner">
+      <div class="programas-alfa-header">
+        <span class="programas-alfa-label" data-es="Programas Alfa" data-en="Alpha Programs" data-pt="Programas Alfa"
+          data-fr="Programmes Alpha">Programas Alfa</span>
+        <h2 class="programas-alfa-title" data-es="Un recorrido calibrado al ritmo de tu organización."
+          data-en="A path calibrated to your organization's rhythm."
+          data-pt="Um percurso calibrado ao ritmo da sua organização."
+          data-fr="Un parcours calibré au rythme de votre organisation.">Un recorrido calibrado al ritmo de tu
+          organización.</h2>
+        <p class="programas-alfa-subtitle"
+          data-es="Cuatro intensidades, del primer impulso al eco pleno en todo el sistema."
+          data-en="Four intensities, from first impulse to full echo across the system."
+          data-pt="Quatro intensidades, do primeiro impulso ao eco pleno em todo o sistema."
+          data-fr="Quatre intensités, du premier élan à l'écho pleinement diffusé dans tout le système.">Cuatro
+          intensidades, del primer impulso al eco pleno en todo el sistema.</p>
       </div>
 
-      <h2 data-es="Un recorrido calibrado al ritmo de tu organización."
-        data-en="A path calibrated to your organization's rhythm."
-        data-pt="Um percurso calibrado ao ritmo da sua organização."
-        data-fr="Un parcours calibré au rythme de votre organisation.">
-        Un recorrido calibrado al ritmo de tu organización.
-      </h2>
-      <p class="subtitle-onDark" data-es="Cuatro intensidades, del primer impulso al eco pleno en todo el sistema."
-        data-en="Four intensities, from first impulse to full echo across the system."
-        data-pt="Quatro intensidades, do primeiro impulso ao eco pleno em todo o sistema."
-        data-fr="Quatre intensités, du premier élan à l'écho pleinement diffusé dans tout le système.">
-        Cuatro intensidades, del primer impulso al eco pleno en todo el sistema.
-      </p>
+      <!-- Gráfico de onda -->
+      <div class="programas-alfa-wave" data-reveal>
+        <svg class="wave-svg" viewBox="0 0 1176 90" preserveAspectRatio="none">
+          <path class="wave-path"
+            d="M0 45 Q32.7 41.1 65.3 45 Q98.0 50.6 130.7 45 Q163.3 37.7 196.0 45 Q228.7 54.0 261.3 45 Q294.0 34.3 326.7 45 Q359.3 57.5 392.0 45 Q424.7 30.8 457.3 45 Q490.0 60.9 522.7 45 Q555.3 27.4 588.0 45 Q620.7 64.4 653.3 45 Q686.0 23.9 718.7 45 Q751.3 67.8 784.0 45 Q816.7 20.5 849.3 45 Q882.0 71.3 914.7 45 Q947.3 17.0 980.0 45 Q1012.7 74.7 1045.3 45 Q1078.0 13.6 1110.7 45 Q1143.3 78.1 1176.0 45"
+            fill="none" stroke="#68A3A7" stroke-width="2" stroke-opacity="0.85" stroke-linecap="round" />
+          <circle class="wave-circle" cx="1176" cy="45" r="6" fill="#E39881" />
+        </svg>
+        <div class="wave-labels">
+          <span class="wave-label wave-label--low" data-es="BAJA AMPLITUD" data-en="LOW AMPLITUDE"
+            data-pt="BAIXA AMPLITUDE" data-fr="BASSE AMPLITUDE">BAJA AMPLITUD</span>
+          <span class="wave-label wave-label--full" data-es="FRECUENCIA ALFA PLENA" data-en="FULL ALPHA FREQUENCY"
+            data-pt="FREQUÊNCIA ALFA PLENA" data-fr="FRÉQUENCE ALPHA PLEINE">FRECUENCIA ALFA PLENA</span>
+        </div>
+      </div>
 
-      <div class="programas__cards">
-        <div class="programa-card programa-card--1">
-          <!-- IMPULSE no se traduce, queda fijo -->
-          <h3>Impulse</h3>
-          <h4 data-es="DIAGNÓSTICO" data-en="DIAGNOSTIC" data-pt="DIAGNÓSTICO" data-fr="DIAGNOSTIC">
-            DIAGNÓSTICO
-          </h4>
-          <p data-es="hasta 3 meses" data-en="up to 3 months" data-pt="até 3 meses" data-fr="jusqu'à 3 mois">
-            hasta 3 meses
-          </p>
-          <span class="tooltip" data-es="Diagnóstico inicial y activación de la coherencia alfa."
-            data-en="Initial diagnosis and activation of alpha coherence."
+      <!-- Tarjetas de programas -->
+      <div class="programas-alfa-grid" data-reveal>
+        <!-- Tarjeta 1: Impulse -->
+        <div class="programa-card-alfa" tabindex="0">
+          <div class="programa-card-alfa__top">
+            <span class="programa-card-alfa__number">01</span>
+            <span class="programa-card-alfa__duration" data-es="hasta 3 meses" data-en="up to 3 months"
+              data-pt="até 3 meses" data-fr="jusqu'à 3 mois">hasta 3 meses</span>
+          </div>
+          <div class="programa-card-alfa__tag" data-es="DIAGNÓSTICO" data-en="DIAGNOSIS" data-pt="DIAGNÓSTICO"
+            data-fr="DIAGNOSTIC">DIAGNÓSTICO</div>
+          <h3 class="programa-card-alfa__title">Impulse</h3>
+          <p class="programa-card-alfa__desc" data-es="Diagnóstico inicial y activación de la coherencia alfa."
+            data-en="First diagnosis and activation of alpha coherence."
             data-pt="Diagnóstico inicial e ativação da coerência alfa."
             data-fr="Diagnostic initial et activation de la cohérence alpha.">Diagnóstico inicial y activación de la
-            coherencia alfa.</span>
+            coherencia alfa.</p>
+          <div class="programa-card-alfa__detail">
+            <ul>
+              <li data-es="Mapeo del ser, la tarea y los vínculos" data-en="Mapping of being, task and bonds"
+                data-pt="Mapeamento do ser, da tarefa e dos vínculos"
+                data-fr="Cartographie de l'être, de la tâche et des liens">Mapeo del ser, la tarea y los vínculos</li>
+              <li data-es="Línea base de métricas para todo el recorrido" data-en="Baseline metrics for the whole path"
+                data-pt="Linha base de métricas para todo o percurso" data-fr="Métriques de base pour tout le parcours">
+                Línea base de métricas para todo el recorrido</li>
+              <li data-es="Primera sesión de activación con el liderazgo" data-en="First leadership activation session"
+                data-pt="Primeira sessão de ativação com a liderança"
+                data-fr="Première session d'activation avec le leadership">Primera sesión de activación con el liderazgo
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="programa-card programa-card--2">
-          <!-- EXPANSION no se traduce, queda fijo -->
-          <h3>Expansion</h3>
-          <h4 data-es="ESCALA" data-en="SCALE" data-pt="ESCALA" data-fr="DÉPLOIEMENT">
-            ESCALA
-          </h4>
-          <p data-es="hasta 6 meses" data-en="up to 6 months" data-pt="até 6 meses" data-fr="jusqu'à 6 mois">
-            hasta 6 meses
+
+        <!-- Tarjeta 2: Expansion -->
+        <div class="programa-card-alfa" tabindex="0">
+          <div class="programa-card-alfa__top">
+            <span class="programa-card-alfa__number">02</span>
+            <span class="programa-card-alfa__duration" data-es="hasta 6 meses" data-en="up to 6 months"
+              data-pt="até 6 meses" data-fr="jusqu'à 6 mois">hasta 6 meses</span>
+          </div>
+          <div class="programa-card-alfa__tag" data-es="ESCALA" data-en="SCALING" data-pt="ESCALA"
+            data-fr="DÉPLOIEMENT">ESCALA</div>
+          <h3 class="programa-card-alfa__title">Expansion</h3>
+          <p class="programa-card-alfa__desc" data-es="Escalamos el propósito a equipos y procesos."
+            data-en="Scaling purpose across teams and processes."
+            data-pt="Escalamos o propósito para equipes e processos."
+            data-fr="Nous déployons le but aux équipes et aux processus.">Escalamos el propósito a equipos y procesos.
           </p>
-          <span class="tooltip" data-es="Escalamos el propósito a equipos y procesos."
-            data-en="We scale purpose to teams and processes." data-pt="Escalamos o propósito para equipes e processos."
-            data-fr="Nous déployons le but aux équipes et aux processus.">Escalamos el propósito a equipos y
-            procesos.</span>
+          <div class="programa-card-alfa__detail">
+            <ul>
+              <li data-es="Talleres de equipo y dinámicas JIA" data-en="Team workshops and JIA dynamics"
+                data-pt="Oficinas de equipe e dinâmicas JIA" data-fr="Ateliers d'équipe et dynamiques JIA">Talleres de
+                equipo y dinámicas JIA</li>
+              <li data-es="Primeras decisiones basadas en datos" data-en="First data-informed decisions"
+                data-pt="Primeiras decisões baseadas em dados" data-fr="Premières décisions basées sur les données">
+                Primeras decisiones basadas en datos</li>
+              <li data-es="Los procesos compartidos toman forma" data-en="Shared processes take shape"
+                data-pt="Os processos compartilhados tomam forma" data-fr="Les processus partagés prennent forme">Los
+                procesos compartidos toman forma</li>
+            </ul>
+          </div>
         </div>
-        <div class="programa-card programa-card--3">
-          <!-- CATALYZE no se traduce, queda fijo -->
-          <h3>Catalyze</h3>
-          <h4 data-es="HÁBITO" data-en="HABIT" data-pt="HÁBITO" data-fr="HABITUDE">
-            HÁBITO
-          </h4>
-          <p data-es="hasta 9 meses" data-en="up to 9 months" data-pt="até 9 meses" data-fr="jusqu'à 9 mois">
-            hasta 9 meses
-          </p>
-          <span class="tooltip" data-es="La innovación se vuelve un hábito autosostenido."
+
+        <!-- Tarjeta 3: Catalyze -->
+        <div class="programa-card-alfa" tabindex="0">
+          <div class="programa-card-alfa__top">
+            <span class="programa-card-alfa__number">03</span>
+            <span class="programa-card-alfa__duration" data-es="hasta 9 meses" data-en="up to 9 months"
+              data-pt="até 9 meses" data-fr="jusqu'à 9 mois">hasta 9 meses</span>
+          </div>
+          <div class="programa-card-alfa__tag" data-es="HÁBITO" data-en="HABIT" data-pt="HÁBITO" data-fr="HABITUDE">
+            HÁBITO</div>
+          <h3 class="programa-card-alfa__title">Catalyze</h3>
+          <p class="programa-card-alfa__desc" data-es="La innovación se vuelve un hábito autosostenido."
             data-en="Innovation becomes a self-sustaining habit."
             data-pt="A inovação se torna um hábito autossustentado."
             data-fr="L'innovation devient une habitude auto-entretenue.">La innovación se vuelve un hábito
-            autosostenido.</span>
+            autosostenido.</p>
+          <div class="programa-card-alfa__detail">
+            <ul>
+              <li data-es="Rituales de innovación entre equipos" data-en="Cross-team innovation rituals"
+                data-pt="Rituais de inovação entre equipes" data-fr="Rituels d'innovation inter-équipes">Rituales de
+                innovación entre equipos</li>
+              <li data-es="Evidencia e intuición deciden juntas" data-en="Evidence and intuition decide together"
+                data-pt="Evidência e intuição decidem juntas" data-fr="Preuves et intuition décident ensemble">Evidencia
+                e intuición deciden juntas</li>
+              <li data-es="El sistema corrige su propio rumbo" data-en="The system self-corrects"
+                data-pt="O sistema corrige seu próprio rumo" data-fr="Le système corrige sa propre trajectoire">El
+                sistema corrige su propio rumbo</li>
+            </ul>
+          </div>
         </div>
-        <div class="programa-card programa-card--4">
-          <!-- ECHO no se traduce, queda fijo -->
-          <h3>Echo</h3>
-          <h4 data-es="IRRADIACIÓN" data-en="IRRADIATION" data-pt="IRRADIAÇÃO" data-fr="IRRADIATION">
-            IRRADIACIÓN
-          </h4>
-          <p data-es="hasta 12 meses" data-en="up to 12 months" data-pt="até 12 meses" data-fr="jusqu'à 12 mois">
-            hasta 12 meses
-          </p>
-          <span class="tooltip" data-es="El sistema se autorregula y su cultura irradia."
+
+        <!-- Tarjeta 4: Eco (destacada) -->
+        <div class="programa-card-alfa programa-card-alfa--destacada" tabindex="0">
+          <div class="programa-card-alfa__top">
+            <span class="programa-card-alfa__number">04</span>
+            <span class="programa-card-alfa__duration" data-es="hasta 12 meses" data-en="up to 12 months"
+              data-pt="até 12 meses" data-fr="jusqu'à 12 mois">hasta 12 meses</span>
+          </div>
+          <div class="programa-card-alfa__tag" data-es="IRRADIACIÓN" data-en="RADIANCE" data-pt="IRRADIAÇÃO"
+            data-fr="RAYONNEMENT">IRRADIACIÓN</div>
+          <h3 class="programa-card-alfa__title">Eco</h3>
+          <p class="programa-card-alfa__desc" data-es="El sistema se autorregula y su cultura irradia."
             data-en="The system self-regulates and its culture radiates."
             data-pt="O sistema se autorregula e sua cultura irradia."
-            data-fr="Le système s'autorégule et sa culture rayonne.">El sistema se autorregula y su cultura
-            irradia.</span>
+            data-fr="Le système s'autorégule et sa culture rayonne.">El sistema se autorregula y su cultura irradia.</p>
+          <div class="programa-card-alfa__detail">
+            <ul>
+              <li data-es="La cultura irradia hacia clientes y mercado" data-en="Culture radiates to clients and market"
+                data-pt="A cultura irradia para clientes e mercado"
+                data-fr="La culture rayonne vers les clients et le marché">La cultura irradia hacia clientes y mercado
+              </li>
+              <li data-es="La organización se sostiene sin nosotros"
+                data-en="The organization sustains itself without us" data-pt="A organização se sustenta sem nós"
+                data-fr="L'organisation se soutient sans nous">La organización se sostiene sin nosotros</li>
+              <li data-es="La frecuencia alfa se vuelve voz propia"
+                data-en="Alpha frequency becomes the organization's own voice"
+                data-pt="A frequência alfa se torna voz própria"
+                data-fr="La fréquence alpha devient la voix propre de l'organisation">La frecuencia alfa se vuelve voz
+                propia</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="clientes__inner modalidad">
-        <p class="subtitle-onDark" style="margin:0 0 10px; color: var(--clay);">Modalidad: </p>
-        <div class="badge"> Presencial</div> ·<div class="badge">Híbrido </div>· <div class="badge">Remoto </div>
 
+      <!-- Hover hint -->
+      <div class="programas-alfa-hint" data-es="Pasá el cursor sobre una fase para ver más"
+        data-en="Hover a phase for details" data-pt="Passe o mouse sobre uma fase para ver mais"
+        data-fr="Survolez une phase pour voir plus">Pasá el cursor sobre una fase para ver más</div>
 
-
-        <p class="subtitle-onDark" style="margin: 20px 0 0 0;font-style: italic;"> "Estés donde estés, colaboramos a
-          través de la
-          tecnología: la misma coherencia
-          alfa,
-          sin fronteras."
-        </p>
-
+      <!-- Footer: Modalidad -->
+      <div class="programas-alfa-footer" data-reveal>
+        <div class="programas-alfa-footer__left">
+          <span class="programas-alfa-footer__label" data-es="MODALIDAD" data-en="FORMAT" data-pt="MODALIDADE"
+            data-fr="FORMAT">MODALIDAD</span>
+          <div class="programas-alfa-footer__badges">
+            <span class="badge-alfa" data-es="Presencial" data-en="On-site" data-pt="Presencial"
+              data-fr="Présentiel">Presencial</span>
+            <span class="badge-alfa" data-es="Híbrido" data-en="Hybrid" data-pt="Híbrido"
+              data-fr="Hybride">Híbrido</span>
+            <span class="badge-alfa" data-es="Remoto" data-en="Remote" data-pt="Remoto"
+              data-fr="À distance">Remoto</span>
+          </div>
+        </div>
+        <p class="programas-alfa-footer__text"
+          data-es="Estés donde estés, colaboramos a través de la tecnología: la misma coherencia alfa, sin fronteras."
+          data-en="Wherever you are, we collaborate through technology: the same alpha coherence, without borders."
+          data-pt="Esteja onde estiver, colaboramos através da tecnologia: a mesma coerência alfa, sem fronteiras."
+          data-fr="Où que vous soyez, nous collaborons par la technologie : la même cohérence alpha, sans frontières.">
+          Estés donde estés, colaboramos a través de la tecnología: la misma coherencia alfa, sin fronteras.</p>
       </div>
     </div>
-
+  </div>
   </div>
 
   <!-- ─── SECCIÓN JIA: Juego · Innovación · Aprendizaje ─── -->
   <section class="jia-section">
     <div class="jia-section__bg">
-      <img src="jia.jpg" alt="Equipo celebrando con las manos en alto" />
+      <img src="images/jia.jpg" alt="Equipo celebrando con las manos en alto" />
     </div>
     <div class="jia-section__overlay"></div>
     <div class="jia-section__inner">
@@ -764,126 +871,126 @@
           <div class="carousel-track">
             <!-- Set 1 -->
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-01.png" alt="Cliente 1" />
+              <img src="images/logos/LogosClientes_solos-01.png" alt="Cliente 1" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-02.png" alt="Cliente 2" />
+              <img src="images/logos/LogosClientes_solos-02.png" alt="Cliente 2" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-03.png" alt="Cliente 3" />
+              <img src="images/logos/LogosClientes_solos-03.png" alt="Cliente 3" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-04.png" alt="Cliente 4" />
+              <img src="images/logos/LogosClientes_solos-04.png" alt="Cliente 4" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-05.png" alt="Cliente 5" />
+              <img src="images/logos/LogosClientes_solos-05.png" alt="Cliente 5" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-06.png" alt="Cliente 6" />
+              <img src="images/logos/LogosClientes_solos-06.png" alt="Cliente 6" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-07.png" alt="Cliente 7" />
+              <img src="images/logos/LogosClientes_solos-07.png" alt="Cliente 7" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-08.png" alt="Cliente 8" />
+              <img src="images/logos/LogosClientes_solos-08.png" alt="Cliente 8" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-09.png" alt="Cliente 9" />
+              <img src="images/logos/LogosClientes_solos-09.png" alt="Cliente 9" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-10.png" alt="Cliente 10" />
+              <img src="images/logos/LogosClientes_solos-10.png" alt="Cliente 10" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-11.png" alt="Cliente 11" />
+              <img src="images/logos/LogosClientes_solos-11.png" alt="Cliente 11" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-12.png" alt="Cliente 12" />
+              <img src="images/logos/LogosClientes_solos-12.png" alt="Cliente 12" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-13.png" alt="Cliente 13" />
+              <img src="images/logos/LogosClientes_solos-13.png" alt="Cliente 13" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-14.png" alt="Cliente 14" />
+              <img src="images/logos/LogosClientes_solos-14.png" alt="Cliente 14" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-15.png" alt="Cliente 15" />
+              <img src="images/logos/LogosClientes_solos-15.png" alt="Cliente 15" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-16.png" alt="Cliente 16" />
+              <img src="images/logos/LogosClientes_solos-16.png" alt="Cliente 16" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-17.png" alt="Cliente 17" />
+              <img src="images/logos/LogosClientes_solos-17.png" alt="Cliente 17" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-18.png" alt="Cliente 18" />
+              <img src="images/logos/LogosClientes_solos-18.png" alt="Cliente 18" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-19.png" alt="Cliente 19" />
+              <img src="images/logos/LogosClientes_solos-19.png" alt="Cliente 19" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-20.png" alt="Cliente 20" />
+              <img src="images/logos/LogosClientes_solos-20.png" alt="Cliente 20" />
             </div>
 
             <!-- Set 2 (duplicado) -->
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-01.png" alt="Cliente 1" />
+              <img src="images/logos/LogosClientes_solos-01.png" alt="Cliente 1" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-02.png" alt="Cliente 2" />
+              <img src="images/logos/LogosClientes_solos-02.png" alt="Cliente 2" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-03.png" alt="Cliente 3" />
+              <img src="images/logos/LogosClientes_solos-03.png" alt="Cliente 3" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-04.png" alt="Cliente 4" />
+              <img src="images/logos/LogosClientes_solos-04.png" alt="Cliente 4" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-05.png" alt="Cliente 5" />
+              <img src="images/logos/LogosClientes_solos-05.png" alt="Cliente 5" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-06.png" alt="Cliente 6" />
+              <img src="images/logos/LogosClientes_solos-06.png" alt="Cliente 6" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-07.png" alt="Cliente 7" />
+              <img src="images/logos/LogosClientes_solos-07.png" alt="Cliente 7" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-08.png" alt="Cliente 8" />
+              <img src="images/logos/LogosClientes_solos-08.png" alt="Cliente 8" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-09.png" alt="Cliente 9" />
+              <img src="images/logos/LogosClientes_solos-09.png" alt="Cliente 9" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-10.png" alt="Cliente 10" />
+              <img src="images/logos/LogosClientes_solos-10.png" alt="Cliente 10" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-11.png" alt="Cliente 11" />
+              <img src="images/logos/LogosClientes_solos-11.png" alt="Cliente 11" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-12.png" alt="Cliente 12" />
+              <img src="images/logos/LogosClientes_solos-12.png" alt="Cliente 12" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-13.png" alt="Cliente 13" />
+              <img src="images/logos/LogosClientes_solos-13.png" alt="Cliente 13" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-14.png" alt="Cliente 14" />
+              <img src="images/logos/LogosClientes_solos-14.png" alt="Cliente 14" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-15.png" alt="Cliente 15" />
+              <img src="images/logos/LogosClientes_solos-15.png" alt="Cliente 15" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-16.png" alt="Cliente 16" />
+              <img src="images/logos/LogosClientes_solos-16.png" alt="Cliente 16" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-17.png" alt="Cliente 17" />
+              <img src="images/logos/LogosClientes_solos-17.png" alt="Cliente 17" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-18.png" alt="Cliente 18" />
+              <img src="images/logos/LogosClientes_solos-18.png" alt="Cliente 18" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-19.png" alt="Cliente 19" />
+              <img src="images/logos/LogosClientes_solos-19.png" alt="Cliente 19" />
             </div>
             <div class="logo-cell">
-              <img src="logos/LogosClientes_solos-20.png" alt="Cliente 20" />
+              <img src="images/logos/LogosClientes_solos-20.png" alt="Cliente 20" />
             </div>
           </div>
         </div>
@@ -1087,7 +1194,7 @@
 
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__logo"><img src="logo.png" alt="Alfalógica" /></div>
+      <div class="footer__logo"><img src="images/logo.png" alt="Alfalógica" /></div>
       <span class="footer__tagline" data-es="Del  <span> INSIGHT</span> a la acción"
         data-en="From <span> INSIGHT</span> to action. " data-pt="Do <span> INSIGHT</span> à ação."
         data-fr="De l'<span> INSIGHT</span> à l'action.">Del <span>INSIGHT</span> a la acción</span>

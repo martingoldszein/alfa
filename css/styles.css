@@ -526,8 +526,8 @@ h3 {
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 300;
   color: #fff;
-  line-height: 1;
-  padding: 2rem
+  line-height: 0.8;
+  padding: 2rem 0
 }
 .sistema-banner__h2 em {
   font-size: 40px;
@@ -658,17 +658,12 @@ bottom: 19%;
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
-.programa-card--1 {
-  background: var(--teal);
-}
-.programa-card--2 {
-  background: var(--clay);
-}
-.programa-card--3 {
-  background: var(--sage);
-}
-.programa-card--4 {
-  background: var(--clay-deep);
+.programa-card--1,
+.programa-card--2,
+.programa-card--3,
+.programa-card--4
+{
+  background: hsl(200, 47%, 19%)
 }
 .programa-card h3 {
   font-family: var(--font-serif);
@@ -1676,7 +1671,7 @@ button {
   display: inline-block;
   width: 100%;
   margin: 0 auto;
-      padding: 3rem;
+  padding: 3rem;
 }
 
 .sa-diagram-img {
@@ -2499,3 +2494,507 @@ button {
       align-items: flex-start;
     }
   }
+/* ============================================================
+   OCULTAR DIRECCIONES EN MOBILE - VERSIÓN MEJORADA
+   ============================================================ */
+
+/* 1) Ocultar TODOS los <span> que tengan la clase .topbar__text
+      (esto esconde las dos direcciones completas, incluyendo
+      el separador "|" que está entre ellas) */
+@media (max-width: 767px) {
+  .topbar__text,
+  .topbar__sep {
+    display: none !important;
+  }
+}
+
+/* 2) Ajustar el contenedor .topbar__inner para que el botón
+      de WhatsApp ocupe todo el ancho y esté centrado */
+@media (max-width: 767px) {
+  .topbar__inner {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 6px 12px !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+    min-height: 40px;
+  }
+
+  /* Forzamos que el enlace de WhatsApp ocupe todo el ancho
+     y se vea como un bloque prominente */
+  .topbar__whatsapp {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    padding: 6px 0 !important;
+    background: transparent !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    letter-spacing: 0.3px !important;
+  }
+
+}
+/* ============================================================
+   SISTEMA ALFA - DIAGRAMA INTERACTIVO
+   VISIBLE SOLO EN ESCRITORIO Y TABLET
+   ============================================================ */
+
+/* 1) Ocultar el diagrama completo (SVG + hotspots + botones) en móviles */
+@media (max-width: 767px) {
+  /* Ocultamos todo el contenedor del diagrama SVG */
+  .sa-diagram-wrap [data-dc-tpl="122"],
+  .sa-diagram-wrap [data-dc-tpl="123"],
+  .sa-diagram-wrap svg,
+  .sa-diagram-wrap .sa-point,
+  .sa-diagram-wrap button[data-modal],
+  .sa-diagram-wrap [data-dc-tpl="156"],
+  .sa-diagram-wrap [data-dc-tpl="159"],
+  .sa-diagram-wrap [data-dc-tpl="162"],
+  .sa-diagram-wrap [data-dc-tpl="165"],
+  .sa-diagram-wrap [data-dc-tpl="168"],
+  .sa-diagram-wrap [data-dc-tpl="169"],
+  .sa-diagram-wrap [data-dc-tpl="171"],
+  .sa-diagram-wrap [data-dc-tpl="173"] {
+    display: none !important;
+  }
+
+  /* Ocultamos también el contenedor principal que envuelve el SVG */
+  .sa-diagram-wrap [data-dc-tpl="121"] {
+    display: block !important; /* Mantiene la estructura pero oculta su interior */
+  }
+
+  /* 2) Mostrar el mensaje informativo solo en móvil */
+  .sa-mobile-message {
+    display: block !important;
+    padding: 32px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 24px 0 32px 0;
+  }
+
+  .sa-mobile-message p {
+    font-family: var(--font-serif, "Source Serif 4", serif);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #f0e6d9;
+    margin: 0 0 12px 0;
+  }
+
+  .sa-mobile-message .sa-mobile-hint {
+    font-family: var(--font-mono, "IBM Plex Mono", monospace);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: rgba(245, 230, 211, 0.6);
+    text-transform: uppercase;
+  }
+
+  .sa-mobile-message .sa-mobile-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+}
+
+/* 3) Ocultar el mensaje en escritorio y tablet (tamaños mayores a 768px) */
+@media (min-width: 768px) {
+  .sa-mobile-message {
+    display: none !important;
+  }
+}
+
+/* 4) Ajuste fino para tablet (768px - 1024px): el diagrama se ve más pequeño pero sigue siendo interactivo */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sa-diagram-wrap [data-dc-tpl="123"] {
+    max-width: 480px !important;
+    margin: 0 auto !important;
+  }
+
+  .sa-diagram-wrap svg {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+
+  /* Ajustamos la posición de los textos alrededor del átomo */
+  .sa-diagram-wrap [data-dc-tpl="156"] div,
+  .sa-diagram-wrap [data-dc-tpl="159"] div,
+  .sa-diagram-wrap [data-dc-tpl="162"] div,
+  .sa-diagram-wrap [data-dc-tpl="165"] div {
+    font-size: clamp(11px, 1.3vw, 14px) !important;
+  }
+
+  .sa-diagram-wrap [data-dc-tpl="156"] {
+    top: 4% !important;
+  }
+
+  .sa-diagram-wrap [data-dc-tpl="162"] {
+    bottom: -2% !important;
+  }
+
+  .sa-diagram-wrap [data-dc-tpl="159"] {
+    right: -4% !important;
+  }
+
+  .sa-diagram-wrap [data-dc-tpl="165"] {
+    left: -4% !important;
+  }
+}
+/* Placeholders en secciones oscuras (como el formulario de contacto) */
+.contacto input::placeholder,
+.contacto textarea::placeholder {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 300;
+}
+
+/* ============================================================
+   PROGRAMAS ALFA - SECCIÓN COMPLETA
+   ============================================================ */
+
+/* ─── CONTENEDOR PRINCIPAL ─── */
+.programas-alfa-wrapper {
+
+  margin: 0 auto;
+  padding: 96px 32px;
+  background: var(--forest);
+}
+
+
+
+ .programas-alfa-inner {
+ max-width: var(--max-w);
+ margin: 0 auto
+}
+/* ─── HEADER ─── */
+.programas-alfa-header {
+  margin-bottom: 20px;
+}
+
+.programas-alfa-label {
+  display: inline-block;
+  font-family: var(--font-sans, "Hanken Grotesk", sans-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 234, 0.92);
+  margin-bottom: 20px;
+}
+
+.programas-alfa-label::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 1.5px;
+  background: var(--clay, #d4b8a0);
+  margin-right: 14px;
+  vertical-align: middle;
+}
+
+.programas-alfa-title {
+  font-family: var(--font-serif, "Source Serif 4", serif);
+  font-weight: 400;
+  font-size: clamp(27px, 3.4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  max-width: 20ch;
+  color: #fff;
+}
+
+.programas-alfa-subtitle {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(245, 242, 234, 0.7);
+  max-width: 44ch;
+  margin: 0 0 28px;
+}
+
+/* ─── GRÁFICO DE ONDA ─── */
+.programas-alfa-wave {
+  position: relative;
+  margin: 0 0 8px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1),
+              transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.wave-svg {
+  width: 100%;
+  height: 64px;
+  display: block;
+  overflow: visible;
+}
+
+.wave-path {
+  fill: none;
+  stroke: #68A3A7;
+  stroke-width: 2;
+  stroke-opacity: 0.85;
+  stroke-linecap: round;
+}
+
+.wave-circle {
+  fill: #E39881;
+  transform-box: fill-box;
+  transform-origin: center center;
+  animation: af-pulse 2.6s ease-in-out infinite;
+}
+
+.wave-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(245, 242, 234, 0.45);
+  margin-top: 2px;
+}
+
+.wave-label--full {
+  color: var(--clay, #d4b8a0);
+}
+
+/* ─── GRID DE TARJETAS ─── */
+.programas-alfa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(245, 242, 234, 0.2);
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1),
+              transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* ─── TARJETA INDIVIDUAL ─── */
+.programa-card-alfa {
+  padding: 30px 26px 34px;
+  border-right: 1px solid rgba(245, 242, 234, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+/* Última tarjeta sin borde derecho */
+.programa-card-alfa:last-child {
+  border-right: none;
+}
+
+/* Tarjeta destacada (Eco) */
+.programa-card-alfa--destacada {
+  background: rgba(227, 152, 129, 0.16);
+}
+
+/* Hover en tarjetas */
+@media (hover: hover) {
+  .programa-card-alfa:hover {
+    background: rgba(245, 242, 234, 0.06);
+  }
+
+  .programa-card-alfa--destacada:hover {
+    background: rgba(227, 152, 129, 0.25);
+  }
+
+  .programa-card-alfa:hover .programa-card-alfa__detail {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+
+/* ─── ELEMENTOS DE LA TARJETA ─── */
+.programa-card-alfa__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.programa-card-alfa__number {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 11px;
+  color: rgba(245, 242, 234, 0.55);
+}
+
+.programa-card-alfa__duration {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 12px;
+  color: var(--clay, #d4b8a0);
+}
+
+.programa-card-alfa__tag {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(245, 242, 234, 0.6);
+}
+
+.programa-card-alfa__title {
+  font-family: var(--font-serif, "Source Serif 4", serif);
+  font-weight: 400;
+  font-size: 38px;
+  margin: 0;
+  line-height: 0.95;
+  color: #fff;
+}
+
+.programa-card-alfa__desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(245, 242, 234, 0.66);
+  margin: 0;
+}
+
+/* ─── DETALLE EXPANDIBLE ─── */
+.programa-card-alfa__detail {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.35s, opacity 0.3s;
+}
+
+.programa-card-alfa__detail ul {
+  margin: 8px 0 0;
+  padding: 0 0 0 16px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(245, 242, 234, 0.62);
+}
+
+.programa-card-alfa__detail li {
+  list-style-type: disc;
+}
+
+/* ─── HOVER HINT ─── */
+.programas-alfa-hint {
+  margin-top: 14px;
+  text-align: center;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: rgba(245, 242, 234, 0.4);
+}
+
+/* ─── FOOTER: MODALIDAD ─── */
+.programas-alfa-footer {
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(245, 242, 234, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1),
+              transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.programas-alfa-footer__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.programas-alfa-footer__label {
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--clay, #d4b8a0);
+}
+
+.programas-alfa-footer__badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge-alfa {
+  border: 1px solid rgba(245, 242, 234, 0.28);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.programas-alfa-footer__text {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: rgba(245, 242, 234, 0.72);
+  max-width: 50ch;
+  margin: 0;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 767px) {
+  .programas-alfa-wrapper {
+    padding: 48px 20px;
+  }
+
+  .programas-alfa-grid {
+    grid-template-columns: 1fr;
+    border-top: none;
+  }
+
+  .programa-card-alfa {
+    border-right: none;
+    border-bottom: 1px solid rgba(245, 242, 234, 0.2);
+    padding: 24px 20px;
+  }
+
+  .programa-card-alfa:last-child {
+    border-bottom: none;
+  }
+
+  .programa-card-alfa__title {
+    font-size: 30px;
+  }
+
+  .programas-alfa-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .programas-alfa-footer__text {
+    max-width: 100%;
+    font-size: 13.5px;
+  }
+
+  .wave-labels {
+    font-size: 8px;
+  }
+
+  .programas-alfa-hint {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .programas-alfa-title {
+    font-size: clamp(22px, 6vw, 27px);
+  }
+
+  .programa-card-alfa__title {
+    font-size: 26px;
+  }
+
+  .programa-card-alfa {
+    padding: 20px 16px;
+  }
+
+  .badge-alfa {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+}
