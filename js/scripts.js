@@ -31,8 +31,8 @@ const HERO_TRANSLATIONS = isHomePage ? {
       { text: "INSIGHT", cls: "clay" },
       { text: " to action.", cls: null },
     ],
-    h2Prefix: "Information ",
-    h2Suffix: "<br> for decisions that transform.",
+    h2Prefix: "",
+    h2Suffix: " Information<br> for decisions that transform.",
     words: ["KEY", "STRATEGIC", "RELIABLE", "REVEALING"],
   },
   pt: {
