@@ -330,7 +330,7 @@ h3 {
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--cream);
+  background: var(--paper2);
   border-bottom: 2px solid var(--teal);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   padding: 1.5rem var(--px);
@@ -2919,7 +2919,6 @@ button {
 
 .badge-alfa {
   border: 1px solid rgba(245, 242, 234, 0.28);
-  border-radius: 999px;
   padding: 8px 16px;
   font-size: 13px;
   font-weight: 500;

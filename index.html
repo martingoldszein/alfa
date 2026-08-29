@@ -195,29 +195,21 @@
 
       <section data-dc-tpl="107" id="sistema">
         <div data-dc-tpl="108"
-          style="position: absolute;inset: 0px;background: linear-gradient(rgba(15, 10, 8, 0.5), rgba(15, 10, 8, 0.68));">
+          style="position: absolute; inset: 0px; background: linear-gradient(rgba(15, 10, 8, 0.5), rgba(15, 10, 8, 0.68));">
         </div>
         <div data-dc-tpl="109" style="max-width: 1240px; margin: 0px auto; padding: 0px 32px; position: relative;">
-          <!-- HOTSPOTS ALINEADOS CORRECTAMENTE -->
-          <!-- Punto Superior (Innovación) -->
+
+          <!-- HOTSPOTS PARA MODALES (los círculos) -->
           <button class="sa-point sa-point--innovacion" data-modal="innovacion" aria-label="Innovación"></button>
-
-          <!-- Punto Izquierdo (Coaching) -->
           <button class="sa-point sa-point--coaching" data-modal="coaching" aria-label="Coaching"></button>
-
-          <!-- Punto Derecho (Investigación) -->
           <button class="sa-point sa-point--investigacion" data-modal="investigacion"
             aria-label="Investigación"></button>
-
-          <!-- Punto Inferior (Sistémica) -->
           <button class="sa-point sa-point--sistemica" data-modal="sistemica" aria-label="Sistémica"></button>
-
-          <!-- Punto Central (Insight) -->
           <button class="sa-point sa-point--center" data-modal="insight"
             aria-label="Insight · Frecuencia Alfa"></button>
 
           <div data-dc-tpl="121" style="display: flex; flex-direction: column; align-items: center; gap: 0px;">
-            <!-- MENSAJE INFORMATIVO PARA MÓVIL -->
+            <!-- MENSAJE PARA MÓVIL -->
             <div class="sa-mobile-message">
               <span class="sa-mobile-icon">🔄</span>
               <p data-es="El diagrama interactivo del Sistema Alfa está disponible en tablet y escritorio. Te invitamos a explorarlo desde una pantalla más amplia para una experiencia completa."
@@ -227,17 +219,14 @@
                 El diagrama interactivo del Sistema Alfa está disponible en tablet y escritorio. Te invitamos a
                 explorarlo desde una pantalla más amplia para una experiencia completa.
               </p>
-              <span class="sa-mobile-hint" data-es="↳ Disponible en pantallas mayores a 768px"
-                data-en="↳ Available on screens larger than 768px" data-pt="↳ Disponível em telas maiores que 768px"
-                data-fr="↳ Disponible sur écrans de plus de 768px">
-                ↳ Disponible en pantallas mayores a 768px
-              </span>
             </div>
+
             <div data-dc-tpl="122"
               style="padding: clamp(12px, 2vw, 24px) 0px; display: flex; justify-content: center; align-items: center; width: 100%;">
               <div data-dc-tpl="123" style="position: relative; width: 100%; max-width: 640px; aspect-ratio: 1 / 0.86;">
                 <svg data-dc-tpl="124" viewBox="0 0 800 660"
                   style="position: absolute; inset: 0px; width: 100%; height: 100%; overflow: visible;">
+                  <!-- (Todo el contenido del SVG se mantiene exactamente igual) -->
                   <defs data-dc-tpl="125">
                     <radialGradient data-dc-tpl="126" id="afGlow" cx="50%" cy="50%" r="50%">
                       <stop data-dc-tpl="127" offset="0%" stop-color="#FFE9B8" stop-opacity="0.95"></stop>
@@ -268,25 +257,27 @@
                   <line data-dc-tpl="139" x1="400" y1="330" x2="282" y2="398" stroke="#E39881" stroke-opacity="0.3"
                     stroke-width="1" stroke-dasharray="2 5"></line>
                   <circle data-dc-tpl="140" cx="400" cy="120" r="22" fill="#E39881" opacity="0"
-                    style="filter: blur(6px);">
-                  </circle>
+                    style="filter: blur(6px);"></circle>
                   <circle data-dc-tpl="141" cx="650" cy="330" r="22" fill="#E39881" opacity="0"
-                    style="filter: blur(6px);">
-                  </circle>
+                    style="filter: blur(6px);"></circle>
                   <circle data-dc-tpl="142" cx="400" cy="540" r="22" fill="#E39881" opacity="1"
-                    style="filter: blur(6px);">
-                  </circle>
+                    style="filter: blur(6px);"></circle>
                   <circle data-dc-tpl="143" cx="150" cy="330" r="22" fill="#E39881" opacity="0"
-                    style="filter: blur(6px);">
+                    style="filter: blur(6px);"></circle>
+                  <circle data-dc-tpl="144" cx="400" cy="120" r="9" fill="#F0C57A"></circle>
+                  <circle data-dc-tpl="145" cx="400" cy="120" r="9" fill="none" stroke="#E39881" stroke-width="1.2"
+                    stroke-opacity="0.55">
+                    <animate data-dc-tpl="146" attributeName="r" values="9;16;9" dur="2.6s" repeatCount="indefinite">
+                    </animate>
+                    <animate data-dc-tpl="147" attributeName="stroke-opacity" values="0.55;0;0.55" dur="2.6s"
+                      repeatCount="indefinite"></animate>
                   </circle>
-                  <circle data-dc-tpl="144" cx="400" cy="120" r="9" fill="#F0C57A" style="transition: r 0.3s;"></circle>
-
                   <circle data-dc-tpl="148" cx="400" cy="194" r="6" fill="#F0C57A" opacity="0.85"></circle>
                   <circle data-dc-tpl="149" cx="518" cy="398" r="6" fill="#F0C57A" opacity="0.85"></circle>
                   <circle data-dc-tpl="150" cx="282" cy="398" r="6" fill="#F0C57A" opacity="0.85"></circle>
-                  <circle data-dc-tpl="151" cx="650" cy="330" r="9" fill="#F0C57A" style="transition: r 0.3s;"></circle>
-                  <circle data-dc-tpl="152" cx="400" cy="540" r="9" fill="#E39881" style="transition: r 0.3s;"></circle>
-                  <circle data-dc-tpl="153" cx="150" cy="330" r="9" fill="#F0C57A" style="transition: r 0.3s;"></circle>
+                  <circle data-dc-tpl="151" cx="650" cy="330" r="9" fill="#F0C57A"></circle>
+                  <circle data-dc-tpl="152" cx="400" cy="540" r="9" fill="#E39881"></circle>
+                  <circle data-dc-tpl="153" cx="150" cy="330" r="9" fill="#F0C57A"></circle>
                   <text data-dc-tpl="154" x="400" y="324" text-anchor="middle"
                     font-family="Hanken Grotesk, system-ui, sans-serif" font-size="44" font-weight="600" fill="#3A2A1E"
                     letter-spacing="1">INSIGHT</text>
@@ -294,65 +285,79 @@
                     font-size="13" fill="#3A2A1E" letter-spacing="2" font-weight="600" data-en="ALPHA FREQUENCY"
                     data-es="FRECUENCIA ALFA" data-pt="FREQUÊNCIA ALFA" data-fr="FRÉQUENCE ALPHA">FRECUENCIA ALFA</text>
                 </svg>
-                <button data-dc-tpl="156"
-                  style="position: absolute; left: 50%; top: 7%; transform: translateX(-50%); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 4px 8px; text-align: center;">
-                  <div data-dc-tpl="157" data-en="INNOVATION" data-pt="INOVAÇÃO" data-fr="INNOVATION"
-                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(245, 230, 211); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;"
-                    data-es="INNOVACIÓN">INNOVACIÓN</div>
-                  <div data-dc-tpl="158" data-en="Adaptive evolution" data-pt="Evolução adaptativa"
-                    data-fr="Évolution adaptative"
-                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;"
-                    data-es="Evolución adaptativa">Evolución adaptativa</div>
+
+                <!-- ⬇️ CAMBIO AQUÍ: BOTONES DE TEXTO CON CLASE "sa-point" ⬇️ -->
+                <!-- BOTÓN INNOVACIÓN -->
+                <button class="sa-point" data-modal="innovacion"
+                  style="position: absolute; left: 50%; top: 7%; transform: translateX(-50%); background: none; border: none; cursor: pointer; padding: 4px 8px; text-align: center;">
+                  <div class="sa-label-main" data-en="INNOVATION" data-pt="INOVAÇÃO" data-fr="INNOVATION"
+                    data-es="INNOVACIÓN"
+                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(245, 230, 211); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;">
+                    INNOVACIÓN</div>
+                  <div data-en="Adaptive evolution" data-pt="Evolução adaptativa" data-fr="Évolution adaptative"
+                    data-es="Evolución adaptativa"
+                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;">
+                    Evolución adaptativa</div>
                 </button>
-                <button data-dc-tpl="159"
-                  style="position: absolute; right: -7%; top: 50%; transform: translateY(-50%); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 4px 8px; text-align: left;">
-                  <div data-dc-tpl="160" data-en="RESEARCH" data-pt="PESQUISA" data-fr="RECHERCHE"
-                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(245, 230, 211); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;"
-                    data-es="INVESTIGACIÓN">INVESTIGACIÓN</div>
-                  <div data-dc-tpl="161" data-en="Data intelligence" data-pt="Inteligência de Dados"
-                    data-fr="Intelligence des données"
-                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;"
-                    data-es="Inteligencia de Datos">Inteligencia de Datos</div>
+
+                <!-- BOTÓN INVESTIGACIÓN -->
+                <button class="sa-point" data-modal="investigacion"
+                  style="position: absolute; right: -7%; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 4px 8px; text-align: left;">
+                  <div class="sa-label-main" data-en="RESEARCH" data-pt="PESQUISA" data-fr="RECHERCHE"
+                    data-es="INVESTIGACIÓN"
+                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(245, 230, 211); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;">
+                    INVESTIGACIÓN</div>
+                  <div data-en="Data intelligence" data-pt="Inteligência de Dados" data-fr="Intelligence des données"
+                    data-es="Inteligencia de Datos"
+                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;">
+                    Inteligencia de Datos</div>
                 </button>
-                <button data-dc-tpl="162"
-                  style="position: absolute; left: 50%; bottom: 0%; transform: translateX(-50%); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 4px 8px; text-align: center;">
-                  <div data-dc-tpl="163" data-en="SYSTEMIC" data-pt="SISTÊMICA" data-fr="SYSTÉMIQUE"
-                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(255, 255,255); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;"
-                    data-es="SISTÉMICA">SISTÉMICA</div>
-                  <div data-dc-tpl="164" data-en="Geometry of bonds" data-pt="Geometria dos Vínculos"
-                    data-fr="Géométrie des liens"
-                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;"
-                    data-es="Geometría de Vínculos">Geometría de Vínculos</div>
+
+                <!-- BOTÓN SISTÉMICA -->
+                <button class="sa-point" data-modal="sistemica"
+                  style="position: absolute; left: 50%; bottom: 0%; transform: translateX(-50%); background: none; border: none; cursor: pointer; padding: 4px 8px; text-align: center;">
+                  <div class="sa-label-main" data-en="SYSTEMIC" data-pt="SISTÊMICA" data-fr="SYSTÉMIQUE"
+                    data-es="SISTÉMICA"
+                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(255, 255, 255); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;">
+                    SISTÉMICA</div>
+                  <div data-en="Geometry of bonds" data-pt="Geometria dos Vínculos" data-fr="Géométrie des liens"
+                    data-es="Geometría de Vínculos"
+                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;">
+                    Geometría de Vínculos</div>
                 </button>
-                <button data-dc-tpl="165"
-                  style="position: absolute; left: -12%; top: 50%; transform: translateY(-50%); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 4px 8px; text-align: left;">
-                  <div data-dc-tpl="166" data-en="COACHING" data-pt="COACHING" data-fr="COACHING"
-                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(245, 230, 211); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;"
-                    data-es="COACHING">COACHING</div>
-                  <div data-dc-tpl="167" data-en="Brain-Based Coaching" data-pt="Coaching Baseado no Cérebro"
-                    data-fr="Coaching basé sur le cerveau"
-                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;"
-                    data-es="Brain-Based Coaching">Brain-Based Coaching</div>
+
+                <!-- BOTÓN COACHING -->
+                <button class="sa-point" data-modal="coaching"
+                  style="position: absolute; left: -12%; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; padding: 4px 8px; text-align: left;">
+                  <div class="sa-label-main" data-en="COACHING" data-pt="COACHING" data-fr="COACHING" data-es="COACHING"
+                    style="font-family: var(--font-sans); font-weight: 600; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.02em; color: rgb(245, 230, 211); transition: color 0.3s; text-shadow: rgba(0, 0, 0, 0.5) 0px 1px 6px;">
+                    COACHING</div>
+                  <div data-en="Brain-Based Coaching" data-pt="Coaching Baseado no Cérebro"
+                    data-fr="Coaching basé sur le cerveau" data-es="Brain-Based Coaching"
+                    style="font-family: var(--font-mono); font-size: 10px; color: rgba(245, 230, 211, 0.7); margin-top: 2px;">
+                    Brain-Based Coaching</div>
                 </button>
-                <button data-dc-tpl="168" aria-label="Insight"
-                  style="position: absolute; left: 50%; top: 50%; width: 26%; height: 26%; transform: translate(-50%, -50%); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; border-radius: 50%;"></button>
-                <button data-dc-tpl="169"
-                  style="position: absolute; left: 50%; top: 29.4%; transform: translate(-50%, -100%); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 2px 4px;">
-                  <span data-dc-tpl="170" data-en="NATURE" data-pt="NATUREZA" data-fr="NATURE"
-                    style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: rgb(245, 230, 211); transition: color 0.3s;"
-                    data-es="NATURALEZA">NATURALEZA</span>
+
+                <!-- Punto central (Insight) -->
+                <button class="sa-point sa-point--center" data-modal="insight" aria-label="Insight"
+                  style="position: absolute; left: 50%; top: 50%; width: 26%; height: 26%; transform: translate(-50%, -50%); background: none; border: none; cursor: pointer; border-radius: 50%;"></button>
+
+                <!-- Botones transversales (sin modal) -->
+                <button aria-label="Naturaleza"
+                  style="position: absolute; left: 50%; top: 29.4%; transform: translate(-50%, -100%); background: none; border: none; cursor: pointer; padding: 2px 4px;">
+                  <span data-en="NATURE" data-pt="NATUREZA" data-fr="NATURE" data-es="NATURALEZA"
+                    style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: rgb(245, 230, 211); transition: color 0.3s;">NATURALEZA</span>
                 </button>
-                <button data-dc-tpl="171"
-                  style="position: absolute; left: 35.25%; top: 60.3%; transform: translate(-100%, 0px); background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 2px 4px; text-align: right;">
-                  <span data-dc-tpl="172" data-en="TECHNOLOGY" data-pt="TECNOLOGIA" data-fr="TECHNOLOGIE"
-                    style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: rgb(245, 230, 211); transition: color 0.3s;"
-                    data-es="TECNOLOGÍA">TECNOLOGÍA</span>
+                <button aria-label="Tecnología"
+                  style="position: absolute; left: 35.25%; top: 60.3%; transform: translate(-100%, 0px); background: none; border: none; cursor: pointer; padding: 2px 4px; text-align: right;">
+                  <span data-en="TECHNOLOGY" data-pt="TECNOLOGIA" data-fr="TECHNOLOGIE" data-es="TECNOLOGÍA"
+                    style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: rgb(245, 230, 211); transition: color 0.3s;">TECNOLOGÍA</span>
                 </button>
-                <button data-dc-tpl="173"
-                  style="position: absolute; left: 64.75%; top: 60.3%; background: none; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; cursor: pointer; padding: 2px 4px;">
-                  <span data-dc-tpl="174" data-en="PLAY" data-pt="O JOGO" data-fr="LE JEU"
-                    style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: rgb(245, 230, 211); transition: color 0.3s;"
-                    data-es="EL JUEGO">EL JUEGO</span>
+                <button aria-label="El juego"
+                  style="position: absolute; left: 64.75%; top: 60.3%; background: none; border: none; cursor: pointer; padding: 2px 4px;">
+                  <span data-en="PLAY" data-pt="O JOGO" data-fr="LE JEU" data-es="EL JUEGO"
+                    style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; color: rgb(245, 230, 211); transition: color 0.3s;">EL
+                    JUEGO</span>
                 </button>
               </div>
             </div>
