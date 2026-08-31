@@ -1770,7 +1770,7 @@ button {
   animation:
     typing 3.5s steps(30, end) forwards,
     blink-caret 0.75s step-end infinite;
-  width: 0;
+
   display: inline-block;
   font-size: clamp(1.6rem, 4.5vw, 4.4rem);
   font-weight: 300;

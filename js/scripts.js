@@ -797,7 +797,8 @@ function setActiveByPath() {
 }
 
 // ── TRADUCCIONES ──────────────────────────────────────
-const translatables = document.querySelectorAll("[data-es][data-en][data-pt][data-fr]");
+// EXCLUIR #typewriterText de las traducciones automáticas
+const translatables = document.querySelectorAll("[data-es][data-en][data-pt][data-fr]:not(#typewriterText)");
 const langSelectors = document.querySelectorAll("[data-lang]");
 
 function setLanguage(lang) {
@@ -890,3 +891,136 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // También ejecutar cuando cambie la URL (para navegación SPA)
 window.addEventListener("popstate", setActiveByPath);
+
+// ── TYPEWRITER PARA SECCIÓN FRASES (MULTI-IDIOMA) ──
+function initTypewriter() {
+  const typewriterElement = document.getElementById('typewriterText');
+  if (!typewriterElement) return;
+
+  // Frases en cada idioma
+  const phrases = {
+    es: [
+      'Los Vínculos · Orden y Dinámica',
+      'El Ser · Presencia y Autorregulación'
+    ],
+    en: [
+      'The Bonds · Order and Dynamics',
+      'The Being · Presence and Self-Regulation'
+    ],
+    pt: [
+      'Os Vínculos · Ordem e Dinâmica',
+      'O Ser · Presença e Autorregulação'
+    ],
+    fr: [
+      'Les Liens · Ordre et Dynamique',
+      "L'Être · Présence et Autorégulation"
+    ]
+  };
+
+  let currentLang = localStorage.getItem('alfalogica-lang') || 'es';
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typewriterTimeout = null;
+  let isRunning = true;
+
+  function getCurrentPhrases() {
+    return phrases[currentLang] || phrases.es;
+  }
+
+  function type() {
+    if (!isRunning) return;
+
+    const currentPhrases = getCurrentPhrases();
+    const fullText = currentPhrases[phraseIndex % currentPhrases.length];
+
+    if (isDeleting) {
+      charIndex--;
+      typewriterElement.textContent = fullText.substring(0, charIndex);
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % currentPhrases.length;
+        typewriterTimeout = setTimeout(type, 500);
+        return;
+      }
+      typewriterTimeout = setTimeout(type, 30);
+    } else {
+      charIndex++;
+      typewriterElement.textContent = fullText.substring(0, charIndex);
+
+      if (charIndex === fullText.length) {
+        typewriterTimeout = setTimeout(() => {
+          isDeleting = true;
+          type();
+        }, 2500);
+        return;
+      }
+      typewriterTimeout = setTimeout(type, 60);
+    }
+  }
+
+  // Detener el typewriter actual
+  function stopTypewriter() {
+    isRunning = false;
+    if (typewriterTimeout) {
+      clearTimeout(typewriterTimeout);
+      typewriterTimeout = null;
+    }
+  }
+
+  // Reiniciar el typewriter con el nuevo idioma
+  function restartTypewriter(lang) {
+    stopTypewriter();
+    currentLang = lang;
+    phraseIndex = 0;
+    charIndex = 0;
+    isDeleting = false;
+    isRunning = true;
+
+    // Limpiar y empezar de nuevo
+    typewriterElement.textContent = '';
+    setTimeout(type, 400);
+  }
+
+  // Escuchar cambios de idioma
+  const langObserver = new MutationObserver(() => {
+    const newLang = localStorage.getItem('alfalogica-lang') || 'es';
+    if (newLang !== currentLang) {
+      restartTypewriter(newLang);
+    }
+  });
+
+  // Observar cambios en localStorage (por si otra pestaña cambia el idioma)
+  langObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['lang']
+  });
+
+  // También escuchar clicks en los selectores de idioma
+  document.addEventListener('click', function(e) {
+    const langLink = e.target.closest('[data-lang]');
+    if (langLink) {
+      const newLang = langLink.getAttribute('data-lang');
+      if (newLang && newLang !== currentLang) {
+        // Esperar a que el script principal cambie el idioma
+        setTimeout(() => {
+          const storedLang = localStorage.getItem('alfalogica-lang') || 'es';
+          if (storedLang !== currentLang) {
+            restartTypewriter(storedLang);
+          }
+        }, 100);
+      }
+    }
+  });
+
+  // Iniciar
+  setTimeout(type, 400);
+}
+
+// Inicializar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTypewriter);
+} else {
+  initTypewriter();
+}

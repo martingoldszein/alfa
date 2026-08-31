@@ -12,7 +12,78 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/scripts.js" defer></script>
+  <style>
+    /* ─── NUEVA SECCIÓN FRASES (TYPEWRITER) ─── */
+    .frases-section {
+      background: #1e3a4a;
+      /* --forest / azul bosque */
+      width: 100%;
+      padding: 4rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200px;
+    }
 
+    .frases-container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .frases-container h2 {
+      font-family: 'Source Serif 4', 'Instrument Serif', serif;
+      font-size: clamp(27px, 3.4vw, 44px);
+      color: #ffffff;
+      line-height: 1.4;
+      min-height: 4.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+
+    .frases-container .typewriter-text {
+      display: inline-block;
+      overflow: hidden;
+      border-right: 3px solid rgba(255, 255, 255, 0.7);
+      animation: blink-caret 0.75s step-end infinite;
+      padding-right: 4px;
+      font-family: 'Source Serif 4', 'Instrument Serif', serif;
+      font-size: clamp(27px, 3.4vw, 44px);
+      color: #ffffff;
+      vertical-align: bottom;
+      min-width: 1px;
+      white-space: nowrap;
+    }
+
+    @keyframes blink-caret {
+
+      0%,
+      100% {
+        border-color: rgba(255, 255, 255, 0.7);
+      }
+
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    /* Ajuste para pantallas muy pequeñas */
+    @media (max-width: 600px) {
+      .frases-container h2 {
+        min-height: 4rem;
+        flex-wrap: wrap;
+      }
+
+      .frases-container .typewriter-text {
+        white-space: normal;
+        word-break: break-word;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -22,9 +93,7 @@
         data-en="Miami, Florida 33131, USA – Tel. (786) 598-0052 (whatsapp)"
         data-pt="Miami, Flórida 33131, EUA – Tel. (786) 598-0052 (whatsapp)"
         data-fr="Miami, Floride 33131, États-Unis – Tél. (786) 598-0052 (whatsapp)">Miami, Florida 33131, USA – Tel.
-        <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>
-
-        )</span>
+        <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>)</span>
       <span class="topbar__sep">|</span>
       <span class="topbar__text" data-es="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
         data-en="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
@@ -33,7 +102,6 @@
         Tel.
         <a href="tel:+541140845649">(54911) 4 084 5649</a> mail:
         <a href="mailto:info@alfalogica.com">info@alfalogica.com</a></span>
-      <!-- WhatsApp link – alineado a la derecha -->
       <a href="https://wa.me/17865980052" target="_blank" class="topbar__whatsapp" data-es="Escríbenos por WhatsApp"
         data-en="Write us on WhatsApp" data-pt="Escreva-nos no WhatsApp" data-fr="Écrivez-nous sur WhatsApp">
         Escríbenos por WhatsApp
@@ -45,7 +113,6 @@
     <div class="nav__inner">
       <a class="nav__logo" href="#"><img src="images/logo.png" alt="Alfalógica" /></a>
 
-      <!-- DESKTOP links -->
       <ul class="nav__links" id="navLinks">
         <li>
           <a href="/" class="active" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a>
@@ -57,17 +124,6 @@
         <li>
           <a href="metodo.html" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a>
         </li>
-        <!-- 2da etapa
-          <li>
-            <a
-              href="/ludoteca"
-              data-es="Ludoteca"
-              data-en="Game Library"
-              data-pt="Ludoteca"
-              data-fr="Ludothèque"
-              >Ludoteca</a
-            >
-          </li> -->
         <li>
           <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
         </li>
@@ -98,14 +154,12 @@
           <a href="/contacto" data-es="Conversemos" data-en="Talk us" data-pt="Conversa"
             data-fr="Conversemos">Conversemos</a>
         </div>
-        <!-- HAMBURGER button -->
         <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <!-- MOBILE menu (dropdown) -->
     <ul class="nav__mobile" id="mobileMenu">
       <li>
         <a href="#" class="active" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a>
@@ -156,7 +210,14 @@
     </div>
   </section>
 
-
+  <!-- ─── NUEVA SECCIÓN FRASES (TYPEWRITER) ─── -->
+  <section class="frases-section" id="frases">
+    <div class="frases-container">
+      <h2>
+        <span class="typewriter-text" id="typewriterText"></span>
+      </h2>
+    </div>
+  </section>
 
   <!-- ─── DIAGRAMA (sección traducida) ─── -->
   <div class="diagrama"
@@ -286,7 +347,7 @@
                     data-es="FRECUENCIA ALFA" data-pt="FREQUÊNCIA ALFA" data-fr="FRÉQUENCE ALPHA">FRECUENCIA ALFA</text>
                 </svg>
 
-                <!-- ⬇️ CAMBIO AQUÍ: BOTONES DE TEXTO CON CLASE "sa-point" ⬇️ -->
+                <!-- ⬇️ BOTONES DE TEXTO CON CLASE "sa-point" ⬇️ -->
                 <!-- BOTÓN INNOVACIÓN -->
                 <button class="sa-point" data-modal="innovacion"
                   style="position: absolute; left: 50%; top: 7%; transform: translateX(-50%); background: none; border: none; cursor: pointer; padding: 4px 8px; text-align: center;">
@@ -1210,6 +1271,7 @@
         d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
   </a>
+
 
 </body>
 
