@@ -1,30 +1,423 @@
+<!-- sobre-nosotros.html -->
 <!doctype html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alfalógica · Insights & Innovation</title>
+  <title>Alfalógica · Sobre Nosotros</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=IBM+Plex+Mono&family=Instrument+Serif&family=Source+Serif+4:opsz@8..60&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/scripts.js" defer></script>
+  <style>
+    /* ─── SOBRE NOSOTROS SPECIFIC STYLES ─── */
 
+    /* Hero */
+    .sobre-hero {
+      padding: 60px 32px 40px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .sobre-hero__label {
+      margin-bottom: 16px;
+    }
+
+    .sobre-hero__h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(38px, 5.5vw, 68px);
+      line-height: 1.05;
+      color: #1A1410;
+      margin: 0 0 20px 0;
+      font-weight: 400;
+      max-width: 860px;
+    }
+
+    .sobre-hero__h1 em {
+      font-style: italic;
+      color: #E39881;
+    }
+
+    .sobre-hero__sub {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: clamp(16px, 1.3vw, 21px);
+      line-height: 1.6;
+      color: #3A2A1E;
+      max-width: 720px;
+      margin: 0 0 8px 0;
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
+    /* ─── TRAYECTORIA ─── */
+    .trayectoria {
+      padding: 48px 32px 56px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .trayectoria__label {
+      margin-bottom: 12px;
+    }
+
+    .trayectoria__h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(30px, 3.8vw, 46px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0 0 32px 0;
+      color: #1A1410;
+    }
+
+    .trayectoria__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .trayectoria__card {
+      background: #F9F5EF;
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid rgba(26, 20, 16, 0.04);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .trayectoria__card:hover {
+      box-shadow: 0 8px 28px rgba(26, 20, 16, 0.06);
+    }
+
+    .trayectoria__card-tag {
+      display: inline-block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #E39881;
+      border: 1px solid #E39881;
+      padding: 2px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .trayectoria__card h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 24px;
+      font-weight: 400;
+      margin: 0 0 12px 0;
+      color: #1A1410;
+    }
+
+    .trayectoria__card p {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3A2A1E;
+      opacity: 0.85;
+      margin: 0;
+    }
+
+    /* ─── MANIFIESTO (FRANJA FOREST) ─── */
+    .manifiesto-franja {
+      background: #1A1410;
+      padding: 72px 32px 80px;
+      color: #F5E6D3;
+    }
+
+    .manifiesto-franja__inner {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .manifiesto-franja__label {
+      margin-bottom: 12px;
+    }
+
+    .manifiesto-franja__label .label-tag--light {
+      border-color: #F5E6D3;
+      color: #F5E6D3;
+    }
+
+    .manifiesto-franja__h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0 0 12px 0;
+    }
+
+    .manifiesto-franja__sub {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: clamp(15px, 1.2vw, 19px);
+      opacity: 0.8;
+      max-width: 640px;
+      margin: 0 0 40px 0;
+      line-height: 1.6;
+    }
+
+    .principios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .principio-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 14px;
+      padding: 24px 20px 28px;
+      border: 1px solid rgba(245, 230, 211, 0.06);
+      transition: background 0.3s ease;
+    }
+
+    .principio-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .principio-card__number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: #E8A24D;
+      opacity: 0.6;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .principio-card__title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 20px;
+      font-weight: 400;
+      margin: 0 0 8px 0;
+      color: #F5E6D3;
+    }
+
+    .principio-card__desc {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.75;
+      margin: 0;
+    }
+
+    /* ─── ENFOQUE ─── */
+    .enfoque {
+      padding: 72px 32px 64px;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .enfoque__label {
+      margin-bottom: 12px;
+    }
+
+    .enfoque__h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(30px, 3.8vw, 46px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0 0 16px 0;
+      color: #1A1410;
+      max-width: 720px;
+    }
+
+    .enfoque__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .enfoque__text {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: clamp(15px, 1.2vw, 18px);
+      line-height: 1.7;
+      color: #3A2A1E;
+      opacity: 0.85;
+    }
+
+    .enfoque__text p {
+      margin: 0 0 16px 0;
+    }
+
+    .enfoque__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .enfoque__image {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .enfoque__image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 380px;
+    }
+
+    /* ─── STATS ─── */
+    .sobre-stats {
+      background: #F0E8DE;
+      padding: 48px 32px 56px;
+    }
+
+    .sobre-stats__inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .sobre-stat__num {
+      display: block;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 400;
+      color: #1A1410;
+      line-height: 1.1;
+    }
+
+    .sobre-stat__label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #3A2A1E;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+
+    /* ─── CTA ─── */
+    .sobre-cta {
+      padding: 64px 32px 72px;
+      text-align: center;
+    }
+
+    .sobre-cta__inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .sobre-cta__h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(30px, 3.6vw, 44px);
+      font-weight: 400;
+      color: #1A1410;
+      margin: 0 0 20px 0;
+      line-height: 1.1;
+    }
+
+    .sobre-cta__btn {
+      display: inline-block;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #F5E6D3;
+      background: #1A1410;
+      padding: 14px 44px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background 0.25s ease, transform 0.2s ease;
+      letter-spacing: 0.02em;
+    }
+
+    .sobre-cta__btn:hover {
+      background: #3A2A1E;
+      transform: scale(1.02);
+    }
+
+    .sobre-cta__btn span {
+      display: inline-block;
+      margin-left: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .sobre-cta__btn:hover span {
+      transform: translateX(4px);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .sobre-hero {
+        padding: 40px 20px 32px;
+      }
+
+      .trayectoria {
+        padding: 32px 20px 40px;
+      }
+
+      .trayectoria__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .manifiesto-franja {
+        padding: 48px 20px 56px;
+      }
+
+      .principios-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .enfoque {
+        padding: 48px 20px 40px;
+      }
+
+      .enfoque__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .enfoque__image img {
+        max-height: 220px;
+      }
+
+      .sobre-stats {
+        padding: 32px 20px 40px;
+      }
+
+      .sobre-stats__inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 16px;
+      }
+
+      .sobre-cta {
+        padding: 48px 20px 56px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .principios-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .sobre-stats__inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
+  <!-- ─── TOPBAR ─── -->
   <div class="topbar">
     <div class="topbar__inner">
       <span class="topbar__text" data-es="Miami, Florida 33131, USA – Tel. (786) 598-0052 (whatsapp)"
         data-en="Miami, Florida 33131, USA – Tel. (786) 598-0052 (whatsapp)"
         data-pt="Miami, Flórida 33131, EUA – Tel. (786) 598-0052 (whatsapp)"
         data-fr="Miami, Floride 33131, États-Unis – Tél. (786) 598-0052 (whatsapp)">Miami, Florida 33131, USA – Tel.
-        <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>
-
-        )</span>
+        <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>)
+      </span>
       <span class="topbar__sep">|</span>
       <span class="topbar__text" data-es="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
         data-en="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
@@ -32,8 +425,8 @@
         data-fr="Buenos Aires, Argentine – Tél. (54911) 4 084 5649 mail: info@alfalogica.com">Buenos Aires, Argentina –
         Tel.
         <a href="tel:+541140845649">(54911) 4 084 5649</a> mail:
-        <a href="mailto:info@alfalogica.com">info@alfalogica.com</a></span>
-      <!-- WhatsApp link – alineado a la derecha -->
+        <a href="mailto:info@alfalogica.com">info@alfalogica.com</a>
+      </span>
       <a href="https://wa.me/17865980052" target="_blank" class="topbar__whatsapp" data-es="Escríbenos por WhatsApp"
         data-en="Write us on WhatsApp" data-pt="Escreva-nos no WhatsApp" data-fr="Écrivez-nous sur WhatsApp">
         Escríbenos por WhatsApp
@@ -41,39 +434,20 @@
     </div>
   </div>
 
+  <!-- ─── NAV ─── -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a class="nav__logo" href="#"><img src="logo.png" alt="Alfalógica" /></a>
+      <a class="nav__logo" href="index.html"><img src="images/logo.png" alt="Alfalógica" /></a>
 
-      <!-- DESKTOP links -->
       <ul class="nav__links" id="navLinks">
-        <li>
-          <a href="/" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a>
+        <li><a href="index.html" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a></li>
+        <li><a href="sobre-nosotros.html" class="active" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
+            data-fr="À propos">Sobre Nosotros</a></li>
+        <li><a href="metodo.html" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a></li>
+        <li><a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
         </li>
-        <li>
-          <a href="sobre-nosotros.html" class="active" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
-            data-fr="À propos">Sobre Nosotros</a>
-        </li>
-        <li>
-          <a href="metodo.html" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a>
-        </li>
-        <!-- 2da etapa
-          <li>
-            <a
-              href="/ludoteca"
-              data-es="Ludoteca"
-              data-en="Game Library"
-              data-pt="Ludoteca"
-              data-fr="Ludothèque"
-              >Ludoteca</a
-            >
-          </li> -->
-        <li>
-          <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
-        </li>
-        <li>
-          <a href="contacto.html" data-es="Contacto" data-en="Contact Us" data-pt="Contato" data-fr="">Contacto</a>
-        </li>
+        <li><a href="contacto.html" data-es="Contacto" data-en="Contact Us" data-pt="Contato"
+            data-fr="Contact">Contacto</a></li>
       </ul>
 
       <div class="nav__right">
@@ -95,33 +469,24 @@
           </div>
         </details>
         <div class="nav__cta">
-          <a href="/contacto" data-es="Conversemos" data-en="Talk us" data-pt="Conversa"
-            data-fr="Conversemos">Conversemos</a>
+          <a href="contacto.html" data-es="Conversemos" data-en="Talk to us" data-pt="Conversa"
+            data-fr="Parlons">Conversemos</a>
         </div>
-        <!-- HAMBURGER button -->
         <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <!-- MOBILE menu (dropdown) -->
     <ul class="nav__mobile" id="mobileMenu">
-      <li>
-        <a href="#" class="active" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a>
+      <li><a href="index.html" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a></li>
+      <li><a href="sobre-nosotros.html" class="active" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
+          data-fr="À propos">Sobre Nosotros</a></li>
+      <li><a href="metodo.html" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a></li>
+      <li><a href="index.html#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes"
+          data-fr="Clients">Clientes</a>
       </li>
-      <li>
-        <a href="/sobre-nosotros" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
-          data-fr="À propos">Sobre Nosotros</a>
-      </li>
-      <li>
-        <a href="/metodo" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a>
-      </li>
-      <li>
-        <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
-      </li>
-      <li>
-        <a href="/contacto" data-es="Contacto" data-en="Contact" data-pt="Contato" data-fr="Contact">Contacto</a>
+      <li><a href="contacto.html" data-es="Contacto" data-en="Contact" data-pt="Contato" data-fr="Contact">Contacto</a>
       </li>
       <li class="nav__mobile__lang">
         <a href="#" class="active" data-lang="es">ES</a>
@@ -132,20 +497,291 @@
     </ul>
   </nav>
 
-  SOBRE NOSOTROS (en construccion)
+  <!-- ─── MAIN CONTENT ─── -->
+  <main>
 
+    <!-- HERO -->
+    <section class="sobre-hero">
+      <div class="sobre-hero__label">
+        <span class="label-tag" data-es="Sobre Alfalógica · nuestra filosofía"
+          data-en="About Alfalógica · our philosophy" data-pt="Sobre a Alfalógica · nossa filosofia"
+          data-fr="À propos d'Alfalógica · notre philosophie">
+          Sobre Alfalógica · nuestra filosofía
+        </span>
+      </div>
+      <h1 class="sobre-hero__h1" data-es="Somos la frecuencia donde <br/>el dato y la naturaleza se encuentran."
+        data-en="We are the frequency where <br/>data and nature meet."
+        data-pt="Somos a frequência onde <br/>o dado e a natureza se encontram."
+        data-fr="Nous sommes la fréquence où <br/>la donnée et la nature se rencontrent.">
+        Somos la frecuencia donde <br />el dato y la naturaleza se encuentran.
+      </h1>
+      <p class="sobre-hero__sub"
+        data-es="Desde hace más de dos décadas acompañamos a líderes y organizaciones a alinear el ser, la tarea y los vínculos, convirtiendo la intuición estratégica en sistemas medibles que se autorregulan."
+        data-en="For over two decades we have accompanied leaders and organizations to align being, task, and bonds, turning strategic intuition into measurable, self-regulating systems."
+        data-pt="Há mais de duas décadas acompanhamos líderes e organizações a alinhar o ser, a tarefa e os vínculos, convertendo a intuição estratégica em sistemas mensuráveis que se autorregulam."
+        data-fr="Depuis plus de deux décennies, nous accompagnons les leaders et les organisations à aligner l'être, la tâche et les liens, transformant l'intuition stratégique en systèmes mesurables qui s'autorégulent.">
+        Desde hace más de dos décadas acompañamos a líderes y organizaciones a alinear el ser, la tarea y los vínculos,
+        convirtiendo la intuición estratégica en sistemas medibles que se autorregulan.
+      </p>
+    </section>
+
+    <!-- TRAYECTORIA · Institucional + Personal -->
+    <section class="trayectoria">
+      <div class="trayectoria__label">
+        <span class="label-tag" data-es="Nuestra trayectoria" data-en="Our trajectory" data-pt="Nossa trajetória"
+          data-fr="Notre trajectoire">Nuestra trayectoria</span>
+      </div>
+      <h2 class="trayectoria__h2" data-es="Del insight al estado alfa: <br/>una evolución, no una fórmula."
+        data-en="From insight to alpha state: <br/>an evolution, not a formula."
+        data-pt="Do insight ao estado alfa: <br/>uma evolução, não uma fórmula."
+        data-fr="De l'insight à l'état alpha : <br/>une évolution, pas une formule.">
+        Del insight al estado alfa: <br />una evolución, no una fórmula.
+      </h2>
+
+      <div class="trayectoria__grid">
+        <!-- Institucional -->
+        <div class="trayectoria__card">
+          <span class="trayectoria__card-tag" data-es="Institucional" data-en="Institutional" data-pt="Institucional"
+            data-fr="Institutionnel">Institucional</span>
+          <h3 data-es="Alfalógica" data-en="Alfalógica" data-pt="Alfalógica" data-fr="Alfalógica">Alfalógica</h3>
+          <p data-es="Alfalógica nació en la investigación de insights: escuchar con rigor lo que un mercado, un equipo o un líder todavía no sabía decir de sí mismo. Con los años, esa escucha se volvió acción — el estado alfa, el punto donde la evidencia y la intuición dejan de competir y empiezan a decidir juntas. En el camino sumamos herramientas nuevas, afinamos nuestro criterio en industrias muy distintas entre sí, incorporamos tecnología de punta y convertimos cada aprendizaje en método. No partimos de una fórmula: la construimos, y la seguimos construyendo con cada organización que acompañamos."
+            data-en="Alfalógica was born in insight research: listening rigorously to what a market, a team, or a leader still couldn't say about themselves. Over the years, that listening became action — the alpha state, the point where evidence and intuition stop competing and start deciding together. Along the way, we added new tools, sharpened our judgment across very different industries, incorporated cutting-edge technology, and turned every learning into method. We didn't start with a formula: we built it, and we keep building it with every organization we accompany."
+            data-pt="A Alfalógica nasceu na pesquisa de insights: ouvir com rigor o que um mercado, uma equipe ou um líder ainda não sabia dizer de si mesmo. Com o passar dos anos, essa escuta se tornou ação — o estado alfa, o ponto onde a evidência e a intuição deixam de competir e começam a decidir juntas. No caminho, adicionamos novas ferramentas, refinamos nosso critério em indústrias muito diferentes entre si, incorporamos tecnologia de ponta e convertemos cada aprendizado em método. Não partimos de uma fórmula: a construímos, e continuamos construindo com cada organização que acompanhamos."
+            data-fr="Alfalógica est née dans la recherche d'insights : écouter avec rigueur ce qu'un marché, une équipe ou un leader ne savait pas encore dire de lui-même. Au fil des années, cette écoute est devenue action — l'état alpha, le point où la preuve et l'intuition cessent de se concurrencer et commencent à décider ensemble. En chemin, nous avons ajouté de nouveaux outils, affiné notre jugement dans des industries très différentes, intégré des technologies de pointe et transformé chaque apprentissage en méthode. Nous ne sommes pas partis d'une formule : nous l'avons construite, et nous continuons à la construire avec chaque organisation que nous accompagnons.">
+            Alfalógica nació en la investigación de insights: escuchar con rigor lo que un mercado, un equipo o un
+            líder todavía no sabía decir de sí mismo. Con los años, esa escucha se volvió acción — el estado alfa, el
+            punto donde la evidencia y la intuición dejan de competir y empiezan a decidir juntas. En el camino sumamos
+            herramientas nuevas, afinamos nuestro criterio en industrias muy distintas entre sí, incorporamos tecnología
+            de punta y convertimos cada aprendizaje en método. No partimos de una fórmula: la construimos, y la seguimos
+            construyendo con cada organización que acompañamos.
+          </p>
+        </div>
+
+        <!-- Personal -->
+        <div class="trayectoria__card">
+          <span class="trayectoria__card-tag" data-es="Personal · Mariana Bunge" data-en="Personal · Mariana Bunge"
+            data-pt="Pessoal · Mariana Bunge" data-fr="Personnel · Mariana Bunge">Personal · Mariana Bunge</span>
+          <h3 data-es="Mariana Bunge" data-en="Mariana Bunge" data-pt="Mariana Bunge" data-fr="Mariana Bunge">Mariana
+            Bunge</h3>
+          <p data-es="Empecé escuchando insights — lo que la gente no decía en voz alta, pero que definía todo. Con el tiempo aprendí que escuchar no alcanza: hay que animarse a actuar desde ahí, en estado alfa. Soy Licenciada en Administración de Empresas, con un Máster en Negocios y Economía y una sólida trayectoria en investigación de mercado. Siempre me apasionó el cruce entre el rigor estratégico de los negocios y la dinámica del comportamiento humano. Hoy acompaño a fundadores, directores y a sus equipos a destrabar bloqueos organizacionales complejos —interviniendo primero en la mentalidad del líder y luego en la dinámica colectiva— integrando coaching consciente y neuroliderazgo (Fred Kofman, NeuroLeadership Institute), constelaciones organizacionales certificadas por Naser University, y marcos de agilidad e innovación (Kleer, IAE Business School). El diferencial: potencio todo esto con dinámicas híbridas y lúdicas —juego serio, trabajo en la naturaleza con personas, animales y objetos, y tecnología combinada—, porque romper las barreras de un equipo jugando es, en mi experiencia, lo que hace emerger el insight estratégico más rápido."
+            data-en="I started by listening to insights — what people didn't say out loud, but that defined everything. Over time I learned that listening isn't enough: you have to dare to act from there, in an alpha state. I hold a degree in Business Administration, a Master's in Business and Economics, and a solid background in market research. I've always been passionate about the intersection between strategic business rigor and human behavior dynamics. Today I accompany founders, directors, and their teams in unblocking complex organizational blocks — intervening first in the leader's mindset and then in collective dynamics — integrating conscious coaching and neuroleadership (Fred Kofman, NeuroLeadership Institute), organizational constellations certified by Naser University, and agility and innovation frameworks (Kleer, IAE Business School). The differentiator: I enhance all of this with hybrid and playful dynamics — serious games, work in nature with people, animals, and objects, and combined technology — because breaking down a team's barriers through play is, in my experience, what makes strategic insight emerge fastest."
+            data-pt="Comecei ouvindo insights — o que as pessoas não diziam em voz alta, mas que definia tudo. Com o tempo, aprendi que ouvir não basta: é preciso ousar agir a partir daí, em estado alfa. Sou Licenciada em Administração de Empresas, com Mestrado em Negócios e Economia e uma sólida trajetória em pesquisa de mercado. Sempre fui apaixonada pelo cruzamento entre o rigor estratégico dos negócios e a dinâmica do comportamento humano. Hoje acompanho fundadores, diretores e suas equipes a desbloquear bloqueios organizacionais complexos — intervindo primeiro na mentalidade do líder e depois na dinâmica coletiva — integrando coaching consciente e neuroliderança (Fred Kofman, NeuroLeadership Institute), constelações organizacionais certificadas pela Naser University, e frameworks de agilidade e inovação (Kleer, IAE Business School). O diferencial: potencializo tudo isso com dinâmicas híbridas e lúdicas — jogos sérios, trabalho na natureza com pessoas, animais e objetos, e tecnologia combinada — porque quebrar as barreiras de uma equipe jogando é, na minha experiência, o que faz emergir o insight estratégico mais rápido."
+            data-fr="J'ai commencé par écouter les insights — ce que les gens ne disaient pas à voix haute, mais qui définissait tout. Avec le temps, j'ai appris qu'écouter ne suffit pas : il faut oser agir à partir de là, en état alpha. Je suis titulaire d'une licence en Administration des Affaires, d'un Master en Commerce et Économie et d'une solide expérience en recherche de marché. J'ai toujours été passionnée par le croisement entre la rigueur stratégique des affaires et la dynamique du comportement humain. Aujourd'hui, j'accompagne les fondateurs, les directeurs et leurs équipes à débloquer des blocages organisationnels complexes — en intervenant d'abord sur l'état d'esprit du leader, puis sur la dynamique collective — en intégrant le coaching conscient et le neuroleadership (Fred Kofman, NeuroLeadership Institute), les constellations organisationnelles certifiées par Naser University, et les cadres d'agilité et d'innovation (Kleer, IAE Business School). Le différentiel : je potentialise tout cela avec des dynamiques hybrides et ludiques — jeux sérieux, travail dans la nature avec des personnes, des animaux et des objets, et technologie combinée — parce que briser les barrières d'une équipe en jouant est, à mon expérience, ce qui fait émerger l'insight stratégique le plus rapidement.">
+            Empecé escuchando insights — lo que la gente no decía en voz alta, pero que definía todo. Con el tiempo
+            aprendí que escuchar no alcanza: hay que animarse a actuar desde ahí, en estado alfa. Soy Licenciada en
+            Administración de Empresas, con un Máster en Negocios y Economía y una sólida trayectoria en investigación
+            de
+            mercado. Siempre me apasionó el cruce entre el rigor estratégico de los negocios y la dinámica del
+            comportamiento humano. Hoy acompaño a fundadores, directores y a sus equipos a destrabar bloqueos
+            organizacionales complejos —interviniendo primero en la mentalidad del líder y luego en la dinámica
+            colectiva— integrando coaching consciente y neuroliderazgo (Fred Kofman, NeuroLeadership Institute),
+            constelaciones organizacionales certificadas por Naser University, y marcos de agilidad e innovación (Kleer,
+            IAE Business School). El diferencial: potencio todo esto con dinámicas híbridas y lúdicas —juego serio,
+            trabajo en la naturaleza con personas, animales y objetos, y tecnología combinada—, porque romper las
+            barreras de un equipo jugando es, en mi experiencia, lo que hace emerger el insight estratégico más rápido.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFIESTO · Franja Forest -->
+    <section class="manifiesto-franja" id="manifiesto">
+      <div class="manifiesto-franja__inner">
+        <div class="manifiesto-franja__label">
+          <span class="label-tag label-tag--light" data-es="El manifiesto" data-en="The manifesto" data-pt="O manifesto"
+            data-fr="Le manifeste">El manifiesto</span>
+        </div>
+        <h2 class="manifiesto-franja__h2" data-es="Cinco principios de <br/>excelencia estratégica."
+          data-en="Five principles of <br/>strategic excellence."
+          data-pt="Cinco princípios de <br/>excelência estratégica."
+          data-fr="Cinq principes d'<br/>excellence stratégique.">
+          Cinco principios de <br />excelencia estratégica.
+        </h2>
+        <p class="manifiesto-franja__sub" data-es="Las convicciones que guían cada intervención que diseñamos."
+          data-en="The convictions that guide every intervention we design."
+          data-pt="As convicções que guiam cada intervenção que desenhamos."
+          data-fr="Les convictions qui guident chaque intervention que nous concevons.">
+          Las convicciones que guían cada intervención que diseñamos.
+        </p>
+
+        <div class="principios-grid">
+          <!-- 1 -->
+          <div class="principio-card">
+            <span class="principio-card__number">01</span>
+            <h3 class="principio-card__title" data-es="Orden y planificación estratégica"
+              data-en="Order and strategic planning" data-pt="Ordem e planejamento estratégico"
+              data-fr="Ordre et planification stratégique">Orden y planificación estratégica</h3>
+            <p class="principio-card__desc"
+              data-es="Sistemas alineados que garantizan un flujo operativo eficiente. La estructura no es rigidez: es el cauce que permite a la energía moverse con propósito."
+              data-en="Aligned systems that guarantee efficient operational flow. Structure is not rigidity: it is the channel that allows energy to move with purpose."
+              data-pt="Sistemas alinhados que garantem um fluxo operativo eficiente. A estrutura não é rigidez: é o canal que permite à energia mover-se com propósito."
+              data-fr="Des systèmes alignés qui garantissent un flux opérationnel efficace. La structure n'est pas de la rigidité : c'est le canal qui permet à l'énergie de se mouvoir avec un but.">
+              Sistemas alineados que garantizan un flujo operativo eficiente. La estructura no es rigidez: es el cauce
+              que permite a la energía moverse con propósito.
+            </p>
+          </div>
+
+          <!-- 2 -->
+          <div class="principio-card">
+            <span class="principio-card__number">02</span>
+            <h3 class="principio-card__title" data-es="Innovación metodológica" data-en="Methodological innovation"
+              data-pt="Inovação metodológica" data-fr="Innovation méthodologique">Innovación metodológica</h3>
+            <p class="principio-card__desc"
+              data-es="Marcos ágiles —Scrum, Lean, Design Thinking— como procesos vivos que se adaptan a tu cultura, no plantillas impuestas. La innovación es consecuencia natural de un sistema consciente."
+              data-en="Agile frameworks —Scrum, Lean, Design Thinking— as living processes that adapt to your culture, not imposed templates. Innovation is the natural consequence of a conscious system."
+              data-pt="Frameworks ágeis —Scrum, Lean, Design Thinking— como processos vivos que se adaptam à sua cultura, não modelos impostos. A inovação é consequência natural de um sistema consciente."
+              data-fr="Des cadres agiles —Scrum, Lean, Design Thinking— comme des processus vivants qui s'adaptent à votre culture, pas des modèles imposés. L'innovation est la conséquence naturelle d'un système conscient.">
+              Marcos ágiles —Scrum, Lean, Design Thinking— como procesos vivos que se adaptan a tu cultura, no
+              plantillas impuestas. La innovación es consecuencia natural de un sistema consciente.
+            </p>
+          </div>
+
+          <!-- 3 -->
+          <div class="principio-card">
+            <span class="principio-card__number">03</span>
+            <h3 class="principio-card__title" data-es="Coherencia y autorregulación"
+              data-en="Coherence and self-regulation" data-pt="Coerência e autorregulação"
+              data-fr="Cohérence et autorégulation">Coherencia y autorregulación</h3>
+            <p class="principio-card__desc"
+              data-es="Estructuras capaces de autorregularse y prosperar en la alta complejidad. Un sistema sano corrige su rumbo antes de que la crisis lo obligue."
+              data-en="Structures capable of self-regulating and thriving in high complexity. A healthy system corrects its course before the crisis forces it to."
+              data-pt="Estruturas capazes de se autorregular e prosperar na alta complexidade. Um sistema saudável corrige seu rumo antes que a crise o obrigue."
+              data-fr="Des structures capables de s'autoréguler et de prospérer dans une grande complexité. Un système sain corrige sa trajectoire avant que la crise ne l'y oblige.">
+              Estructuras capaces de autorregularse y prosperar en la alta complejidad. Un sistema sano corrige su rumbo
+              antes de que la crisis lo obligue.
+            </p>
+          </div>
+
+          <!-- 4 -->
+          <div class="principio-card">
+            <span class="principio-card__number">04</span>
+            <h3 class="principio-card__title" data-es="Tecnología con propósito" data-en="Technology with purpose"
+              data-pt="Tecnologia com propósito" data-fr="Technologie avec un but">Tecnología con propósito</h3>
+            <p class="principio-card__desc"
+              data-es="El dato valida la intuición; herramientas que escalan el propósito humano en vez de reemplazarlo. El número confirma lo que la presencia ya intuye."
+              data-en="Data validates intuition; tools that scale human purpose rather than replace it. The number confirms what presence already intuits."
+              data-pt="O dado valida a intuição; ferramentas que escalam o propósito humano em vez de substituí-lo. O número confirma o que a presença já intui."
+              data-fr="La donnée valide l'intuition ; des outils qui amplifient le but humain plutôt que de le remplacer. Le nombre confirme ce que la présence pressent déjà.">
+              El dato valida la intuición; herramientas que escalan el propósito humano en vez de reemplazarlo. El
+              número
+              confirma lo que la presencia ya intuye.
+            </p>
+          </div>
+
+          <!-- 5 -->
+          <div class="principio-card">
+            <span class="principio-card__number">05</span>
+            <h3 class="principio-card__title" data-es="Visión sistémica integral" data-en="Integral systemic vision"
+              data-pt="Visão sistêmica integral" data-fr="Vision systémique intégrale">Visión sistémica integral</h3>
+            <p class="principio-card__desc"
+              data-es="El cambio efectivo es la alineación de todos los componentes del sistema: el ser, la tarea y los vínculos moviéndose como uno."
+              data-en="Effective change is the alignment of all system components: being, task, and bonds moving as one."
+              data-pt="A mudança efetiva é o alinhamento de todos os componentes do sistema: o ser, a tarefa e os vínculos movendo-se como um."
+              data-fr="Le changement effectif est l'alignement de toutes les composantes du système : l'être, la tâche et les liens se mouvant comme un seul.">
+              El cambio efectivo es la alineación de todos los componentes del sistema: el ser, la tarea y los vínculos
+              moviéndose como uno.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENFOQUE -->
+    <section class="enfoque">
+      <div class="enfoque__label">
+        <span class="label-tag" data-es="Nuestro enfoque" data-en="Our approach" data-pt="Nossa abordagem"
+          data-fr="Notre approche">Nuestro enfoque</span>
+      </div>
+      <h2 class="enfoque__h2" data-es="La naturaleza es el espejo de <br/>la verdad organizacional."
+        data-en="Nature is the mirror of <br/>organizational truth."
+        data-pt="A natureza é o espelho da <br/>verdade organizacional."
+        data-fr="La nature est le miroir de <br/>la vérité organisationnelle.">
+        La naturaleza es el espejo de <br />la verdad organizacional.
+      </h2>
+
+      <div class="enfoque__grid">
+        <div class="enfoque__text">
+          <p data-es="Trabajamos en entornos de naturaleza y con el apoyo de caballos, seres que leen la intención antes que las palabras. Lo que un equipo esconde en la sala de reuniones, el campo lo revela en minutos."
+            data-en="We work in natural environments with the support of horses, beings that read intention before words. What a team hides in the boardroom, the field reveals in minutes."
+            data-pt="Trabalhamos em ambientes de natureza e com o apoio de cavalos, seres que leem a intenção antes das palavras. O que uma equipe esconde na sala de reuniões, o campo revela em minutos."
+            data-fr="Nous travaillons dans des environnements naturels avec le soutien de chevaux, des êtres qui lisent l'intention avant les mots. Ce qu'une équipe cache dans la salle de réunion, le champ le révèle en minutes.">
+            Trabajamos en entornos de naturaleza y con el apoyo de caballos, seres que leen la intención antes que las
+            palabras. Lo que un equipo esconde en la sala de reuniones, el campo lo revela en minutos.
+          </p>
+          <p data-es="Desde esa claridad construimos sistemas guiados por datos, porque la intuición señala la dirección, pero el número confirma el camino."
+            data-en="From that clarity we build data-driven systems, because intuition points the way, but the number confirms the path."
+            data-pt="A partir dessa clareza construímos sistemas guiados por dados, porque a intuição aponta a direção, mas o número confirma o caminho."
+            data-fr="À partir de cette clarté, nous construisons des systèmes guidés par les données, car l'intuition indique la direction, mais le nombre confirme le chemin.">
+            Desde esa claridad construimos sistemas guiados por datos, porque la intuición señala la dirección, pero el
+            número confirma el camino.
+          </p>
+        </div>
+        <div class="enfoque__image">
+          <img src="images/caballos.jpg" alt="Trabajo en naturaleza con caballos" />
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="sobre-stats">
+      <div class="sobre-stats__inner">
+        <div class="sobre-stat">
+          <span class="sobre-stat__num" data-es="25 años" data-en="25 years" data-pt="25 anos" data-fr="25 ans">25
+            años</span>
+          <span class="sobre-stat__label" data-es="de experiencia" data-en="of experience" data-pt="de experiência"
+            data-fr="d'expérience">de experiencia</span>
+        </div>
+        <div class="sobre-stat">
+          <span class="sobre-stat__num">+48</span>
+          <span class="sobre-stat__label" data-es="clientes confiaron en nosotros" data-en="clients trusted us"
+            data-pt="clientes confiaram em nós" data-fr="clients nous ont fait confiance">clientes confiaron en
+            nosotros</span>
+        </div>
+        <div class="sobre-stat">
+          <span class="sobre-stat__num">+10K</span>
+          <span class="sobre-stat__label" data-es="horas de consultoría" data-en="hours of consulting"
+            data-pt="horas de consultoria" data-fr="heures de conseil">horas de consultoría</span>
+        </div>
+        <div class="sobre-stat">
+          <span class="sobre-stat__num" data-es="2" data-en="2" data-pt="2" data-fr="2">2</span>
+          <span class="sobre-stat__label" data-es="sedes · USA y Argentina" data-en="offices · USA and Argentina"
+            data-pt="sedes · EUA e Argentina" data-fr="bureaux · États-Unis et Argentine">sedes · USA y Argentina</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sobre-cta">
+      <div class="sobre-cta__inner">
+        <h2 class="sobre-cta__h2" data-es="Abramos juntos un nuevo <br/>horizonte de expansión."
+          data-en="Let's open a new <br/>horizon of expansion together."
+          data-pt="Abramos juntos um novo <br/>horizonte de expansão."
+          data-fr="Ouvrons ensemble un nouvel <br/>horizon d'expansion.">
+          Abramos juntos un nuevo <br />horizonte de expansión.
+        </h2>
+        <a href="contacto.html" class="sobre-cta__btn" data-es="Iniciar una conversación <span>→</span>"
+          data-en="Start a conversation <span>→</span>" data-pt="Iniciar uma conversa <span>→</span>"
+          data-fr="Démarrer une conversation <span>→</span>">
+          Iniciar una conversación <span>→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__logo"><img src="logo.png" alt="Alfalógica" /></div>
+      <div class="footer__logo"><img src="images/logo.png" alt="Alfalógica" /></div>
       <span class="footer__tagline" data-es="Del  <span> INSIGHT</span> a la acción"
-        data-en="From <span> INSIGHT</span> to action. " data-pt="Do <span> INSIGHT</span> à ação."
+        data-en="From <span> INSIGHT</span> to action." data-pt="Do <span> INSIGHT</span> à ação."
         data-fr="De l'<span> INSIGHT</span> à l'action.">Del <span>INSIGHT</span> a la acción</span>
-
       <span class="footer__back" id="footerBack" data-es="Volver arriba ↑" data-en="Back to top ↑"
         data-pt="Voltar ao topo ↑" data-fr="Retour en haut ↑">Volver arriba ↑</span>
     </div>
   </footer>
 
+  <!-- ─── WHATSAPP FLOAT ─── -->
   <a class="wa-float" href="https://wa.me/17865980052" target="_blank" title="WhatsApp">
     <svg viewBox="0 0 24 24">
       <path

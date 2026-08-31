@@ -4,15 +4,258 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alfalógica · Insights & Innovation</title>
+  <title>Alfalógica · Método</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=IBM+Plex+Mono&family=Instrument+Serif&family=Source+Serif+4:opsz@8..60&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/scripts.js" defer></script>
+  <style>
+    /* Estilos inline para la página Método – se integran con styles.css */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .page-method {
+      padding: 4rem 0 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .method-hero {
+
+      margin-bottom: 4rem;
+      padding: 0 1.5rem;
+    }
+
+    .method-hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #1e2b2b;
+    }
+
+    .method-hero .subhead {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.6rem;
+      color: #3f5a5a;
+      max-width: 750px;
+      margin: 0 0 1rem;
+    }
+
+    .method-hero .bajada {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 1.2rem;
+      color: #4f6a6a;
+      max-width: 800px;
+
+      line-height: 1.6;
+    }
+
+    /* SECCIÓN 4 FASES – FONDO CLAY 100% ANCHO DEL BROWSER */
+    .phase-wrapper {
+      background: #D4C5B2;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      padding: 3rem 0 4rem;
+    }
+
+    .phase-wrapper .phase-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .phase-wrapper .phase-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+      color: #1e2b2b;
+    }
+
+    .phase-wrapper .phase-subtitle {
+      font-family: 'Hanken Grotesk', sans-serif;
+      color: #3f5a5a;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .phase-card {
+      background: #f6f9f9;
+      border-radius: 2rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 20, 20, 0.04);
+      transition: transform 0.2s ease;
+
+    }
+
+    .phase-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .phase-card h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+      color: #1e2b2b;
+    }
+
+    .phase-card .phase-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: #5f7a7a;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #cbdcdc;
+      padding-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .phase-card p {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #2d4040;
+    }
+
+    .instruments {
+
+      border-radius: 2.5rem;
+      padding: 2.5rem 2rem;
+      margin: 3rem 1.5rem;
+    }
+
+    .instruments h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.6rem;
+
+      margin-bottom: 2rem;
+      color: #1e2b2b;
+    }
+
+    .instruments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .instrument-item {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid #dce8e8;
+    }
+
+    .instrument-item h4 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+      color: #1d3b3b;
+      text-transform: uppercase;
+    }
+
+
+    .instrument-item p {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #2f4747;
+    }
+
+    /* CTA – 100% ANCHO DEL BROWSER */
+    .cta-method {
+      text-align: center;
+      margin: 0;
+      background: #1e2b2b;
+      color: white;
+      padding: 3rem 1.5rem;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      border-radius: 0;
+    }
+
+    .cta-method h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-method p {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      opacity: 0.9;
+    }
+
+    .cta-method .btn {
+      display: inline-block;
+      background: #f2c94c;
+      color: #1e2b2b;
+      padding: 0.9rem 2.8rem;
+      border-radius: 2.5rem;
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-method .btn:hover {
+      background: #e6b83d;
+    }
+
+    @media (max-width: 600px) {
+      .method-hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .method-hero .subhead {
+        font-size: 1.3rem;
+      }
+
+      .phase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .instruments-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-method h2 {
+        font-size: 2rem;
+      }
+
+      .instruments {
+        margin: 2rem 0.8rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -22,18 +265,14 @@
         data-en="Miami, Florida 33131, USA – Tel. (786) 598-0052 (whatsapp)"
         data-pt="Miami, Flórida 33131, EUA – Tel. (786) 598-0052 (whatsapp)"
         data-fr="Miami, Floride 33131, États-Unis – Tél. (786) 598-0052 (whatsapp)">Miami, Florida 33131, USA – Tel.
-        <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>
-
-        )</span>
+        <a href="tel:+17865980052">(786) 598-0052</a> (<a href="https://wa.me/17865980052">whatsapp</a>)</span>
       <span class="topbar__sep">|</span>
       <span class="topbar__text" data-es="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
         data-en="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 mail: info@alfalogica.com"
         data-pt="Buenos Aires, Argentina – Tel. (54911) 4 084 5649 e-mail: info@alfalogica.com"
         data-fr="Buenos Aires, Argentine – Tél. (54911) 4 084 5649 mail: info@alfalogica.com">Buenos Aires, Argentina –
-        Tel.
-        <a href="tel:+541140845649">(54911) 4 084 5649</a> mail:
+        Tel. <a href="tel:+541140845649">(54911) 4 084 5649</a> mail:
         <a href="mailto:info@alfalogica.com">info@alfalogica.com</a></span>
-      <!-- WhatsApp link – alineado a la derecha -->
       <a href="https://wa.me/17865980052" target="_blank" class="topbar__whatsapp" data-es="Escríbenos por WhatsApp"
         data-en="Write us on WhatsApp" data-pt="Escreva-nos no WhatsApp" data-fr="Écrivez-nous sur WhatsApp">
         Escríbenos por WhatsApp
@@ -43,38 +282,19 @@
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a class="nav__logo" href="#"><img src="logo.png" alt="Alfalógica" /></a>
+      <a class="nav__logo" href="#"><img src="images/logo.png" alt="Alfalógica" /></a>
 
-      <!-- DESKTOP links -->
       <ul class="nav__links" id="navLinks">
-        <li>
-          <a href="/" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a>
+        <li><a href="/" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a></li>
+        <li><a href="sobre-nosotros.html" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
+            data-fr="À propos">Sobre Nosotros</a></li>
+        <li><a href="metodo.html" class="active" data-es="Método" data-en="Method" data-pt="Método"
+            data-fr="Méthode">Método</a></li>
+        <li><a href="index.html#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes"
+            data-fr="Clients">Clientes</a>
         </li>
-        <li>
-          <a href="sobre-nosotros.html" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
-            data-fr="À propos">Sobre Nosotros</a>
-        </li>
-        <li>
-          <a href="metodo.html" class="active" data-es="Método" data-en="Method" data-pt="Método"
-            data-fr="Méthode">Método</a>
-        </li>
-        <!-- 2da etapa
-          <li>
-            <a
-              href="/ludoteca"
-              data-es="Ludoteca"
-              data-en="Game Library"
-              data-pt="Ludoteca"
-              data-fr="Ludothèque"
-              >Ludoteca</a
-            >
-          </li> -->
-        <li>
-          <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
-        </li>
-        <li>
-          <a href="contacto.html" data-es="Contacto" data-en="Contact Us" data-pt="Contato" data-fr="">Contacto</a>
-        </li>
+        <li><a href="contacto.html" data-es="Contacto" data-en="Contact Us" data-pt="Contato"
+            data-fr="Contact">Contacto</a></li>
       </ul>
 
       <div class="nav__right">
@@ -85,9 +305,7 @@
           <a href="#" data-lang="fr">FR</a>
         </div>
         <details class="nav__lang-dropdown">
-          <summary aria-label="Cambiar idioma">
-            <span id="navLangCurrent">ES</span>
-          </summary>
+          <summary aria-label="Cambiar idioma"><span id="navLangCurrent">ES</span></summary>
           <div class="nav__lang-dropdown__menu">
             <a href="#" class="active" data-lang="es">ES</a>
             <a href="#" data-lang="en">EN</a>
@@ -99,31 +317,20 @@
           <a href="/contacto" data-es="Conversemos" data-en="Talk us" data-pt="Conversa"
             data-fr="Conversemos">Conversemos</a>
         </div>
-        <!-- HAMBURGER button -->
         <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <!-- MOBILE menu (dropdown) -->
     <ul class="nav__mobile" id="mobileMenu">
-      <li>
-        <a href="#" class="active" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a>
+      <li><a href="#" class="active" data-es="Home" data-en="Home" data-pt="Início" data-fr="Accueil">Home</a></li>
+      <li><a href="/sobre-nosotros" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
+          data-fr="À propos">Sobre Nosotros</a></li>
+      <li><a href="/metodo" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a></li>
+      <li><a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
       </li>
-      <li>
-        <a href="/sobre-nosotros" data-es="Sobre Nosotros" data-en="About Us" data-pt="Sobre Nós"
-          data-fr="À propos">Sobre Nosotros</a>
-      </li>
-      <li>
-        <a href="/metodo" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a>
-      </li>
-      <li>
-        <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
-      </li>
-      <li>
-        <a href="/contacto" data-es="Contacto" data-en="Contact" data-pt="Contato" data-fr="Contact">Contacto</a>
-      </li>
+      <li><a href="/contacto" data-es="Contacto" data-en="Contact" data-pt="Contato" data-fr="Contact">Contacto</a></li>
       <li class="nav__mobile__lang">
         <a href="#" class="active" data-lang="es">ES</a>
         <a href="#" data-lang="en">EN</a>
@@ -133,17 +340,189 @@
     </ul>
   </nav>
 
-  METODO (en construccion)
+  <main class="page-method">
+    <!-- HERO -->
+    <div class="method-hero">
+      <h1 data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</h1>
+      <div class="subhead" data-es="El recorrido Alfa · 4 fases" data-en="The Alpha journey · 4 phases"
+        data-pt="A jornada Alfa · 4 fases" data-fr="Le parcours Alpha · 4 phases">
+        El recorrido Alfa · 4 fases
+      </div>
+      <div class="bajada"
+        data-es="Nuestro método es un recorrido calibrado, no un paquete. Cuatro intensidades que llevan a tu organización del diagnóstico a una cultura que se autorregula: en la frecuencia alfa, inmersos en la naturaleza, potenciados por el dato y el juego."
+        data-en="Our method is a calibrated journey, not a package. Four intensities that take your organization from diagnosis to a self-regulating culture: in the alpha frequency, immersed in nature, empowered by data and play."
+        data-pt="Nosso método é uma jornada calibrada, não um pacote. Quatro intensidades que levam sua organização do diagnóstico a uma cultura que se autorregula: na frequência alfa, imersos na natureza, potencializados pelo dado e pelo jogo."
+        data-fr="Notre méthode est un parcours calibré, pas un package. Quatre intensités qui amènent votre organisation du diagnostic à une culture autorégulée : dans la fréquence alpha, immergés dans la nature, amplifiés par les données et le jeu.">
+        Nuestro método es un recorrido calibrado, no un paquete. Cuatro intensidades que llevan a tu organización del
+        diagnóstico a una cultura que se autorregula: en la frecuencia alfa, inmersos en la naturaleza, potenciados por
+        el dato y el juego.
+      </div>
+    </div>
+
+    <!-- 4 FASES – FONDO CLAY 100% ANCHO -->
+    <div class="phase-wrapper">
+      <div class="phase-inner">
+        <h2 class="phase-title" data-es="Cuatro fases, una misma onda que crece"
+          data-en="Four phases, one wave that grows" data-pt="Quatro fases, uma mesma onda que cresce"
+          data-fr="Quatre phases, une même vague qui grandit">
+          Cuatro fases, una misma onda que crece
+        </h2>
+        <p class="phase-subtitle"
+          data-es="Cada fase se apoya en la anterior. Puedes entrar en cualquier intensidad: la amplitud crece contigo."
+          data-en="Each phase builds on the previous one. You can enter at any intensity: the amplitude grows with you."
+          data-pt="Cada fase se apoia na anterior. Você pode entrar em qualquer intensidade: a amplitude cresce com você."
+          data-fr="Chaque phase s'appuie sur la précédente. Vous pouvez entrer à n'importe quelle intensité : l'amplitude grandit avec vous.">
+          Cada fase se apoya en la anterior. Puedes entrar en cualquier intensidad: la amplitud crece contigo.
+        </p>
+
+        <div class="phase-grid">
+          <div class="phase-card">
+            <h3 data-es="Fase 01 — Impulse" data-en="Phase 01 — Impulse" data-pt="Fase 01 — Impulso"
+              data-fr="Phase 01 — Impulsion">Fase 01 — Impulse</h3>
+            <div class="phase-sub" data-es="meses 0–3 · Diagnóstico y activación"
+              data-en="months 0–3 · Diagnosis & activation" data-pt="meses 0–3 · Diagnóstico e ativação"
+              data-fr="mois 0–3 · Diagnostic et activation">meses 0–3 · Diagnóstico y activación</div>
+            <p data-es="Mapeamos el sistema tal como es: el ser, la tarea y los vínculos. Activamos la coherencia alfa en el liderazgo y fijamos la línea base contra la que se medirá todo el recorrido."
+              data-en="We map the system as it is: being, task and relationships. We activate alpha coherence in leadership and set the baseline against which the entire journey will be measured."
+              data-pt="Mapeamos o sistema como ele é: o ser, a tarefa e os vínculos. Ativamos a coerência alfa na liderança e fixamos a linha de base contra a qual toda a jornada será medida."
+              data-fr="Nous cartographions le système tel qu'il est : l'être, la tâche et les liens. Nous activons la cohérence alpha dans le leadership et fixons la base de référence contre laquelle tout le parcours sera mesuré.">
+              Mapeamos el sistema tal como es: el ser, la tarea y los vínculos. Activamos la coherencia alfa en el
+              liderazgo y fijamos la línea base contra la que se medirá todo el recorrido.
+            </p>
+          </div>
+          <div class="phase-card">
+            <h3 data-es="Fase 02 — Expansion" data-en="Phase 02 — Expansion" data-pt="Fase 02 — Expansão"
+              data-fr="Phase 02 — Expansion">Fase 02 — Expansion</h3>
+            <div class="phase-sub" data-es="meses 3–6 · Escala del propósito" data-en="months 3–6 · Scaling purpose"
+              data-pt="meses 3–6 · Escala do propósito" data-fr="mois 3–6 · Mise à l'échelle du but">meses 3–6 · Escala
+              del propósito</div>
+            <p data-es="Llevamos la coherencia del líder a los equipos. El propósito se vuelve procesos compartidos, y entran al día a día las primeras dinámicas de juego y de dato."
+              data-en="We bring the leader's coherence to the teams. Purpose becomes shared processes, and the first game and data dynamics enter daily life."
+              data-pt="Levamos a coerência do líder para as equipes. O propósito se torna processos compartilhados, e entram no dia a dia as primeiras dinâmicas de jogo e de dado."
+              data-fr="Nous apportons la cohérence du leader aux équipes. Le but devient des processus partagés, et les premières dynamiques de jeu et de données entrent dans le quotidien.">
+              Llevamos la coherencia del líder a los equipos. El propósito se vuelve procesos compartidos, y entran al
+              día a día las primeras dinámicas de juego y de dato.
+            </p>
+          </div>
+          <div class="phase-card">
+            <h3 data-es="Fase 03 — Catalyze" data-en="Phase 03 — Catalyze" data-pt="Fase 03 — Catalisar"
+              data-fr="Phase 03 — Catalyser">Fase 03 — Catalyze</h3>
+            <div class="phase-sub" data-es="meses 6–9 · La innovación, hábito"
+              data-en="months 6–9 · Innovation as habit" data-pt="meses 6–9 · A inovação, hábito"
+              data-fr="mois 6–9 · L'innovation, habitude">meses 6–9 · La innovación, hábito</div>
+            <p data-es="La innovación deja de ser un evento y se vuelve hábito. El sistema corrige su propio rumbo; evidencia e intuición deciden juntas, sin fricción."
+              data-en="Innovation stops being an event and becomes a habit. The system corrects its own course; evidence and intuition decide together, without friction."
+              data-pt="A inovação deixa de ser um evento e se torna hábito. O sistema corrige seu próprio rumo; evidência e intuição decidem juntas, sem fricção."
+              data-fr="L'innovation cesse d'être un événement et devient une habitude. Le système corrige son propre cap ; preuves et intuition décident ensemble, sans friction.">
+              La innovación deja de ser un evento y se vuelve hábito. El sistema corrige su propio rumbo; evidencia e
+              intuición deciden juntas, sin fricción.
+            </p>
+          </div>
+          <div class="phase-card">
+            <h3 data-es="Fase 04 — Eco" data-en="Phase 04 — Eco" data-pt="Fase 04 — Eco" data-fr="Phase 04 — Éco">Fase
+              04 — Eco</h3>
+            <div class="phase-sub" data-es="meses 9–12 · Autorregulación e irradiación"
+              data-en="months 9–12 · Self-regulation & irradiation" data-pt="meses 9–12 · Autorregulação e irradiação"
+              data-fr="mois 9–12 · Autorégulation et irradiation">meses 9–12 · Autorregulación e irradiación</div>
+            <p data-es="El sistema se sostiene sin nosotros. La cultura irradia hacia afuera —clientes, talento y mercado— y la frecuencia alfa se vuelve la voz propia de la organización."
+              data-en="The system sustains itself without us. Culture radiates outward —clients, talent and market— and the alpha frequency becomes the organization's own voice."
+              data-pt="O sistema se sustenta sem nós. A cultura irradia para fora —clientes, talento e mercado— e a frequência alfa se torna a voz própria da organização."
+              data-fr="Le système se soutient sans nous. La culture rayonne vers l'extérieur —clients, talents et marché— et la fréquence alpha devient la voix propre de l'organisation.">
+              El sistema se sostiene sin nosotros. La cultura irradia hacia afuera —clientes, talento y mercado— y la
+              frecuencia alfa se vuelve la voz propia de la organización.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CÓMO TRABAJAMOS · CUATRO INSTRUMENTOS -->
+    <div class="instruments">
+      <h2 data-es="Cómo trabajamos · cuatro instrumentos" data-en="How we work · four instruments"
+        data-pt="Como trabalhamos · quatro instrumentos" data-fr="Comment nous travaillons · quatre instruments">
+        Cómo trabajamos · cuatro instrumentos
+      </h2>
+      <div class="instruments-grid">
+        <div class="instrument-item">
+          <h4 data-es="1. Naturaleza, caballos y representantes" data-en="1. Nature, horses and representatives"
+            data-pt="1. Natureza, cavalos e representantes" data-fr="1. Nature, chevaux et représentants">1. Naturaleza,
+            caballos y representantes</h4>
+          <p data-es="El campo lee la intención antes que las palabras. Con caballos, objetos o personas como representantes, hacemos visible el sistema: lo que un equipo esconde en una sala, la naturaleza lo revela en minutos."
+            data-en="The field reads intention before words. With horses, objects or people as representatives, we make the system visible: what a team hides in a room, nature reveals in minutes."
+            data-pt="O campo lê a intenção antes das palavras. Com cavalos, objetos ou pessoas como representantes, tornamos visível o sistema: o que uma equipe esconde em uma sala, a natureza revela em minutos."
+            data-fr="Le champ lit l'intention avant les mots. Avec des chevaux, des objets ou des personnes comme représentants, nous rendons visible le système : ce qu'une équipe cache dans une salle, la nature le révèle en minutes.">
+            El campo lee la intención antes que las palabras. Con caballos, objetos o personas como representantes,
+            hacemos visible el sistema: lo que un equipo esconde en una sala, la naturaleza lo revela en minutos.
+          </p>
+        </div>
+        <div class="instrument-item">
+          <h4 data-es="2. Dato y evidencia" data-en="2. Data and evidence" data-pt="2. Dado e evidência"
+            data-fr="2. Données et preuves">2. Dato y evidencia</h4>
+          <p data-es="Investigación, insight y métricas que validan la intuición estratégica. El número confirma lo que la presencia ya intuye."
+            data-en="Research, insight and metrics that validate strategic intuition. The number confirms what presence already intuits."
+            data-pt="Pesquisa, insight e métricas que validam a intuição estratégica. O número confirma o que a presença já intui."
+            data-fr="Recherche, insight et métriques qui valident l'intuition stratégique. Le chiffre confirme ce que la présence pressent déjà.">
+            Investigación, insight y métricas que validan la intuición estratégica. El número confirma lo que la
+            presencia ya intuye.
+          </p>
+        </div>
+        <div class="instrument-item">
+          <h4 data-es="3. El juego" data-en="3. Play" data-pt="3. O jogo" data-fr="3. Le jeu">3. El juego</h4>
+          <p data-es="La Ludoteca rompe las barreras y revela la esencia del equipo. El aprendizaje se vuelve experiencia, no teoría."
+            data-en="The Game Library breaks barriers and reveals the team's essence. Learning becomes experience, not theory."
+            data-pt="A Ludoteca quebra barreiras e revela a essência da equipe. A aprendizagem se torna experiência, não teoria."
+            data-fr="La Ludothèque brise les barrières et révèle l'essence de l'équipe. L'apprentissage devient expérience, pas théorie.">
+            La Ludoteca rompe las barreras y revela la esencia del equipo. El aprendizaje se vuelve experiencia, no
+            teoría.
+          </p>
+        </div>
+        <div class="instrument-item">
+          <h4 data-es="4. La tecnología" data-en="4. Technology" data-pt="4. A tecnologia" data-fr="4. La technologie">
+            4. La tecnología</h4>
+          <p data-es="Presencial, híbrido o remoto: colaboramos a través de la tecnología para que la distancia nunca rompa la coherencia."
+            data-en="In-person, hybrid or remote: we collaborate through technology so that distance never breaks coherence."
+            data-pt="Presencial, híbrido ou remoto: colaboramos através da tecnologia para que a distância nunca quebre a coerência."
+            data-fr="En présentiel, hybride ou à distance : nous collaborons à travers la technologie pour que la distance ne brise jamais la cohérence.">
+            Presencial, híbrido o remoto: colaboramos a través de la tecnología para que la distancia nunca rompa la
+            coherencia.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA – 100% ANCHO -->
+    <div class="cta-method">
+      <h2 data-es="¿En qué fase empezaría tu organización?" data-en="Which phase would your organization start at?"
+        data-pt="Em que fase sua organização começaria?"
+        data-fr="À quelle phase votre organisation commencerait-elle ?">
+        ¿En qué fase empezaría tu organización?
+      </h2>
+      <p data-es="Calibramos contigo el punto de entrada en una primera conversación."
+        data-en="We calibrate the entry point with you in a first conversation."
+        data-pt="Calibramos com você o ponto de entrada em uma primeira conversa."
+        data-fr="Nous calibrons avec vous le point d'entrée lors d'une première conversation.">
+        Calibramos contigo el punto de entrada en una primera conversación.
+      </p>
+      <a href="/contacto" class="btn" data-es="Iniciar una conversación" data-en="Start a conversation"
+        data-pt="Iniciar uma conversa" data-fr="Démarrer une conversation">
+        Iniciar una conversación
+      </a>
+    </div>
+  </main>
 
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__logo"><img src="logo.png" alt="Alfalógica" /></div>
-      <span class="footer__tagline" data-es="Del  <span> INSIGHT</span> a la acción"
-        data-en="From <span> INSIGHT</span> to action. " data-pt="Do <span> INSIGHT</span> à ação."
-        data-fr="De l'<span> INSIGHT</span> à l'action.">Del <span>INSIGHT</span> a la acción</span>
-
-      <span class="footer__back" id="footerBack" data-es="Volver arriba ↑" data-en="Back to top ↑"
-        data-pt="Voltar ao topo ↑" data-fr="Retour en haut ↑">Volver arriba ↑</span>
+      <div class="footer__logo"><img src="images/logo.png" alt="Alfalógica" /></div>
+      <span class="footer__tagline" data-es="EL DATO VALIDA LA INTUICIÓN · LA NATURALEZA ES EL ESPEJO"
+        data-en="DATA VALIDATES INTUITION · NATURE IS THE MIRROR"
+        data-pt="OS DADOS VALIDAM A INTUIÇÃO · A NATUREZA É O ESPELHO"
+        data-fr="LES DONNÉES VALIDENT L'INTUITION · LA NATURE EST LE MIROIR">
+        EL DATO VALIDA LA INTUICIÓN · LA NATURALEZA ES EL ESPEJO
+      </span>
+      <a href="index.html" class="footer__back" id="footerBack" data-es="Volver al inicio ↑" data-en="Back to top ↑"
+        data-pt="Voltar ao topo ↑" data-fr="Retour en haut ↑">
+        Volver al inicio ↑
+      </a>
     </div>
   </footer>
 

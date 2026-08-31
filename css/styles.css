@@ -964,7 +964,7 @@ p.sectores {
 /* CONTACTO */
 .contacto {
   background: var(--teal);
-  padding: 5rem var(--px) 0;
+  padding: 5rem var(--px) ;
 }
 .contacto__inner {
   max-width: var(--max-w);

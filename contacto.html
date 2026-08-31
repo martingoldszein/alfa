@@ -10,8 +10,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=IBM+Plex+Mono&family=Instrument+Serif&family=Source+Serif+4:opsz@8..60&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="scripts.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/scripts.js" defer></script>
 
 </head>
 
@@ -43,7 +43,7 @@
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a class="nav__logo" href="#"><img src="logo.png" alt="Alfalógica" /></a>
+      <a class="nav__logo" href="#"><img src="images/logo.png" alt="Alfalógica" /></a>
 
       <!-- DESKTOP links -->
       <ul class="nav__links" id="navLinks">
@@ -72,8 +72,8 @@
           <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
         </li>
         <li>
-          <a href="contacto.html" class="active" data-es="Contacto" data-en="Contact Us" data-pt="Contato"
-            data-fr="">Contacto</a>
+          <a href="contacto.html" class="active" data-es="Contacto" data-en="Contact Us" data-pt="Contato" data-fr="
+Contact">Contacto</a>
         </li>
       </ul>
 
@@ -119,7 +119,8 @@
         <a href="/metodo" data-es="Método" data-en="Method" data-pt="Método" data-fr="Méthode">Método</a>
       </li>
       <li>
-        <a href="#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes" data-fr="Clients">Clientes</a>
+        <a href="index.html#clientes" data-es="Clientes" data-en="Clients" data-pt="Clientes"
+          data-fr="Clients">Clientes</a>
       </li>
       <li>
         <a href="/contacto" data-es="Contacto" data-en="Contact" data-pt="Contato" data-fr="Contact">Contacto</a>
@@ -133,11 +134,57 @@
     </ul>
   </nav>
 
-  contqcto (en construccion)
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="contacto__inner">
+      <div class="contacto__intro">
+        <p class="label-tag label-tag--light contacto__label" data-es="Así empieza el juego…"
+          data-en="This is where the game begins…" data-pt="Assim começa o jogo…"
+          data-fr="C'est ainsi que commence le jeu…">
+          Así empieza el juego…
+        </p>
+        <h2 class="contacto__h2" data-es="Diseñemos la experiencia de tu equipo."
+          data-en="Let's design your team's experience." data-pt="Vamos desenhar a experiência da sua equipe."
+          data-fr="Concevons l'expérience de votre équipe.">
+          Diseñemos la experiencia de tu equipo.
+        </h2>
+        <p class="contacto__sub" data-es="Contanos de tu equipo. Respondemos en días."
+          data-en="Tell us about your team. We reply within days."
+          data-pt="Conte-nos sobre sua equipe. Respondemos em dias."
+          data-fr="Parlez-nous de votre équipe. Nous répondons sous quelques jours.">
+          Contanos de tu equipo. Respondemos en días.
+        </p>
+        <p class="contacto__sub" data-es="✓ Diseño a medida · ✓ Base neurocientífica"
+          data-en="✓ Tailored design · ✓ Neuroscience-based" data-pt="✓ Design personalizado · ✓ Base neurocientífica"
+          data-fr="✓ Conception sur mesure · ✓ Base neuroscientifique">
+          ✓ Diseño a medida · ✓ Base neurocientífica
+        </p>
+      </div>
+
+      <form class="form" id="contactForm" action="#" method="POST">
+        <div class="form__field">
+          <input type="text" id="name" name="name" placeholder="Nombre" required />
+        </div>
+        <div class="form__field">
+          <input type="email" id="email" name="email" placeholder="Email" required />
+        </div>
+        <div class="form__field">
+          <input type="text" id="company" name="company" placeholder="Empresa" />
+        </div>
+        <div class="form__field">
+          <textarea id="message" name="message" placeholder="Mensaje (opcional)"></textarea>
+        </div>
+        <button type="submit" class="form__submit" data-es="Enviar" data-en="Send" data-pt="Enviar" data-fr="Envoyer">
+          <span>Enviar</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__logo"><img src="logo.png" alt="Alfalógica" /></div>
+      <div class="footer__logo"><img src="images/logo.png" alt="Alfalógica" /></div>
       <span class="footer__tagline" data-es="Del  <span> INSIGHT</span> a la acción"
         data-en="From <span> INSIGHT</span> to action. " data-pt="Do <span> INSIGHT</span> à ação."
         data-fr="De l'<span> INSIGHT</span> à l'action.">Del <span>INSIGHT</span> a la acción</span>
