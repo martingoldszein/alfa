@@ -13,16 +13,15 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/scripts.js" defer></script>
   <style>
-    /* ─── NUEVA SECCIÓN FRASES (TYPEWRITER) ─── */
+    /* ─── SECCIÓN FRASES (FADE IN/OUT) ─── */
     .frases-section {
       background: #1e3a4a;
-      /* --forest / azul bosque */
       width: 100%;
       padding: 4rem 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 200px;
+      min-height: 280px;
     }
 
     .frases-container {
@@ -32,55 +31,65 @@
       margin: 0 auto;
     }
 
-    .frases-container h2 {
+    .frases-container .frase-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+    }
+
+    .frases-container .frase-principal {
       font-family: 'Source Serif 4', 'Instrument Serif', serif;
       font-size: clamp(27px, 3.4vw, 44px);
       color: #ffffff;
       line-height: 1.4;
-      min-height: 4.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.2rem;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
     }
 
-    .frases-container .typewriter-text {
-      display: inline-block;
-      overflow: hidden;
-      border-right: 3px solid rgba(255, 255, 255, 0.7);
-      animation: blink-caret 0.75s step-end infinite;
-      padding-right: 4px;
-      font-family: 'Source Serif 4', 'Instrument Serif', serif;
-      font-size: clamp(27px, 3.4vw, 44px);
-      color: #ffffff;
-      vertical-align: bottom;
-      min-width: 1px;
-      white-space: nowrap;
+    .frases-container .frase-principal.visible {
+      opacity: 1;
     }
 
-    @keyframes blink-caret {
-
-      0%,
-      100% {
-        border-color: rgba(255, 255, 255, 0.7);
-      }
-
-      50% {
-        border-color: transparent;
-      }
+    .frases-container .frase-principal.hidden {
+      opacity: 0;
     }
 
-    /* Ajuste para pantallas muy pequeñas */
+    .frases-container .bajada {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: clamp(14px, 1.2vw, 18px);
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
+      margin-top: 0.8rem;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out 0.3s;
+      max-width: 700px;
+    }
+
+    .frases-container .bajada.visible {
+      opacity: 1;
+    }
+
+    .frases-container .bajada.hidden {
+      opacity: 0;
+    }
+
     @media (max-width: 600px) {
-      .frases-container h2 {
-        min-height: 4rem;
-        flex-wrap: wrap;
+      .frases-section {
+        min-height: 320px;
+        padding: 3rem 1.2rem;
       }
 
-      .frases-container .typewriter-text {
-        white-space: normal;
-        word-break: break-word;
+      .frases-container .frase-wrapper {
+        min-height: 200px;
+      }
+
+      .frases-container .bajada {
+        font-size: 14px;
+        padding: 0 0.5rem;
       }
     }
   </style>
@@ -210,15 +219,21 @@
     </div>
   </section>
 
-  <!-- ─── NUEVA SECCIÓN FRASES (TYPEWRITER) ─── -->
+  <!-- ─── SECCIÓN FRASES (FADE IN/OUT) ─── -->
   <section class="frases-section" id="frases">
     <div class="frases-container">
-      <h2>
-        <span class="typewriter-text" id="typewriterText"></span>
-      </h2>
+      <div class="frase-wrapper" id="fraseWrapper">
+        <p class="frase-principal visible" id="frasePrincipal">
+          Los Vínculos · Orden y Dinámica
+        </p>
+        <p class="bajada visible" id="bajada">
+          Ordenamos las jerarquías invisibles con el apoyo de recursos, caballos y dinámicas sistémicas.
+        </p>
+      </div>
     </div>
   </section>
 
+  <!-- ─── RESTO DEL CONTENIDO (se mantiene igual) ─── -->
   <!-- ─── DIAGRAMA (sección traducida) ─── -->
   <div class="diagrama"
     style="background: url(images/sunset.jpg) center 25% / cover rgb(26, 20, 16); position: relative; padding:  0px; filter: brightness(1) saturate(1.05);">
@@ -665,6 +680,7 @@
       </div>
     </div>
   </section>
+
   <!-- SECCIÓN: INVESTIGACIÓN AUMENTADA POR IA -->
   <section id="ia">
     <div class="ia-container">
@@ -1272,6 +1288,162 @@
     </svg>
   </a>
 
+  <!-- ─── SCRIPT PARA FADE IN/OUT ─── -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const frasePrincipal = document.getElementById('frasePrincipal');
+      const bajada = document.getElementById('bajada');
+
+      if (!frasePrincipal || !bajada) return;
+
+      // Frases con sus bajadas en cada idioma
+      const frases = {
+        es: [
+          {
+            principal: 'Los Vínculos · Orden y Dinámica',
+            bajada: 'Ordenamos las jerarquías invisibles con el apoyo de recursos, caballos y dinámicas sistémicas.'
+          },
+          {
+            principal: 'El Ser · Presencia y Autorregulación',
+            bajada: 'Facilitamos procesos de coherencia y claridad del líder en entornos de naturaleza.'
+          }
+        ],
+        en: [
+          {
+            principal: 'The Bonds · Order and Dynamics',
+            bajada: 'We organize invisible hierarchies with the support of resources, horses and systemic dynamics.'
+          },
+          {
+            principal: 'The Being · Presence and Self-Regulation',
+            bajada: 'We facilitate processes of coherence and clarity for leaders in natural environments.'
+          }
+        ],
+        pt: [
+          {
+            principal: 'Os Vínculos · Ordem e Dinâmica',
+            bajada: 'Organizamos hierarquias invisíveis com o apoio de recursos, cavalos e dinâmicas sistêmicas.'
+          },
+          {
+            principal: 'O Ser · Presença e Autorregulação',
+            bajada: 'Facilitamos processos de coerência e clareza do líder em ambientes naturais.'
+          }
+        ],
+        fr: [
+          {
+            principal: 'Les Liens · Ordre et Dynamique',
+            bajada: 'Nous organisons les hiérarchies invisibles avec le soutien de ressources, de chevaux et de dynamiques systémiques.'
+          },
+          {
+            principal: "L'Être · Présence et Autorégulation",
+            bajada: 'Nous facilitons les processus de cohérence et de clarté du leader dans des environnements naturels.'
+          }
+        ]
+      };
+
+      let currentLang = localStorage.getItem('alfalogica-lang') || 'es';
+      let currentIndex = 0;
+      let intervalId = null;
+      let isTransitioning = false;
+
+      function getCurrentFrases() {
+        return frases[currentLang] || frases.es;
+      }
+
+      function updateContent(index) {
+        const data = getCurrentFrases();
+        const item = data[index % data.length];
+
+        // Cambiar el contenido
+        frasePrincipal.textContent = item.principal;
+        bajada.textContent = item.bajada;
+
+        // Forzar reflow para reiniciar la animación
+        void frasePrincipal.offsetWidth;
+        void bajada.offsetWidth;
+
+        // Mostrar con fade in
+        frasePrincipal.classList.remove('hidden');
+        frasePrincipal.classList.add('visible');
+        bajada.classList.remove('hidden');
+        bajada.classList.add('visible');
+      }
+
+      function fadeToNext() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        // Ocultar con fade out
+        frasePrincipal.classList.remove('visible');
+        frasePrincipal.classList.add('hidden');
+        bajada.classList.remove('visible');
+        bajada.classList.add('hidden');
+
+        // Después del fade out, cambiar contenido y hacer fade in
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % getCurrentFrases().length;
+          updateContent(currentIndex);
+          isTransitioning = false;
+        }, 600);
+      }
+
+      function startRotation() {
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+        // Mostrar la primera frase
+        updateContent(0);
+        // Iniciar rotación cada 6 segundos
+        intervalId = setInterval(fadeToNext, 6000);
+      }
+
+      function restartFrases(lang) {
+        currentLang = lang;
+        currentIndex = 0;
+        isTransitioning = false;
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+        // Resetear estados
+        frasePrincipal.classList.remove('visible', 'hidden');
+        bajada.classList.remove('visible', 'hidden');
+        startRotation();
+      }
+
+      // Escuchar cambios de idioma
+      const langObserver = new MutationObserver(() => {
+        const newLang = localStorage.getItem('alfalogica-lang') || 'es';
+        if (newLang !== currentLang) {
+          restartFrases(newLang);
+        }
+      });
+
+      langObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['lang']
+      });
+
+      // Escuchar clicks en selectores de idioma
+      document.addEventListener('click', function (e) {
+        const langLink = e.target.closest('[data-lang]');
+        if (langLink) {
+          const newLang = langLink.getAttribute('data-lang');
+          if (newLang && newLang !== currentLang) {
+            setTimeout(() => {
+              const storedLang = localStorage.getItem('alfalogica-lang') || 'es';
+              if (storedLang !== currentLang) {
+                restartFrases(storedLang);
+              }
+            }, 100);
+          }
+        }
+      });
+
+      // Iniciar
+      startRotation();
+    });
+  </script>
 
 </body>
 
