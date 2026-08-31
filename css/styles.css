@@ -1193,19 +1193,6 @@ button {
   border-radius: 50%;
 
 }
-.sa-point::after {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-
-
-}
-.sa-point:hover::after {
-  background: rgba(255, 255, 255, 0.35);
-  transform: scale(1.2);
-}
 
 /* ─── OVERLAY & MODAL ───────────────────────── */
 .sa-overlay {
@@ -1705,10 +1692,7 @@ button {
 
   z-index: 11;
 }
-.sa-point:hover {
-  transform: scale(1.35) !important;
-  box-shadow: 0 0 30px rgba(70, 150, 220, 0.7);
-}
+
 
 /* Efecto de pulso para llamar la atención */
 @keyframes pulse-point {
@@ -1721,17 +1705,10 @@ button {
   }
 }
 
-.sa-point {
-  animation: pulse-point 2s ease-in-out infinite;
+.sa-point div {
+  width: 200px;
 }
 
-.sa-point--center {
-  animation: pulse-point 2s ease-in-out infinite 0.3s;
-}
-
-.sa-point:hover {
-  animation-play-state: paused;
-}
 
 /* ── EYEBROW DEL HERO (idéntico a Manifiesto) ── */
 .hero__label {
