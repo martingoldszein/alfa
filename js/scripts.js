@@ -901,19 +901,23 @@ function initTypewriter() {
   const phrases = {
     es: [
       'Los Vínculos · Orden y Dinámica',
-      'El Ser · Presencia y Autorregulación'
+      'El Ser · Presencia y Autorregulación',
+      'La Tarea · Propósito e Innovación'
     ],
     en: [
       'The Bonds · Order and Dynamics',
-      'The Being · Presence and Self-Regulation'
+      'The Being · Presence and Self-Regulation',
+      'The Task · Purpose and Innovation'
     ],
     pt: [
       'Os Vínculos · Ordem e Dinâmica',
-      'O Ser · Presença e Autorregulação'
+      'O Ser · Presença e Autorregulação',
+      'A Tarefa · Propósito e Inovação'
     ],
     fr: [
       'Les Liens · Ordre et Dynamique',
-      "L'Être · Présence et Autorégulation"
+      "L'Être · Présence et Autorégulation",
+      'La Mission · Objectif et Innovation'
     ]
   };
 
