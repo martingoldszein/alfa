@@ -1976,7 +1976,6 @@ button {
   font-family: var(--font-mono);
   font-size: 0.65rem;
   line-height: 1.4;
-  text-align: center;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1996,6 +1995,10 @@ button {
     height: 90px;
     font-size: 0.45rem;
     padding: 0.6rem;
+  }
+  .contacto .badge-alfa {
+    width: inherit;
+    height: inherit;
   }
 }
 .ink {
