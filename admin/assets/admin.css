@@ -1,0 +1,339 @@
+/* admin/assets/admin.css */
+:root {
+  --admin-bg: #f1f1f1;
+  --admin-sidebar: #1d2327;
+  --admin-sidebar-hover: #2c3338;
+  --admin-text: #3c434a;
+  --admin-accent: #2B6B8A;
+  --admin-accent-hover: #1E4E66;
+  --admin-clay: #E39881;
+  --admin-white: #ffffff;
+  --admin-border: #dcdcde;
+  --admin-shadow: rgba(0, 0, 0, 0.05);
+}
+
+body.admin-body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ─── SIDEBAR (Izquierda) ─── */
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background: var(--admin-sidebar);
+  color: #f0f0f1;
+  padding: 20px 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-sidebar__logo {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.admin-sidebar__logo img {
+  width: 100px;
+  filter: invert(1);
+}
+
+.admin-sidebar__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-sidebar__menu li {
+  margin: 0;
+}
+
+.admin-sidebar__menu li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #f0f0f1;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.admin-sidebar__menu li a:hover {
+  background: var(--admin-sidebar-hover);
+}
+
+.admin-sidebar__menu li a.active {
+  background: var(--admin-accent);
+  color: white;
+}
+
+.admin-sidebar__menu li a .menu-icon {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+/* ─── HEADER (Superior) ─── */
+.admin-header {
+  margin-left: 200px;
+  background: var(--admin-white);
+  border-bottom: 1px solid var(--admin-border);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-header__left {
+  font-size: 14px;
+  color: var(--admin-text);
+}
+
+.admin-header__right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-header__right a {
+  color: var(--admin-accent);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.admin-header__user {
+  font-size: 13px;
+  color: var(--admin-text);
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: var(--admin-bg);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ─── CONTENIDO PRINCIPAL ─── */
+.admin-content {
+  margin-left: 200px;
+  padding: 30px;
+  max-width: 1200px;
+}
+
+.admin-content h1 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--admin-text);
+  margin: 0 0 20px;
+}
+
+.admin-content h2 {
+  font-size: 16px;
+  color: var(--admin-text);
+  margin: 0 0 15px;
+}
+
+/* ─── TARJETAS (Main container) ─── */
+.admin-card {
+  background: var(--admin-white);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px var(--admin-shadow);
+}
+
+.admin-card__header {
+  border-bottom: 1px solid var(--admin-border);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-card__header h2 {
+  margin: 0;
+}
+
+/* ─── PESTAÑAS POR IDIOMA ─── */
+.lang-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.lang-tabs button {
+  border: none;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.lang-tabs button.active {
+  background: var(--admin-accent);
+  color: white;
+}
+
+.lang-tabs button:hover:not(.active) {
+  background: #e0e0e0;
+}
+
+/* ─── FIELDS (Campos) ─── */
+.admin-field {
+  margin-bottom: 15px;
+}
+
+.admin-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--admin-text);
+  margin-bottom: 5px;
+}
+
+.admin-field input[type="text"],
+.admin-field input[type="password"],
+.admin-field textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--admin-border);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--admin-text);
+  background: #f9f9f9;
+  transition: border 0.2s;
+}
+
+.admin-field input[type="text"]:focus,
+.admin-field input[type="password"]:focus,
+.admin-field textarea:focus {
+  border-color: var(--admin-accent);
+  background: white;
+  outline: none;
+}
+
+.admin-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ─── BOTONES ─── */
+.admin-btn {
+  display: inline-block;
+  background: var(--admin-accent);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.admin-btn:hover {
+  background: var(--admin-accent-hover);
+}
+
+.admin-btn--clay {
+  background: var(--admin-clay);
+}
+
+.admin-btn--clay:hover {
+  background: #CE7B62;
+}
+
+.admin-btn--small {
+  padding: 7px 15px;
+  font-size: 12px;
+}
+
+/* ─── LOGIN ─── */
+.admin-login-page {
+  background: var(--admin-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.admin-login-page form {
+  background: var(--admin-white);
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  padding: 40px;
+  width: 350px;
+  box-shadow: 0 4px 10px var(--admin-shadow);
+}
+
+.admin-login-page form h1 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 22px;
+  color: var(--admin-text);
+  text-align: center;
+  margin: 0 0 25px;
+}
+
+.admin-login-page input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--admin-border);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.admin-login-page button {
+  width: 100%;
+  background: var(--admin-accent);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.admin-login-page button:hover {
+  background: var(--admin-accent-hover);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 50px;
+  }
+
+  .admin-sidebar__logo img {
+    width: 30px;
+  }
+
+  .admin-sidebar__menu li a {
+    padding: 12px 15px;
+  }
+
+  .admin-sidebar__menu li a .menu-text {
+    display: none;
+  }
+
+  .admin-header,
+  .admin-content {
+    margin-left: 50px;
+  }
+}
