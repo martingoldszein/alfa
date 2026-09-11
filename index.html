@@ -160,7 +160,7 @@
           </div>
         </details>
         <div class="nav__cta">
-          <a href="/contacto" data-es="Conversemos" data-en="Talk us" data-pt="Conversa"
+          <a href="/contacto" data-es="Conversemos" data-en="Contact Us" data-pt="Conversa"
             data-fr="Conversemos">Conversemos</a>
         </div>
         <button class="nav__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
@@ -1460,7 +1460,199 @@
       startRotation();
     });
   </script>
+  <!-- ─── SCROLL REVEAL (FADE IN VERTICAL) ─── -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // ============================================================
+      // 1. CONFIGURACIÓN
+      // ============================================================
+      const CONFIG = {
+        // Elementos que quieres animar (puedes agregar más selectores)
+        selectors: [
+          '.hero__left',
+          '.hero__right',
+          '.frases-section',
+          '.sistema-banner__content',
+          '.programas-alfa-header',
+          '.programas-alfa-wave',
+          '.programas-alfa-grid',
+          '.programas-alfa-footer',
+          '.jia-section__inner',
+          '.ia-header',
+          '.ia-grid .ia-card',
+          '.ia-duo-left',
+          '.ia-duo-right',
+          '.ia-cta',
+          '.stats .stat',
+          '.clientes__inner',
+          '.testimonios-alfa__inner',
+          '.testimonio-card',
+          '.contacto__inner'
+        ],
 
+        // Umbral de visibilidad (0 = apenas se asoma, 1 = completamente visible)
+        threshold: 0.15,
+
+        // Offset desde abajo (píxeles) para que aparezca un poco antes
+        rootMargin: '0px 0px -50px 0px',
+
+        // Clases CSS que aplicaremos
+        classHidden: 'reveal-hidden',
+        classVisible: 'reveal-visible'
+      };
+
+      // ============================================================
+      // 2. INYECTAR CSS DINÁMICAMENTE
+      // ============================================================
+      const style = document.createElement('style');
+      style.textContent = `
+      /* Estado oculto: translúcido + desplazado hacia abajo */
+      .reveal-hidden {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: opacity, transform;
+      }
+
+      /* Estado visible: completamente opaco y en su lugar */
+      .reveal-visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+
+      /* Animación con easing personalizado (ease-out cuartico) */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal-hidden {
+          transition: opacity 0.01s, transform 0.01s;
+        }
+      }
+    `;
+      document.head.appendChild(style);
+
+      // ============================================================
+      // 3. SELECCIONAR ELEMENTOS Y APLICAR ESTADO INICIAL
+      // ============================================================
+      const allSelectors = CONFIG.selectors.join(', ');
+      const elements = document.querySelectorAll(allSelectors);
+
+      // Si hay elementos con [data-reveal], también los incluimos
+      const dataRevealElements = document.querySelectorAll('[data-reveal]');
+      const allElements = [...elements, ...dataRevealElements];
+
+      // Eliminar duplicados
+      const uniqueElements = [...new Set(allElements)];
+
+      if (uniqueElements.length === 0) {
+        console.warn('Scroll Reveal: No se encontraron elementos para animar.');
+        return;
+      }
+
+      // Aplicar estado oculto a todos
+      uniqueElements.forEach(el => {
+        // Si ya tiene la clase 'visible' o 'show' (por otros scripts), no la tocamos
+        if (el.classList.contains('visible') || el.classList.contains('show')) {
+          return;
+        }
+        el.classList.add(CONFIG.classHidden);
+      });
+
+      // ============================================================
+      // 4. INTERSECTION OBSERVER (CUANDO ENTRA EN PANTALLA)
+      // ============================================================
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+
+            // Quitar clase oculta y agregar visible
+            el.classList.remove(CONFIG.classHidden);
+            el.classList.add(CONFIG.classVisible);
+
+            // Dejar de observar este elemento (solo se anima una vez)
+            observer.unobserve(el);
+          }
+        });
+      }, {
+        threshold: CONFIG.threshold,
+        rootMargin: CONFIG.rootMargin
+      });
+
+      // Observar cada elemento
+      uniqueElements.forEach(el => {
+        // Si ya es visible (por ejemplo, si ya estaba en pantalla al cargar)
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+        // Si el elemento ya está visible al cargar, lo mostramos inmediatamente
+        if (rect.top < windowHeight - 50) {
+          el.classList.remove(CONFIG.classHidden);
+          el.classList.add(CONFIG.classVisible);
+          // No lo observamos porque ya está visible
+          return;
+        }
+
+        observer.observe(el);
+      });
+
+      // ============================================================
+      // 5. DETECTAR CAMBIOS DE IDIOMA (REINICIAR ANIMACIONES)
+      // ============================================================
+      // Cuando cambia el idioma, algunas secciones se reescriben y pierden las clases.
+      // Escuchamos cambios en el DOM para re-aplicar las clases.
+      const mutationObserver = new MutationObserver(() => {
+        // Buscar elementos que deberían estar ocultos pero no lo están
+        document.querySelectorAll(allSelectors).forEach(el => {
+          // Si no tiene ni hidden ni visible, y no está en pantalla, lo ocultamos
+          if (!el.classList.contains(CONFIG.classHidden) &&
+            !el.classList.contains(CONFIG.classVisible) &&
+            !el.classList.contains('visible') &&
+            !el.classList.contains('show')) {
+
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top > windowHeight - 50) {
+              el.classList.add(CONFIG.classHidden);
+              observer.observe(el);
+            } else {
+              el.classList.add(CONFIG.classVisible);
+            }
+          }
+        });
+      });
+
+      // Observar cambios en el contenido de las secciones
+      mutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: false
+      });
+
+      // ============================================================
+      // 6. REVISAR AL REDIMENSIONAR (por si cambia el layout)
+      // ============================================================
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          // Revisar elementos que no están visibles pero deberían estarlo
+          document.querySelectorAll(`.${CONFIG.classHidden}`).forEach(el => {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+            if (rect.top < windowHeight - 50) {
+              el.classList.remove(CONFIG.classHidden);
+              el.classList.add(CONFIG.classVisible);
+              observer.unobserve(el);
+            }
+          });
+        }, 250);
+      });
+
+      console.log(`✨ Scroll Reveal activado: ${uniqueElements.length} elementos animados`);
+    });
+  </script>
 </body>
 
 </html>
