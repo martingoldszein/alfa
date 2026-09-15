@@ -13,6 +13,30 @@
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/scripts.js" defer></script>
   <style>
+    /* ─── SECCIÓN JIA (PARALLAX SUAVE EN IMAGEN DE FONDO) ─── */
+    .jia-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .jia-section__bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .jia-section__bg img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate3d(0, 0, 0) scale(1.15);
+      will-change: transform;
+    }
+
     /* ─── SECCIÓN FRASES (FADE IN/OUT) ─── */
     .frases-section {
       background: #1e3a4a;
@@ -1652,6 +1676,48 @@
 
       console.log(`✨ Scroll Reveal activado: ${uniqueElements.length} elementos animados`);
     });
+  </script>
+
+  <!-- ─── PARALLAX SUAVE: IMAGEN DE FONDO SECCIÓN JIA ─── -->
+  <script>
+    (function () {
+      const section = document.querySelector('.jia-section');
+      const bgImg = section ? section.querySelector('.jia-section__bg img') : null;
+      if (!section || !bgImg) return;
+
+      // Respeta la preferencia de "reducir movimiento" del usuario
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+
+      // Intensidad del efecto: 0 = sin movimiento, 1 = se mueve igual que el scroll
+      const speed = 0.25;
+      let ticking = false;
+
+      function updateParallax() {
+        const rect = section.getBoundingClientRect();
+        const viewportH = window.innerHeight;
+
+        // Solo calculamos mientras la sección está cerca o dentro del viewport
+        if (rect.bottom >= 0 && rect.top <= viewportH) {
+          // progreso de -1 (sección debajo del viewport) a 1 (sección arriba del viewport)
+          const progress = (rect.top - viewportH) / (rect.height + viewportH);
+          const offset = progress * rect.height * speed;
+          bgImg.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) scale(1.15)`;
+        }
+        ticking = false;
+      }
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      updateParallax();
+    })();
   </script>
 </body>
 

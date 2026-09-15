@@ -819,13 +819,38 @@ p.sectores {
   text-transform: uppercase;
   margin-bottom: 3rem;
 }
+/* CLIENTES - LOGOS FULL BLEED */
 .clientes__logos {
-  border-radius: 0.5rem;
+  border-radius: 0;            /* Sin bordes redondeados para que se vea de borde a borde */
   overflow: hidden;
   background: #73a4a7;
+
+  /* Full-bleed: ocupa todo el ancho del viewport */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 0;
 }
+
 .clientes__logos img {
   width: 100%;
+}
+
+/* Aseguramos que el carousel-wrapper también ocupe el 100% */
+.clientes__logos .carousel-wrapper {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+/* En mobile, que también sea full-bleed */
+@media (max-width: 767px) {
+  .clientes__logos {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
 }
 
 /* TESTIMONIOS (cards con hover-tooltip) */
