@@ -97,7 +97,14 @@ h3 {
 .label-tag--light::before {
   background: rgba(255, 255, 255, 0.5);
 }
+.sin-linea::before {
+  gap: 0 !important;
 
+}
+.sin-linea::before {
+  width: 0 !important;
+  height: 0 !important;
+}
 /* TOPBAR */
 .topbar {
   background: var(--forest);
